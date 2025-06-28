@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send } from "lucide-react"
@@ -9,27 +7,40 @@ import { Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
 
 export function ContactForm() {
-  const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [successMsg, setSuccessMsg] = useState("")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSuccessMsg("")
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    const form = e.currentTarget // ✅ store reference here
+    const formData = new FormData(form)
 
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    })
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/shauryatiwari120@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      })
+
+      if (res.ok) {
+        setSuccessMsg("✅ Message sent successfully!")
+        form.reset() // ✅ use stored reference
+      } else {
+        setSuccessMsg("❌ Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error(error)
+      setSuccessMsg("❌ Something went wrong. Please try again.")
+    }
 
     setIsSubmitting(false)
-    e.currentTarget.reset()
   }
+
 
   return (
     <motion.div
@@ -47,6 +58,7 @@ export function ContactForm() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Input
+                name="name"
                 placeholder="Your Name"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-gray-500 focus:ring-gray-500/20"
@@ -55,6 +67,7 @@ export function ContactForm() {
             <div className="space-y-2">
               <Input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-gray-500 focus:ring-gray-500/20"
@@ -62,6 +75,7 @@ export function ContactForm() {
             </div>
             <div className="space-y-2">
               <Input
+                name="subject"
                 placeholder="Subject"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-gray-500 focus:ring-gray-500/20"
@@ -69,6 +83,7 @@ export function ContactForm() {
             </div>
             <div className="space-y-2">
               <Textarea
+                name="message"
                 placeholder="Your Message"
                 rows={5}
                 required
@@ -89,6 +104,11 @@ export function ContactForm() {
               )}
             </Button>
           </form>
+
+          {/* ✅ Success or error message */}
+          {successMsg && (
+            <p className="mt-4 text-center text-green-400">{successMsg}</p>
+          )}
         </div>
       </div>
     </motion.div>
