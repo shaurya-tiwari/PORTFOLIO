@@ -39,12 +39,11 @@ export default function Portfolio() {
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
               <span className="block">Hi, I'm</span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                Shine Kyaw Kyaw Aung
+                Shaurya Tiwari
               </span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-[600px]">
-              I build intelligent systems and beautiful user interfaces, combining machine learning expertise with
-              modern web development.
+              AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems,and a keen interest in frontend development.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <Button className="relative overflow-hidden group bg-gradient-to-r from-gray-900 to-gray-600 border-0">
