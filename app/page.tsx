@@ -13,6 +13,7 @@ import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
+
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-hidden">
@@ -39,24 +40,24 @@ export default function Portfolio() {
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
               <span className="block">Hi, I'm</span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-                Shaurya Tiwari
+                Shaurya
               </span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-[600px]">
               AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems,and a keen interest in frontend development.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="relative overflow-hidden group bg-gradient-to-r from-gray-900 to-gray-600 border-0">
-                <span className="relative z-10 flex items-center">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-gray-600 to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              </Button>
               <Button
                 variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 bg-transparent"
+                className="border-zinc-700 text-zinc-300 hover:border-zinc-500 bg-transparent"
               >
-                Contact Me
+                <a
+                  href="https://wa.me/+917065649910" // replace with your full WhatsApp number with country code, no +
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contact me
+                </a>
               </Button>
             </div>
             <div className="flex gap-4 pt-4">
