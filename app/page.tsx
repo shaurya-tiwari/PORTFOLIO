@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Twitter, } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
@@ -72,7 +72,7 @@ export default function Portfolio() {
 
             {/* Social links */}
             <div className="flex gap-4 pt-4">
-              <Link href="https://github.com/shauryatiwari" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/shaurya-tiwari" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -82,7 +82,7 @@ export default function Portfolio() {
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
-              <Link href="https://www.linkedin.com/in/shauryatiwari/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -92,7 +92,7 @@ export default function Portfolio() {
                   <span className="sr-only">LinkedIn</span>
                 </Button>
               </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://x.com/Shauryatiwari77" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -100,16 +100,6 @@ export default function Portfolio() {
                 >
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
-                </Button>
-              </Link>
-              <Link href="mailto:shauryatiwari120@gmail.com">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-                >
-                  <Mail className="h-5 w-5" />
-                  <span className="sr-only">Email</span>
                 </Button>
               </Link>
             </div>
@@ -120,7 +110,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 anibouncemate-">
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
             <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
           </div>
@@ -156,24 +146,15 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 aspect-square">
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
-                  I'm a passionate AI/ML engineer and frontend developer with experience building intelligent systems
-                  and modern web applications. I specialize in machine learning, deep learning, and creating intuitive
-                  user interfaces with React and Next.js.
-                </p>
+                  I’m an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.             </p>
                 <p className="text-lg text-zinc-300 mt-4">
-                  My journey combines the analytical rigor of AI/ML with the creativity of frontend development. I've
-                  worked on projects ranging from computer vision systems to interactive web applications, always
-                  focusing on delivering impactful solutions.
-                </p>
+                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I have created projects with the help of AI prompts, and I am also good at prompting AI to generate ideas, code, and solutions efficiently. </p>
                 <p className="text-lg text-zinc-300 mt-4">
-                  When I'm not training models or coding interfaces, you can find me exploring new AI research,
-                  contributing to open-source projects, and staying current with the latest developments in both AI and
-                  web technologies.
-                </p>
-
+                  I enjoy web development, creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications                </p>
+                <p className="text-lg text-zinc-300 mt-4">I am always excited to learn, explore new technologies, and turn ideas into reality. Let’s connect and create something amazing together.</p>
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Name</div>
