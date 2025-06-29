@@ -43,9 +43,9 @@ export default function Portfolio() {
 
             {/* Box with only name and description */}
             <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 shadow-md space-y-6">
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">
                 <span className="block">Hi, I'm</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 to-gray-600 font-normal">
                   Shaurya
                 </span>
               </h1>

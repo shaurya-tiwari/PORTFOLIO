@@ -1,53 +1,62 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export function MouseFollower() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isVisible, setIsVisible] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-      setIsVisible(true)
-    }
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      setIsVisible(true);
+    };
 
     const handleMouseLeave = () => {
-      setIsVisible(false)
-    }
+      setIsVisible(false);
+    };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    document.body.addEventListener("mouseleave", handleMouseLeave)
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.body.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-      document.body.removeEventListener("mouseleave", handleMouseLeave)
-    }
-  }, [])
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.body.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   return (
     <>
+      {/* Large soft gradient follower */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed top-0 left-0 w-20 h-20 rounded-full pointer-events-none z-50"
         animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          opacity: isVisible ? 1 : 0,
+          x: mousePosition.x - 40,
+          y: mousePosition.y - 40,
+          opacity: isVisible ? 0.5 : 0,
         }}
         transition={{ type: "spring", damping: 20, stiffness: 300, mass: 0.5 }}
-      >
-        <div className="w-full h-full rounded-full bg-white opacity-50"></div>
-      </motion.div>
+        style={{
+          background: "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)",
+          filter: "blur(10px)",
+        }}
+      />
 
+      {/* Small gradient dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-white pointer-events-none z-50"
+        className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-50"
         animate={{
-          x: mousePosition.x - 1,
-          y: mousePosition.y - 1,
+          x: mousePosition.x - 2,
+          y: mousePosition.y - 2,
           opacity: isVisible ? 1 : 0,
+        }}
+        transition={{ type: "spring", damping: 25, stiffness: 500, mass: 0.3 }}
+        style={{
+        background: "radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)",
+
         }}
       />
     </>
-  )
+  );
 }
