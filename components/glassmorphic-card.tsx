@@ -12,14 +12,16 @@ export function GlassmorphicCard({ children }: GlassmorphicCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
       whileHover={{ y: -5 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      viewport={{ once: true }}
     >
-      <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-gray-500/50">
-        <div className="absolute -inset-1 bg-gradient-to-r from-gray-900/10 to-gray-600/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
+        {/* Frosted effect gradient */}
+        <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 blur-md rounded-2xl opacity-40 hover:opacity-70 transition duration-700" />
 
-        <div className="relative">{children}</div>
+        {/* Content */}
+        <div className="relative z-10 text-white">{children}</div>
       </div>
     </motion.div>
   )

@@ -16,15 +16,16 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
     >
-      <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 h-full transition-all duration-300 hover:border-cyan-500/50">
-        <div className="absolute -inset-1 bg-gradient-to-r from-gray-900/10 to-gray-600/10 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+      <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 h-full shadow-md transition-all duration-300 hover:shadow-lg">
+        {/* Frosted background layer */}
+        <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl blur opacity-40 group-hover:opacity-70 transition duration-700" />
 
-        <div className="relative">
-          <div className="text-center mb-4 font-medium text-lg">{name}</div>
+        <div className="relative z-10">
+          <div className="text-center mb-4 font-semibold text-white">{name}</div>
 
-          <div className="relative h-2.5 w-full bg-zinc-700 rounded-full overflow-hidden">
+          <div className="relative h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
             <motion.div
-              className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-teal-400 rounded-full"
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-zinc-400 to-blue-300 rounded-full"
               initial={{ width: 0 }}
               whileInView={{ width: `${level}%` }}
               transition={{ duration: 1, delay: 0.2 }}
@@ -32,7 +33,7 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
             />
           </div>
 
-          <div className="mt-2 text-right text-sm text-zinc-400">{level}%</div>
+          <div className="mt-2 text-right text-sm text-white/70">{level}%</div>
         </div>
       </div>
     </motion.div>

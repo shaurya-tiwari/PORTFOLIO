@@ -16,7 +16,7 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-800 to-amber-100 text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-800 to-zinc-500 text-white overflow-hidden">
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
@@ -32,8 +32,8 @@ export default function Portfolio() {
         {/* Hero content */}
         <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            
-            {/* AI/ML Engineer & Frontend Developer tag moved outside */}
+
+            {/* AI/ML Engineer & Frontend Developer tag */}
             <div className="inline-block">
               <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
                 <span className="relative z-10">AI/ML Engineer & Frontend Developer</span>
@@ -41,8 +41,8 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Box with only name and description */}
-            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 shadow-md space-y-6">
+            {/* Box with name and description */}
+            <div className="bg-black/10 backdrop-blur-sm rounded-xl p-6 shadow-xl space-y-6">
               <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">
                 <span className="block">Hi, I'm</span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 to-gray-600 font-normal">
@@ -54,7 +54,7 @@ export default function Portfolio() {
               </p>
             </div>
 
-            {/* Contact me button moved outside */}
+            {/* Contact me button */}
             <div className="flex flex-wrap gap-4 pt-4">
               <Button
                 variant="outline"
@@ -70,9 +70,9 @@ export default function Portfolio() {
               </Button>
             </div>
 
-            {/* Social links moved outside */}
+            {/* Social links */}
             <div className="flex gap-4 pt-4">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/shauryatiwari" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -82,7 +82,7 @@ export default function Portfolio() {
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
-              <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/shauryatiwari/" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -102,7 +102,7 @@ export default function Portfolio() {
                   <span className="sr-only">Twitter</span>
                 </Button>
               </Link>
-              <Link href="mailto:hello@example.com">
+              <Link href="mailto:shauryatiwari120@gmail.com">
                 <Button
                   variant="ghost"
                   size="icon"
@@ -116,7 +116,7 @@ export default function Portfolio() {
           </div>
 
           <div className="flex justify-center">
-            {/* If you want an image or hero visual here, place it */}
+            {/* Placeholder for hero image */}
           </div>
         </div>
 
@@ -140,11 +140,11 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
               <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-gray-900/20 to-gray-600/20 blur-xl opacity-70"></div>
-              <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
+              <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800 ">
                 <img
                   src="/shauryaphoto.jpeg?height=600&width=600"
-                  alt="shaurya"
-                  className="w-full h-full object-cover  object-top"
+                  alt="Shaurya Tiwari"
+                  className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
@@ -177,7 +177,7 @@ export default function Portfolio() {
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Name</div>
-                    <div className="font-medium">shaurya tiwari</div>
+                    <div className="font-medium">Shaurya Tiwari</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Email</div>
@@ -185,7 +185,7 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Location</div>
-                    <div className="font-medium">Noida</div>
+                    <div className="font-medium">Noida, India</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Availability</div>
@@ -245,7 +245,7 @@ export default function Portfolio() {
               tags={["Next.js", "TypeScript", "Prisma", "Stripe"]}
               image="/placeholder.svg?height=400&width=600"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/shauryatiwari"
             />
             <ProjectCard
               title="Task Management App"
@@ -253,7 +253,7 @@ export default function Portfolio() {
               tags={["React", "Firebase", "Tailwind CSS", "Redux"]}
               image="/placeholder.svg?height=400&width=600"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/shauryatiwari"
             />
             <ProjectCard
               title="AI Content Generator"
@@ -261,7 +261,7 @@ export default function Portfolio() {
               tags={["Next.js", "OpenAI API", "Node.js", "MongoDB"]}
               image="/placeholder.svg?height=400&width=600"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/shauryatiwari"
             />
             <ProjectCard
               title="Fitness Tracker"
@@ -269,7 +269,7 @@ export default function Portfolio() {
               tags={["React Native", "TypeScript", "D3.js", "Firebase"]}
               image="/placeholder.svg?height=400&width=600"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/shauryatiwari"
             />
             <ProjectCard
               title="Weather Dashboard"
@@ -277,7 +277,7 @@ export default function Portfolio() {
               tags={["React", "Weather API", "Chart.js", "Styled Components"]}
               image="/placeholder.svg?height=400&width=600"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/shauryatiwari"
             />
             <ProjectCard
               title="Portfolio Website"
@@ -285,7 +285,7 @@ export default function Portfolio() {
               tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
               image="/placeholder.svg?height=400&width=600"
               demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              repoUrl="https://github.com/shauryatiwari"
             />
           </div>
         </div>
@@ -327,7 +327,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">hello@example.com</div>
+                    <div className="font-medium">shauryatiwari120@gmail.com</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -336,7 +336,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <div className="font-medium">linkedin.com/in/shinekyawkyawaung</div>
+                    <div className="font-medium">linkedin.com/in/shauryatiwari</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -345,7 +345,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">GitHub</div>
-                    <div className="font-medium">github.com/shinekyawkyawaung</div>
+                    <div className="font-medium">github.com/shauryatiwari</div>
                   </div>
                 </div>
               </div>
@@ -369,15 +369,15 @@ export default function Portfolio() {
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Shine</span>
-              <span className="text-white">KKA</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Shaurya</span>
+              <span className="text-white">Tiwari</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
-              © {new Date().getFullYear()} Shine Kyaw Kyaw Aung. All rights reserved.
+              © {new Date().getFullYear()} Shaurya Tiwari. All rights reserved.
             </p>
           </div>
           <div className="flex gap-4">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/shauryatiwari" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -387,7 +387,7 @@ export default function Portfolio() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/shauryatiwari/" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -407,7 +407,7 @@ export default function Portfolio() {
                 <span className="sr-only">Twitter</span>
               </Button>
             </Link>
-            <Link href="mailto:hello@example.com">
+            <Link href="mailto:shauryatiwari120@gmail.com">
               <Button
                 variant="ghost"
                 size="icon"
