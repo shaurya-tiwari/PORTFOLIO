@@ -3,6 +3,102 @@
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
+// ✅ Quadtree implementation
+class Quadtree {
+  boundary: { x: number; y: number; w: number; h: number }
+  capacity: number
+  points: any[]
+  divided: boolean
+  northeast: Quadtree | null
+  northwest: Quadtree | null
+  southeast: Quadtree | null
+  southwest: Quadtree | null
+
+  constructor(boundary: { x: number; y: number; w: number; h: number }, capacity: number) {
+    this.boundary = boundary
+    this.capacity = capacity
+    this.points = []
+    this.divided = false
+    this.northeast = null
+    this.northwest = null
+    this.southeast = null
+    this.southwest = null
+  }
+
+  subdivide() {
+    const x = this.boundary.x
+    const y = this.boundary.y
+    const w = this.boundary.w / 2
+    const h = this.boundary.h / 2
+
+    this.northeast = new Quadtree({ x: x + w, y: y, w, h }, this.capacity)
+    this.northwest = new Quadtree({ x, y, w, h }, this.capacity)
+    this.southeast = new Quadtree({ x: x + w, y: y + h, w, h }, this.capacity)
+    this.southwest = new Quadtree({ x, y: y + h, w, h }, this.capacity)
+
+    this.divided = true
+  }
+
+  insert(point: any) {
+    const { x, y } = point
+    if (
+      x < this.boundary.x ||
+      x >= this.boundary.x + this.boundary.w ||
+      y < this.boundary.y ||
+      y >= this.boundary.y + this.boundary.h
+    ) {
+      return false
+    }
+
+    if (this.points.length < this.capacity) {
+      this.points.push(point)
+      return true
+    } else {
+      if (!this.divided) this.subdivide()
+
+      return (
+        this.northeast!.insert(point) ||
+        this.northwest!.insert(point) ||
+        this.southeast!.insert(point) ||
+        this.southwest!.insert(point)
+      )
+    }
+  }
+
+  queryRange(range: { x: number; y: number; w: number; h: number }, found: any[]) {
+    if (!this.intersects(range)) return found
+
+    for (let p of this.points) {
+      if (
+        p.x >= range.x &&
+        p.x < range.x + range.w &&
+        p.y >= range.y &&
+        p.y < range.y + range.h
+      ) {
+        found.push(p)
+      }
+    }
+
+    if (this.divided) {
+      this.northwest!.queryRange(range, found)
+      this.northeast!.queryRange(range, found)
+      this.southwest!.queryRange(range, found)
+      this.southeast!.queryRange(range, found)
+    }
+
+    return found
+  }
+
+  intersects(range: { x: number; y: number; w: number; h: number }) {
+    return !(
+      range.x > this.boundary.x + this.boundary.w ||
+      range.x + range.w < this.boundary.x ||
+      range.y > this.boundary.y + this.boundary.h ||
+      range.y + range.h < this.boundary.y
+    )
+  }
+}
+
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -15,31 +111,31 @@ export function CreativeHero() {
 
     let devicePixelRatio: number
 
-    // Set canvas dimensions
     const setCanvasDimensions = () => {
       devicePixelRatio = window.devicePixelRatio || 1
       const rect = canvas.getBoundingClientRect()
-
       canvas.width = rect.width * devicePixelRatio
       canvas.height = rect.height * devicePixelRatio
-
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.scale(devicePixelRatio, devicePixelRatio)
     }
 
     setCanvasDimensions()
     window.addEventListener("resize", setCanvasDimensions)
 
-    // Mouse position
+    // Mouse
     let mouseX = 0
     let mouseY = 0
     let targetX = 0
     let targetY = 0
 
-    window.addEventListener("mousemove", (e) => {
+    const mouseMoveHandler = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
       targetX = e.clientX - rect.left
       targetY = e.clientY - rect.top
-    })
+    }
+
+    window.addEventListener("mousemove", mouseMoveHandler)
 
     // Particle class
     class Particle {
@@ -50,76 +146,62 @@ export function CreativeHero() {
       baseY: number
       density: number
       color: string
-      distance: number
+      isMoving: boolean
 
       constructor(x: number, y: number) {
         this.x = x
         this.y = y
         this.baseX = x
         this.baseY = y
-        this.size = Math.random() * 5 + 2
+        this.size = Math.random() * 3 + 2
         this.density = Math.random() * 30 + 1
-        this.distance = 0
+        this.isMoving = false
 
-        // Create a gradient with aqua green and other vibrant colors
-        const colors = [
-          "hsl(340, 80%, 90%)", // Soft Pinkish Magenta
-      
-          ]
+        const colors = ["#00ffea", "#1fffff", "#00ffcc", "#ffffff"]
         this.color = colors[Math.floor(Math.random() * colors.length)]
       }
 
       update() {
-        // Calculate distance between mouse and particle
         const dx = mouseX - this.x
         const dy = mouseY - this.y
-        this.distance = Math.sqrt(dx * dx + dy * dy)
+        const distance = Math.sqrt(dx * dx + dy * dy)
 
-        const forceDirectionX = dx / this.distance
-        const forceDirectionY = dy / this.distance
+        const forceDirectionX = dx / distance
+        const forceDirectionY = dy / distance
 
         const maxDistance = 100
-        const force = (maxDistance - this.distance) / maxDistance
+        const force = (maxDistance - distance) / maxDistance
 
-        if (this.distance < maxDistance) {
+        if (distance < maxDistance) {
           const directionX = forceDirectionX * force * this.density
           const directionY = forceDirectionY * force * this.density
-
           this.x -= directionX
           this.y -= directionY
+          this.isMoving = true
         } else {
-          if (this.x !== this.baseX) {
-            const dx = this.x - this.baseX
-            this.x -= dx / 10
-          }
-          if (this.y !== this.baseY) {
-            const dy = this.y - this.baseY
-            this.y -= dy / 10
-          }
+          if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10
+          if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10
+          this.isMoving = false
         }
       }
 
       draw() {
-        ctx.fillStyle = this.color
+        ctx.strokeStyle = this.color
+        ctx.lineWidth = 0.6
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
         ctx.closePath()
         ctx.stroke()
       }
     }
-    
 
-    // Create particle grid
     const particlesArray: Particle[] = []
-    const particleCount = 1000
     const gridSize = 30
 
-    function init() {
+    const init = () => {
       particlesArray.length = 0
-
       const canvasWidth = canvas.width / devicePixelRatio
       const canvasHeight = canvas.height / devicePixelRatio
-
       const numX = Math.floor(canvasWidth / gridSize)
       const numY = Math.floor(canvasHeight / gridSize)
 
@@ -134,31 +216,45 @@ export function CreativeHero() {
 
     init()
 
-    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Smooth mouse following
       mouseX += (targetX - mouseX) * 0.1
       mouseY += (targetY - mouseY) * 0.1
 
-      // Draw connections
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update()
-        particlesArray[i].draw()
+      const quadtree = new Quadtree(
+        { x: 0, y: 0, w: canvas.width / devicePixelRatio, h: canvas.height / devicePixelRatio },
+        4
+      )
 
-        // Draw connections
-        for (let j = i; j < particlesArray.length; j++) {
-          const dx = particlesArray[i].x - particlesArray[j].x
-          const dy = particlesArray[i].y - particlesArray[j].y
+      for (let p of particlesArray) {
+        quadtree.insert(p)
+      }
+
+      for (let p of particlesArray) {
+        p.update()
+        p.draw()
+
+        const neighbours: Particle[] = []
+        quadtree.queryRange(
+          { x: p.x - 30, y: p.y - 30, w: 60, h: 60 },
+          neighbours
+        )
+
+        for (let n of neighbours) {
+          if (p === n) continue
+          const dx = p.x - n.x
+          const dy = p.y - n.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
           if (distance < 30) {
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(0, 255, 255, ${0.4 - distance / 100})` // Aqua connections
-            ctx.lineWidth = 0.5
-            ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
-            ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
+            ctx.strokeStyle = p.isMoving || n.isMoving
+              ? "#ffffff"
+              : `rgba(0, 255, 255, ${0.5 - distance / 100})`
+            ctx.lineWidth = 0.3
+            ctx.moveTo(p.x, p.y)
+            ctx.lineTo(n.x, n.y)
             ctx.stroke()
           }
         }
@@ -169,18 +265,15 @@ export function CreativeHero() {
 
     animate()
 
-    // Handle window resize
-    window.addEventListener("resize", init)
-
     return () => {
       window.removeEventListener("resize", setCanvasDimensions)
-      window.removeEventListener("resize", init)
+      window.removeEventListener("mousemove", mouseMoveHandler)
     }
   }, [])
 
   return (
     <motion.div
-      className="w-full h-[400px]  relative p-4 "
+      className="w-full h-[400px] relative p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

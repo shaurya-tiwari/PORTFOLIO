@@ -16,119 +16,116 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900 to-black text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-800 to-amber-100 text-white overflow-hidden">
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
 
       {/* Hero Section */}
-     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-  {/* CreativeHero particles background */}
-  <div className="absolute inset-0 z-0">
-    <CreativeHero />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-    Existing blurred blobs
-    <div className="absolute top-20 left-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-    <div className="absolute top-40 right-10 w-72 h-72 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-    <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-  </div>
-
-  {/* Hero content */}
-  <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div className="space-y-6">
-      {/* AI/ML Engineer & Frontend Developer tag moved outside */}
-      <div className="inline-block">
-        <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
-          <span className="relative z-10">AI/ML Engineer & Frontend Developer</span>
-          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-900/20 to-gray-600/20 animate-pulse"></span>
+        {/* CreativeHero particles background */}
+        <div className="absolute inset-0 z-0">
+          <CreativeHero />
         </div>
-      </div>
 
-      {/* Box with only name and description */}
-      <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 shadow-md space-y-6">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-          <span className="block">Hi, I'm</span>
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
-            Shaurya
-          </span>
-        </h1>
-        <p className="text-xl text-zinc-300 max-w-[600px]">
-          AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems, and a keen interest in frontend development.
-        </p>
-      </div>
+        {/* Hero content */}
+        <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            
+            {/* AI/ML Engineer & Frontend Developer tag moved outside */}
+            <div className="inline-block">
+              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
+                <span className="relative z-10">AI/ML Engineer & Frontend Developer</span>
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-900/20 to-gray-600/20 animate-pulse"></span>
+              </div>
+            </div>
 
-      {/* Contact me button moved outside */}
-      <div className="flex flex-wrap gap-4 pt-4">
-        <Button
-          variant="outline"
-          className="border-zinc-700 text-zinc-300 hover:border-zinc-500 bg-transparent"
-        >
-          <a
-            href="https://wa.me/+917065649910"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contact me
-          </a>
-        </Button>
-      </div>
+            {/* Box with only name and description */}
+            <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 shadow-md space-y-6">
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+                <span className="block">Hi, I'm</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">
+                  Shaurya
+                </span>
+              </h1>
+              <p className="text-xl text-zinc-300 max-w-[600px]">
+                AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems, and a keen interest in frontend development.
+              </p>
+            </div>
 
-      {/* Social links moved outside */}
-      <div className="flex gap-4 pt-4">
-        <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-          >
-            <Github className="h-5 w-5" />
-            <span className="sr-only">GitHub</span>
-          </Button>
-        </Link>
-        <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-          >
-            <Linkedin className="h-5 w-5" />
-            <span className="sr-only">LinkedIn</span>
-          </Button>
-        </Link>
-        <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-          >
-            <Twitter className="h-5 w-5" />
-            <span className="sr-only">Twitter</span>
-          </Button>
-        </Link>
-        <Link href="mailto:hello@example.com">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-          >
-            <Mail className="h-5 w-5" />
-            <span className="sr-only">Email</span>
-          </Button>
-        </Link>
-      </div>
-    </div>
+            {/* Contact me button moved outside */}
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Button
+                variant="outline"
+                className="border-zinc-700 text-zinc-300 hover:border-zinc-500 bg-transparent"
+              >
+                <a
+                  href="https://wa.me/+917065649910"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Contact me
+                </a>
+              </Button>
+            </div>
 
-    <div className="flex justify-center">
-      {/* If you want an image or hero visual here, place it */}
-    </div>
-  </div>
+            {/* Social links moved outside */}
+            <div className="flex gap-4 pt-4">
+              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                >
+                  <Github className="h-5 w-5" />
+                  <span className="sr-only">GitHub</span>
+                </Button>
+              </Link>
+              <Link href="https://www.linkedin.com/in/shinekyawkyawaung/" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                >
+                  <Linkedin className="h-5 w-5" />
+                  <span className="sr-only">LinkedIn</span>
+                </Button>
+              </Link>
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                >
+                  <Twitter className="h-5 w-5" />
+                  <span className="sr-only">Twitter</span>
+                </Button>
+              </Link>
+              <Link href="mailto:hello@example.com">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                >
+                  <Mail className="h-5 w-5" />
+                  <span className="sr-only">Email</span>
+                </Button>
+              </Link>
+            </div>
+          </div>
 
-  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-    <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
-      <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
-    </div>
-  </div>
-</section>
+          <div className="flex justify-center">
+            {/* If you want an image or hero visual here, place it */}
+          </div>
+        </div>
+
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
+            <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
+          </div>
+        </div>
+      </section>
 
       {/* About Section */}
       <section id="about" className="py-32 relative">
