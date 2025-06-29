@@ -64,30 +64,8 @@ export function CreativeHero() {
         // Create a gradient with aqua green and other vibrant colors
         const colors = [
           "hsl(340, 80%, 90%)", // Soft Pinkish Magenta
-          "hsl(45, 100%, 85%)", // Creamy Amber
-          "hsl(220, 90%, 56%)", // Indigo Blue
-          "hsl(210, 16%, 82%)", // Soft Light Grey
-          "hsl(210, 9%, 46%)", // Cool Medium Grey
-          "hsl(150, 80%, 45%)", // Fresh Mint Green
-          "hsl(260, 70%, 60%)", // Soft Violet
-          "hsl(20, 100%, 85%)", // Pastel Peach
-          "hsl(180, 30%, 50%)", // Muted Teal Grey
-          "hsl(280, 50%, 25%)", // Deep Royal Purple
-          "hsl(90, 20%, 40%)", // Olive Moss Green
-          "hsl(0, 10%, 96%)", // Almost White Warm Grey
-          "hsl(350, 100%, 88%)", // Blush Pink
-          "hsl(200, 100%, 85%)", // Powder Sky Blue
-          "hsl(160, 50%, 85%)", // Mint Frost
-          "hsl(240, 20%, 20%)", // Dark Slate Blue
-          "hsl(55, 100%, 50%)", // Bright Lemon Yellow
-          "hsl(25, 100%, 45%)", // Burnt Orange
-          "hsl(310, 50%, 40%)", // Plum Mauve
-          "hsl(185, 40%, 60%)", // Dusty Aqua
-          "hsl(270, 80%, 80%)", // Lavender Blush
-          "hsl(180, 10%, 20%)", // Charcoal Teal
-          "hsl(35, 70%, 60%)", // Soft Tan Sand
-          "hsl(210, 10%, 15%)", // Deep Charcoal Blue
-        ]
+      
+          ]
         this.color = colors[Math.floor(Math.random() * colors.length)]
       }
 
@@ -126,9 +104,10 @@ export function CreativeHero() {
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
         ctx.closePath()
-        ctx.fill()
+        ctx.stroke()
       }
     }
+    
 
     // Create particle grid
     const particlesArray: Particle[] = []
@@ -176,7 +155,7 @@ export function CreativeHero() {
 
           if (distance < 30) {
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(0, 255, 255, ${0.3 - distance / 100})` // Aqua connections
+            ctx.strokeStyle = `rgba(0, 255, 255, ${0.4 - distance / 100})` // Aqua connections
             ctx.lineWidth = 0.5
             ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
             ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
@@ -201,7 +180,7 @@ export function CreativeHero() {
 
   return (
     <motion.div
-      className="w-full h-[400px] md:h-[500px] relative"
+      className="w-full h-[400px]  relative p-4 "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

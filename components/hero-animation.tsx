@@ -115,7 +115,7 @@ export function HeroAnimation() {
 
   return (
     <motion.div
-      className="w-full h-[400px] md:h-[500px] relative"
+      className="w-full h-[400px] relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
