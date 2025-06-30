@@ -16,13 +16,14 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-zinc-500 text-white">
-      <MouseFollower />
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Simplified fixed background */}
+      <div className="fixed inset-0 bg-gray-900 -z-10"></div>
       <ScrollProgress />
       <FloatingNav />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center">
 
         {/* CreativeHero particles background */}
         <div className="absolute inset-0 z-0">
@@ -35,9 +36,8 @@ export default function Portfolio() {
 
             {/* AI/ML Engineer & Frontend Developer tag */}
             <div className="inline-block">
-              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-gray-900/80 border border-gray-700 mb-4 will-change-transform">
-                <span className="relative z-10">AI/ML Engineer & Frontend Developer</span>
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-800/30 to-gray-600/30 animate-pulse-slow"></span>
+              <div className="px-3 py-1 text-sm font-medium rounded-full bg-gray-800 border border-gray-600 mb-4">
+                <span>AI/ML Engineer & Frontend Developer</span>
               </div>
             </div>
 
@@ -45,7 +45,7 @@ export default function Portfolio() {
             <div className="backdrop-blur-sm rounded-xl p-6 shadow-2xl space-y-6 transform-gpu will-change-transform">
               <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">
                 <span className="block">Hi, I'm</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 to-gray-500 font-normal">
+                <span className="text-gray-300 font-normal">
                   Shaurya
                 </span>
               </h1>
@@ -58,7 +58,7 @@ export default function Portfolio() {
             <div className="flex flex-wrap gap-4 pt-4">
               <Button
                 variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:border-zinc-500 bg-gray-900/60 hover:bg-gray-900/80 transition-colors duration-200"
+                className="border-gray-600 text-gray-300 hover:border-gray-500 bg-gray-800 hover:bg-gray-700"
               >
                 <a
                   href="https://wa.me/+917065649910"
@@ -76,7 +76,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
+                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white"
                 >
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
@@ -86,7 +86,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
+                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white"
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
@@ -96,7 +96,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
+                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white"
                 >
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
@@ -112,7 +112,7 @@ export default function Portfolio() {
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-bounce-slow"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-white/60"></div>
           </div>
         </div>
       </section>
@@ -124,8 +124,7 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-gray-800/40 to-gray-600/40 opacity-50"></div>
-              <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
+              <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-700">
                 <img
                   src="/shauryaphoto.jpeg?height=600&width=600"
                   alt="Shaurya Tiwari"
@@ -133,10 +132,10 @@ export default function Portfolio() {
                   className="w-full h-full object-cover object-top"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse-slow"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     <span className="text-sm font-medium">Available for work</span>
                   </div>
                 </div>
@@ -145,28 +144,28 @@ export default function Portfolio() {
 
             <div className="space-y-6 aspect-square">
               <GlassmorphicCard>
-                <p className="text-lg text-zinc-300">
+                <p className="text-lg text-gray-300">
                   I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.             </p>
-                <p className="text-lg text-zinc-300 mt-4">
+                <p className="text-lg text-gray-300 mt-4">
                   I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I have created projects with the help of AI prompts, and I am also good at prompting AI to generate ideas, code, and solutions efficiently. </p>
-                <p className="text-lg text-zinc-300 mt-4">
+                <p className="text-lg text-gray-300 mt-4">
                   I enjoy web development, creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications                </p>
-                <p className="text-lg text-zinc-300 mt-4">I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.</p>
+                <p className="text-lg text-gray-300 mt-4">I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.</p>
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Name</div>
+                    <div className="text-sm text-gray-500">Name</div>
                     <div className="font-medium">Shaurya Tiwari</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Email</div>
+                    <div className="text-sm text-gray-500">Email</div>
                     <div className="font-medium">shauryatiwari120@gmail.com</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Location</div>
+                    <div className="text-sm text-gray-500">Location</div>
                     <div className="font-medium">Noida, India</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-zinc-500">Availability</div>
+                    <div className="text-sm text-gray-500">Availability</div>
                     <div className="font-medium text-green-500">Open to opportunities</div>
                   </div>
                 </div>
@@ -177,7 +176,7 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white transition-colors duration-200">
+                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white transition-all duration-300">
                       Download Resume
                     </Button>
                   </a>
@@ -319,7 +318,7 @@ export default function Portfolio() {
               <div className="mt-8 pt-8 border-t border-zinc-800">
                 <h4 className="text-lg font-medium mb-4">Current Status</h4>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse-slow"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                   <span>Available for freelance work and full-time opportunities</span>
                 </div>
               </div>
@@ -347,7 +346,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
               >
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
@@ -357,7 +356,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
               >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
@@ -367,7 +366,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
               >
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
@@ -377,7 +376,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
               >
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
