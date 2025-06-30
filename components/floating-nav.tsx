@@ -49,7 +49,7 @@ export function FloatingNav() {
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.3 }}
       >
-       <div className="relative px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg">
+        <div className="relative px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg">
 
           <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-900/20 to-gray-600/20 rounded blur opacity-50"></div>
 
@@ -85,12 +85,17 @@ export function FloatingNav() {
                 </button>
               ))}
 
-              <Button
-                size="sm"
-                className="ml-2 bg-gradient-to-r from-gray-900 to-gray-600 hover:from-gray-600 hover:to-gray-900 border-0"
+
+              <a
+                href="/shauryaResume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Resume
-              </Button>
+                <Button className="bg-slate-800 hover:bg-zinc-700 text-white rounded-full">
+                  Resume
+                </Button>
+              </a>
+
             </div>
           )}
         </div>
