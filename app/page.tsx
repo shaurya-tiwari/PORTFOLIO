@@ -151,14 +151,14 @@ export default function Portfolio() {
                   I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 mt-6 md:mt-8">
+                <div className="grid grid-cols-2 mt-6 md:mt-8">
                   <div className="space-y-1">
                     <div className="text-xs md:text-sm text-gray-500">Name</div>
                     <div className="text-sm md:text-base font-thin">Shaurya Tiwari</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-xs md:text-sm text-gray-500">Email</div>
-                    <div className="text-sm md:text-base font-thin">shauryatiwari120@gmail.com</div>
+                    <div className="text-sm md:text-base font-thin break break-words">shauryatiwari120@gmail.com</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-xs md:text-sm text-gray-500">Location</div>
