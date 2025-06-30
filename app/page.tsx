@@ -42,7 +42,7 @@ export default function Portfolio() {
             </div>
 
             {/* Box with name and description */}
-            <div className="backdrop-blur-sm  rounded-xl p-6 shadow-2xl space-y-6 ">
+            <div className="backdrop-blur-sm rounded-xl p-6 shadow-2xl space-y-6 transform-gpu will-change-transform">
               <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">
                 <span className="block">Hi, I'm</span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 to-gray-500 font-normal">

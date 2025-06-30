@@ -67,3 +67,6 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
