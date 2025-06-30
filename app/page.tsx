@@ -117,13 +117,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - REMOVED BLOBS */}
       <section id="about" className="py-32 relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        </div>
-
         <div className="container relative z-10">
           <SectionHeading title="About Me" subtitle="My background and journey" />
 
@@ -149,12 +144,12 @@ export default function Portfolio() {
             <div className="space-y-6 aspect-square">
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
-                  I’m an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.             </p>
+                  I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.             </p>
                 <p className="text-lg text-zinc-300 mt-4">
                   I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I have created projects with the help of AI prompts, and I am also good at prompting AI to generate ideas, code, and solutions efficiently. </p>
                 <p className="text-lg text-zinc-300 mt-4">
                   I enjoy web development, creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications                </p>
-                <p className="text-lg text-zinc-300 mt-4">I am always excited to learn, explore new technologies, and turn ideas into reality. Let’s connect and create something amazing together.</p>
+                <p className="text-lg text-zinc-300 mt-4">I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.</p>
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Name</div>
@@ -191,13 +186,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills Section - REMOVED BLOBS */}
       <section id="skills" className="py-32 relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        </div>
-
         <div className="container relative z-10">
           <SectionHeading title="My Skills" subtitle="Technologies I work with" />
 
@@ -217,13 +207,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section - REMOVED BLOBS */}
       <section id="projects" className="py-32 relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        </div>
-
         <div className="container relative z-10">
           <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
 
@@ -280,13 +265,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience Section */}
+      {/* Experience Section - REMOVED BLOBS */}
       <section id="experience" className="py-32 relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        </div>
-
         <div className="container relative z-10">
           <SectionHeading title="Work Experience" subtitle="My professional journey" />
 
@@ -296,13 +276,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section - REMOVED BLOBS */}
       <section id="contact" className="py-32 relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        </div>
-
         <div className="container relative z-10">
           <SectionHeading title="Get In Touch" subtitle="Let's work together" />
 
