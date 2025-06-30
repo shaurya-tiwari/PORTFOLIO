@@ -14,12 +14,11 @@ import { SectionHeading } from "@/components/section-heading"
 import Image from 'next/image';
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
-
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Simplified fixed background */}
-      <div className="fixed inset-0 bg-gray-900 -z-10"></div>
+      {/* Optimized fixed background with GPU acceleration */}
+      <div className="fixed inset-0 bg-gray-900 -z-10 will-change-transform transform-gpu"></div>
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
@@ -28,7 +27,7 @@ export default function Portfolio() {
       <section className="relative min-h-screen flex items-center justify-center">
 
         {/* CreativeHero particles background */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 will-change-transform transform-gpu">
           <CreativeHero />
         </div>
 
@@ -38,13 +37,13 @@ export default function Portfolio() {
 
             {/* AI/ML Engineer & Frontend Developer tag */}
             <div className="inline-block">
-              <div className="px-3 py-1 text-sm font-medium rounded-full bg-gray-800 border border-gray-600 mb-4">
+              <div className="px-3 py-1 text-sm font-medium rounded-full bg-gray-800 border border-gray-600 mb-4 will-change-transform transform-gpu">
                 <span>AI/ML Engineer & Frontend Developer</span>
               </div>
             </div>
 
-            {/* Box with name and description */}
-            <div className="backdrop-blur-sm rounded-xl p-6 shadow-2xl space-y-6 transform-gpu will-change-transform">
+            {/* Box with name and description - optimized backdrop blur */}
+            <div className="bg-gray-900/40 border border-gray-700/50 rounded-xl p-6 shadow-2xl space-y-6 will-change-transform transform-gpu backdrop-blur-[2px]">
               <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">
                 <span className="block">Hi, I'm</span>
                 <span className="text-gray-300 font-normal">
@@ -60,7 +59,7 @@ export default function Portfolio() {
             <div className="flex flex-wrap gap-4 pt-4">
               <Button
                 variant="outline"
-                className="border-gray-600 text-gray-300 hover:border-gray-500 bg-gray-800 hover:bg-gray-700"
+                className="border-gray-600 text-gray-300 hover:border-gray-500 bg-gray-800 hover:bg-gray-700 will-change-transform transform-gpu transition-all duration-200"
               >
                 <a
                   href="https://wa.me/+917065649910"
@@ -78,7 +77,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white"
+                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white will-change-transform transform-gpu transition-all duration-200"
                 >
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
@@ -88,7 +87,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white"
+                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white will-change-transform transform-gpu transition-all duration-200"
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
@@ -98,7 +97,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white"
+                  className="rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white will-change-transform transform-gpu transition-all duration-200"
                 >
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
@@ -109,9 +108,9 @@ export default function Portfolio() {
 
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 will-change-transform transform-gpu">
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/60"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-white/60 will-change-transform transform-gpu animate-bounce"></div>
           </div>
         </div>
       </section>
@@ -122,23 +121,22 @@ export default function Portfolio() {
           <SectionHeading title="About Me" subtitle="My background and journey" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
-            <div className="relative">
+            <div className="relative will-change-transform transform-gpu">
               <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-700">
                 <Image
                   src="/shauryaphoto.jpeg"
                   alt="Shaurya Tiwari"
                   width={600}
                   height={600}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-top will-change-transform transform-gpu"
                   priority
                   loading="eager"
-
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent will-change-transform transform-gpu"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500 will-change-transform transform-gpu animate-pulse"></div>
                     <span className="text-sm font-medium">Available for work</span>
                   </div>
                 </div>
@@ -179,7 +177,7 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white transition-all duration-300">
+                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white transition-all duration-200 will-change-transform transform-gpu">
                       Download Resume
                     </Button>
                   </a>
@@ -290,7 +288,7 @@ export default function Portfolio() {
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center will-change-transform transform-gpu">
                     <Mail className="h-5 w-5 text-purple-400" />
                   </div>
                   <div>
@@ -299,7 +297,7 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center will-change-transform transform-gpu">
                     <Linkedin className="h-5 w-5 text-purple-400" />
                   </div>
                   <div>
@@ -308,7 +306,7 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center will-change-transform transform-gpu">
                     <Github className="h-5 w-5 text-purple-400" />
                   </div>
                   <div>
@@ -321,7 +319,7 @@ export default function Portfolio() {
               <div className="mt-8 pt-8 border-t border-zinc-800">
                 <h4 className="text-lg font-medium mb-4">Current Status</h4>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse will-change-transform transform-gpu"></div>
                   <span>Available for freelance work and full-time opportunities</span>
                 </div>
               </div>
@@ -349,7 +347,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200 will-change-transform transform-gpu"
               >
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
@@ -359,7 +357,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200 will-change-transform transform-gpu"
               >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
@@ -369,7 +367,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200 will-change-transform transform-gpu"
               >
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
@@ -379,7 +377,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200 will-change-transform transform-gpu"
               >
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
