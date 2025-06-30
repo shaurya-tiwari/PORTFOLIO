@@ -16,7 +16,7 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-800 to-zinc-500 text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-zinc-500 text-white overflow-hidden">
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
@@ -35,17 +35,17 @@ export default function Portfolio() {
 
             {/* AI/ML Engineer & Frontend Developer tag */}
             <div className="inline-block">
-              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
+              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-gray-900/80 border border-gray-700 mb-4 will-change-transform">
                 <span className="relative z-10">AI/ML Engineer & Frontend Developer</span>
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-900/20 to-gray-600/20 animate-pulse"></span>
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-800/30 to-gray-600/30 animate-pulse-slow"></span>
               </div>
             </div>
 
             {/* Box with name and description */}
-            <div className="bg-black/10 backdrop-blur-sm rounded-xl p-6 shadow-xl space-y-6">
+            <div className="backdrop-blur-sm  rounded-xl p-6 shadow-2xl space-y-6 ">
               <h1 className="text-5xl md:text-7xl font-semibold tracking-tight">
                 <span className="block">Hi, I'm</span>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 to-gray-600 font-normal">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-zinc-300 to-gray-500 font-normal">
                   Shaurya
                 </span>
               </h1>
@@ -58,7 +58,7 @@ export default function Portfolio() {
             <div className="flex flex-wrap gap-4 pt-4">
               <Button
                 variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:border-zinc-500 bg-transparent"
+                className="border-zinc-700 text-zinc-300 hover:border-zinc-500 bg-gray-900/60 hover:bg-gray-900/80 transition-colors duration-200"
               >
                 <a
                   href="https://wa.me/+917065649910"
@@ -76,7 +76,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                  className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
                 >
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
@@ -86,7 +86,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                  className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
                 >
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
@@ -96,7 +96,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                  className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
                 >
                   <Twitter className="h-5 w-5" />
                   <span className="sr-only">Twitter</span>
@@ -110,22 +110,22 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 anibouncemate-">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-bounce-slow"></div>
           </div>
         </div>
       </section>
 
-      {/* About Section - REMOVED BLOBS */}
+      {/* About Section */}
       <section id="about" className="py-32 relative">
         <div className="container relative z-10">
           <SectionHeading title="About Me" subtitle="My background and journey" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-gray-900/20 to-gray-600/20 blur-xl opacity-70"></div>
-              <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800 ">
+              <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-gray-800/40 to-gray-600/40 opacity-50"></div>
+              <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <img
                   src="/shauryaphoto.jpeg?height=600&width=600"
                   alt="Shaurya Tiwari"
@@ -134,7 +134,7 @@ export default function Portfolio() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse-slow"></div>
                     <span className="text-sm font-medium">Available for work</span>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">
+                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white transition-colors duration-200">
                       Download Resume
                     </Button>
                   </a>
@@ -186,7 +186,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Skills Section - REMOVED BLOBS */}
+      {/* Skills Section */}
       <section id="skills" className="py-32 relative">
         <div className="container relative z-10">
           <SectionHeading title="My Skills" subtitle="Technologies I work with" />
@@ -207,7 +207,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section - REMOVED BLOBS */}
+      {/* Projects Section */}
       <section id="projects" className="py-32 relative">
         <div className="container relative z-10">
           <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
@@ -265,7 +265,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience Section - REMOVED BLOBS */}
+      {/* Experience Section */}
       <section id="experience" className="py-32 relative">
         <div className="container relative z-10">
           <SectionHeading title="Work Experience" subtitle="My professional journey" />
@@ -276,7 +276,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Contact Section - REMOVED BLOBS */}
+      {/* Contact Section */}
       <section id="contact" className="py-32 relative">
         <div className="container relative z-10">
           <SectionHeading title="Get In Touch" subtitle="Let's work together" />
@@ -317,7 +317,7 @@ export default function Portfolio() {
               <div className="mt-8 pt-8 border-t border-zinc-800">
                 <h4 className="text-lg font-medium mb-4">Current Status</h4>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse-slow"></div>
                   <span>Available for freelance work and full-time opportunities</span>
                 </div>
               </div>
@@ -333,7 +333,7 @@ export default function Portfolio() {
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600">Shaurya</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-600">Shaurya</span>
               <span className="text-white">Tiwari</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
@@ -345,7 +345,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
               >
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
@@ -355,7 +355,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
               >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
@@ -365,7 +365,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
               >
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
@@ -375,7 +375,7 @@ export default function Portfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-200"
               >
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
