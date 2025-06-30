@@ -16,10 +16,10 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-amber-100 text-white overflow-x-hidden">
       {/* Ultra-optimized fixed background */}
       <div className="fixed inset-0 bg-gray-900 -z-10 will-change-auto"></div>
-      
+
       {/* Optimized components with reduced frequency */}
       <MouseFollower />
       <ScrollProgress />
@@ -35,16 +35,9 @@ export default function Portfolio() {
         {/* Hero content with optimized rendering */}
         <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center contain-layout">
           <div className="space-y-6">
-            {/* Tag with minimal effects */}
-            <div className="inline-block">
-              <div className="px-3 py-1 text-sm font-medium rounded-full bg-gray-800/90 border border-gray-600/50 mb-4 transition-colors duration-150">
-                <span>AI/ML Engineer & Frontend Developer</span>
-              </div>
-            </div>
-
             {/* Optimized hero box - removed heavy backdrop blur */}
-            <div className="bg-gray-900/80 border border-gray-700/30 rounded-xl p-6 shadow-xl space-y-6 transition-all duration-150 hover:border-gray-600/40">
-              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight will-change-auto">
+            <div className=" backdrop-blur-md rounded-xl p-4 md:p-6 space-y-4 md:space-y-6 shadow-2xl">
+              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight will-change-auto ">
                 <span className="block">Hi, I'm</span>
                 <span className="text-gray-300 font-normal">
                   Shaurya
@@ -143,53 +136,54 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="space-y-6 aspect-square">
+            <div className="space-y-4 md:space-y-6 aspect-auto md:aspect-square">
               <GlassmorphicCard>
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-sm md:text-lg text-gray-300 leading-relaxed">
                   I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
                 </p>
-                <p className="text-lg text-gray-300 mt-4 leading-relaxed">
+                <p className="text-sm md:text-lg text-gray-300 mt-2 md:mt-4 leading-relaxed">
                   I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I have created projects with the help of AI prompts, and I am also good at prompting AI to generate ideas, code, and solutions efficiently.
                 </p>
-                <p className="text-lg text-gray-300 mt-4 leading-relaxed">
-                  I enjoy web development, creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications
+                <p className="text-sm md:text-lg text-gray-300 mt-2 md:mt-4 leading-relaxed">
+                  I enjoy web development, creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications.
                 </p>
-                <p className="text-lg text-gray-300 mt-4 leading-relaxed">
+                <p className="text-sm md:text-lg text-gray-300 mt-2 md:mt-4 leading-relaxed">
                   I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.
                 </p>
-                
-                <div className="grid grid-cols-2 gap-4 mt-8">
+
+                <div className="grid grid-cols-2 gap-4 mt-6 md:mt-8">
                   <div className="space-y-1">
-                    <div className="text-sm text-gray-500">Name</div>
-                    <div className="font-medium">Shaurya Tiwari</div>
+                    <div className="text-xs md:text-sm text-gray-500">Name</div>
+                    <div className="text-sm md:text-base font-thin">Shaurya Tiwari</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-gray-500">Email</div>
-                    <div className="font-medium">shauryatiwari120@gmail.com</div>
+                    <div className="text-xs md:text-sm text-gray-500">Email</div>
+                    <div className="text-sm md:text-base font-thin">shauryatiwari120@gmail.com</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-gray-500">Location</div>
-                    <div className="font-medium">Noida, India</div>
+                    <div className="text-xs md:text-sm text-gray-500">Location</div>
+                    <div className="text-sm md:text-base font-thin">Noida, India</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-sm text-gray-500">Availability</div>
-                    <div className="font-medium text-green-500">Open to opportunities</div>
+                    <div className="text-xs md:text-sm text-gray-500">Availability</div>
+                    <div className="text-sm md:text-base font-medium text-green-500">Open to opportunities</div>
                   </div>
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-6 md:mt-8">
                   <a
                     href="/shauryaResume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-zinc-800/90 hover:bg-zinc-700/90 text-white transition-all duration-150 hover:scale-[1.02] active:scale-[0.98]">
+                    <Button className="bg-zinc-800/90 hover:bg-zinc-700/90 text-white transition-all duration-150 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
                       Download Resume
                     </Button>
                   </a>
                 </div>
               </GlassmorphicCard>
             </div>
+
           </div>
         </div>
       </section>
