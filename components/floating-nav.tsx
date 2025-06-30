@@ -78,7 +78,7 @@ export function FloatingNav() {
             <button
               key={item.name}
               onClick={() => handleNavClick(item.href)}
-              className={`transition-colors duration-200 rounded hover:bg-gray-800/50 ${
+              className={`transition-colors duration-200 rounded  ${
                 isMobile
                   ? "px-2 py-1 text-[10px] font-medium text-zinc-400 hover:text-white"
                   : "px-3 py-1 text-sm font-medium text-zinc-400 hover:text-white"
