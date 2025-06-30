@@ -1,5 +1,6 @@
 "use client"
 
+import { memo, useMemo } from "react"
 import { motion } from "framer-motion"
 import { useMobile } from "@/hooks/use-mobile"
 
@@ -34,7 +35,62 @@ const experiences = [
   },
 ]
 
-export function Timeline() {
+// Memoized timeline item to prevent unnecessary re-renders
+const TimelineItem = memo(({ experience, index, isMobile }: {
+  experience: typeof experiences[0]
+  index: number
+  isMobile: boolean
+}) => {
+  // Cache the index calculation
+  const isEven = useMemo(() => index % 2 === 0, [index])
+  
+  // Cache animation values
+  const animationX = useMemo(() => isEven ? 50 : -50, [isEven])
+  
+  return (
+    <div
+      className={`relative z-10 flex items-center ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}
+    >
+      <motion.div
+        className={`w-full md:w-1/2 ${isEven ? "md:pl-10" : "md:pr-10"}`}
+        initial={{ opacity: 0, x: animationX }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
+          <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 blur-md rounded-2xl opacity-40 hover:opacity-70 transition duration-700" />
+
+          <div className="relative z-10">
+            <h3 className="text-xl font-semibold text-white">{experience.title}</h3>
+            <div className="text-sm text-white/60 mb-4">
+              {experience.company} | {experience.period}
+            </div>
+            <p className="text-white/80 text-sm">{experience.description}</p>
+          </div>
+        </div>
+      </motion.div>
+
+      {!isMobile && (
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+          <motion.div
+            className="w-6 h-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 z-10 flex items-center justify-center shadow"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="w-2 h-2 rounded-full bg-white" />
+          </motion.div>
+        </div>
+      )}
+    </div>
+  )
+})
+
+TimelineItem.displayName = "TimelineItem"
+
+export const Timeline = memo(() => {
   const isMobile = useMobile()
 
   return (
@@ -46,45 +102,13 @@ export function Timeline() {
       }`}
     >
       {experiences.map((experience, index) => (
-        <div
+        <TimelineItem
           key={index}
-          className={`relative z-10 flex items-center ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
-        >
-          <motion.div
-            className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pl-10" : "md:pr-10"}`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-              <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 blur-md rounded-2xl opacity-40 hover:opacity-70 transition duration-700" />
-
-              <div className="relative z-10">
-                <h3 className="text-xl font-semibold text-white">{experience.title}</h3>
-                <div className="text-sm text-white/60 mb-4">
-                  {experience.company} | {experience.period}
-                </div>
-                <p className="text-white/80 text-sm">{experience.description}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {!isMobile && (
-            <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
-              <motion.div
-                className="w-6 h-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 z-10 flex items-center justify-center shadow"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-2 h-2 rounded-full bg-white" />
-              </motion.div>
-            </div>
-          )}
-        </div>
+          experience={experience}
+          index={index}
+          isMobile={isMobile}
+        />
       ))}
     </div>
   )
-}
+})

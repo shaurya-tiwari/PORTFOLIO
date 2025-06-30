@@ -14,11 +14,10 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       viewport={{ once: true }}
-      whileHover={{ y: -5 }}
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 h-full shadow-md transition-all duration-300 hover:shadow-lg">
-        {/* Frosted background layer */}
-        <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl blur opacity-40 group-hover:opacity-70 transition duration-700" />
+      <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 h-full shadow-md transition-all duration-300 hover:shadow-lg">
+        {/* Removed backdrop-blur-xl for performance */}
+        <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl opacity-40 group-hover:opacity-70 transition duration-700" />
 
         <div className="relative z-10">
           <div className="text-center mb-4 font-semibold text-white">{name}</div>
