@@ -11,6 +11,7 @@ import { FloatingNav } from "@/components/floating-nav"
 import { MouseFollower } from "@/components/mouse-follower"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
+import Image from 'next/image';
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 
@@ -19,6 +20,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Simplified fixed background */}
       <div className="fixed inset-0 bg-gray-900 -z-10"></div>
+      <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
 
@@ -105,9 +107,6 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <div className="flex justify-center">
-            {/* Placeholder for hero image */}
-          </div>
         </div>
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
@@ -125,11 +124,15 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
               <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-700">
-                <img
-                  src="/shauryaphoto.jpeg?height=600&width=600"
+                <Image
+                  src="/shauryaphoto.jpeg"
                   alt="Shaurya Tiwari"
-                  loading="lazy"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover object-top"
+                  priority
+                  loading="eager"
+
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

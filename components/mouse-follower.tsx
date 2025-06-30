@@ -39,10 +39,9 @@ export function MouseFollower() {
         transition={{ type: "spring", damping: 20, stiffness: 300, mass: 0.5 }}
         style={{
           background: "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)",
-          filter: "blur(10px)",
         }}
       />
-    
+
     </>
   );
 }
