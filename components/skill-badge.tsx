@@ -15,14 +15,16 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
       transition={{ duration: 0.3 }}
       viewport={{ once: true }}
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-6 h-full shadow-md transition-all duration-300 hover:shadow-lg">
+      <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 p-4 sm:p-5 md:p-6 h-full shadow-md duration-300">
         {/* Removed backdrop-blur-xl for performance */}
         <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl opacity-40 group-hover:opacity-70 transition duration-700" />
 
         <div className="relative z-10">
-          <div className="text-center mb-4 font-semibold text-white">{name}</div>
+          <div className="text-center mb-3 sm:mb-4 font-medium sm:font-semibold text-xs sm:text-sm md:text-base text-white">
+            {name}
+          </div>
 
-          <div className="relative h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
+          <div className="relative h-2 sm:h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
             <motion.div
               className="absolute top-0 left-0 h-full bg-gradient-to-r from-zinc-400 to-blue-300 rounded-full"
               initial={{ width: 0 }}
@@ -32,7 +34,9 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
             />
           </div>
 
-          <div className="mt-2 text-right text-sm text-white/70">{level}%</div>
+          <div className="mt-1.5 sm:mt-2 text-right text-[10px] sm:text-xs text-white/70">
+            {level}%
+          </div>
         </div>
       </div>
     </motion.div>
