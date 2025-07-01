@@ -10,109 +10,110 @@ import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
 import { MouseFollower } from "@/components/mouse-follower"
 import { ScrollProgress } from "@/components/scroll-progress"
+import Wings from "@/components/wing"; // adjust the path according to your project structure
 import { SectionHeading } from "@/components/section-heading"
 import Image from 'next/image';
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
-
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-bl from-gray-900 via-gray-800 to-slate-400 text-white overflow-x-hidden">
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
-<section className="relative flex items-center justify-center w-full py-12 sm:py-16 md:py-20 lg:py-24 min-h-screen">
-      {/* Background / CreativeHero */}
-      <div className="absolute inset-0 z-0">
-        <CreativeHero />
-      </div>
+      <section className="relative flex items-center justify-center w-full py-12 sm:py-16 md:py-20 lg:py-24">
+        {/* Background / CreativeHero */}
+        <div className="absolute inset-0 z-0">
+          <CreativeHero />
+        </div>
 
-      <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-full px-4 sm:px-6 lg:px-8">
-        <div className="space-y-6 w-full">
-          <div className="w-full">
-            <div className="backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4 md:space-y-6 shadow-2xl w-full">
-              <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight">
-                <span className="block">Hi, I'm</span>
-                <span className="text-gray-300 font-normal">Shaurya</span>
-              </h1>
-              <p className="text-sm sm:text-base md:text-xl text-zinc-300 max-w-full leading-relaxed">
-                AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems, with a keen interest in frontend development.
-              </p>
+        <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-full px-4 sm:px-6 lg:px-8">
+          <div className="space-y-6 w-full">
+            <div className="w-full">
+              <div className="backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4 md:space-y-6 shadow-2xl w-full">
+                <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight">
+                  <span className="block">Hi, I'm</span>
+                  <span className="text-gray-300 font-normal">Shaurya</span>
+                </h1>
+                <p className="text-sm sm:text-base md:text-xl text-zinc-300 max-w-full leading-relaxed">
+                  AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems, with a keen interest in frontend development.
+                </p>
+              </div>
+            </div>
+
+            {/* Contact Me Button */}
+            <div className="flex flex-wrap gap-4 pt-4 w-full">
+              <a
+                href="https://wa.me/+917065649910"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  className="border-gray-600 text-gray-300 hover:border-gray-500 bg-gray-800/90 hover:bg-gray-700/90"
+                >
+                  Contact me
+                </Button>
+              </a>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex gap-4 pt-4 w-full">
+              <Link
+                href="https://github.com/shaurya-tiwari"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
+                >
+                  <Github className="h-5 w-5" />
+                  <span className="sr-only">GitHub</span>
+                </Button>
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/shauryatiwari120/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
+                >
+                  <Linkedin className="h-5 w-5" />
+                  <span className="sr-only">LinkedIn</span>
+                </Button>
+              </Link>
+
+              <Link
+                href="https://x.com/Shauryatiwari77"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
+                >
+                  <Twitter className="h-5 w-5" />
+                  <span className="sr-only">Twitter</span>
+                </Button>
+              </Link>
             </div>
           </div>
-
-          {/* Contact Me Button */}
-          <div className="flex flex-wrap gap-4 pt-4 w-full">
-            <a
-              href="https://wa.me/+917065649910"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                className="border-gray-600 text-gray-300 hover:border-gray-500 bg-gray-800/90 hover:bg-gray-700/90"
-              >
-                Contact me
-              </Button>
-            </a>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex gap-4 pt-4 w-full">
-            <Link
-              href="https://github.com/shaurya-tiwari"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Button>
-            </Link>
-
-            <Link
-              href="https://www.linkedin.com/in/shauryatiwari120/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Button>
-            </Link>
-
-            <Link
-              href="https://x.com/Shauryatiwari77"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Button>
-            </Link>
-          </div>
         </div>
-      </div>
+      </section>
+{/* wingsss */}
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-        <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
-          <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-bounce"></div>
+      <section className="z-50">
+        <div >
+          <Wings />
         </div>
-      </div>
-    </section>
+      </section>
+
 
       {/* About Section */}
       <section id="about" className="py-32 relative w-full">
