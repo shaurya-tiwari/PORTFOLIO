@@ -273,7 +273,7 @@ export function CreativeHero() {
 
   return (
     <motion.div
-      className="w-full h-[400px] relative p-4"
+      className="w-full h-[400px] relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
