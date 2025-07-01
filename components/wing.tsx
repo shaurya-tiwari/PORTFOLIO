@@ -9,7 +9,7 @@ const Wings: React.FC = () => {
   // threshold can be adjusted to trigger earlier or later
 
   return (
-    <div className="relative h-[580px] my-[-200px]" ref={ref}>
+    <div className="relative h-[580px] my-[-200px] opacity-60" ref={ref}>
       <motion.img
         src="/wing.png"
         alt="Wings"
