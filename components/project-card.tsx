@@ -16,16 +16,24 @@ interface ProjectCardProps {
   repoUrl: string
 }
 
-export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  description,
+  tags,
+  image,
+  demoUrl,
+  repoUrl,
+}: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
       viewport={{ once: true }}
-      className="group h-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl hover:shadow-xl transition-shadow duration-200"
+      className="group rounded-xl border border-white/10 bg-white/10 hover:shadow-md transition-shadow duration-200 max-w-full sm:max-w-sm mx-auto"
     >
-      <div className="relative overflow-hidden h-48 rounded-t-3xl">
+      {/* Image Section */}
+      <div className="relative h-40 sm:h-48 overflow-hidden rounded-t-xl">
         <img
           src={image || "/placeholder.svg"}
           alt={title}
@@ -34,29 +42,47 @@ export function ProjectCard({ title, description, tags, image, demoUrl, repoUrl 
         />
       </div>
 
-      <div className="p-6 text-white">
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-sm text-white/70 mb-4">{description}</p>
+      {/* Content Section */}
+      <div className="p-3 sm:p-4 text-white">
+        <h3 className="text-sm sm:text-base font-semibold mb-1">{title}</h3>
+        <p className="text-[11px] sm:text-xs text-white/70 line-clamp-2 mb-2">
+          {description}
+        </p>
 
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-1 mb-3">
           {tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="bg-white/10 text-white/80">
+            <Badge
+              key={tag}
+              variant="secondary"
+              className="bg-white/10 text-white/70 text-[9px] px-1.5 py-[2px]"
+            >
               {tag}
             </Badge>
           ))}
         </div>
 
-        <div className="flex justify-between">
-          <Button variant="ghost" size="sm" className="text-white/60 hover:text-white" asChild>
-            <Link href={repoUrl} target="_blank">
-              <Github className="mr-2 h-4 w-4" />
-              Code
+        {/* Buttons */}
+        <div className="flex justify-between items-center">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-white/60 hover:text-white px-2 h-7"
+            asChild
+          >
+            <Link href={repoUrl} target="_blank" rel="noopener noreferrer">
+              <Github className="mr-1 h-3.5 w-3.5" />
+              <span className="text-[11px]">Code</span>
             </Link>
           </Button>
-          <Button size="sm" className="bg-white/10 hover:bg-white/20 text-white" asChild>
-            <Link href={demoUrl} target="_blank">
-              Live Demo
-              <ArrowUpRight className="ml-2 h-4 w-4" />
+
+          <Button
+            size="sm"
+            className="bg-white/10 hover:bg-white/20 text-white px-3 h-7 text-[11px]"
+            asChild
+          >
+            <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
+              Live
+              <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
             </Link>
           </Button>
         </div>

@@ -17,7 +17,7 @@ export function ContactForm() {
     setIsSubmitting(true)
     setSuccessMsg("")
 
-    const form = e.currentTarget // ✅ store reference here
+    const form = e.currentTarget
     const formData = new FormData(form)
 
     try {
@@ -29,7 +29,7 @@ export function ContactForm() {
 
       if (res.ok) {
         setSuccessMsg("✅ Message sent successfully!")
-        form.reset() // ✅ use stored reference
+        form.reset()
       } else {
         setSuccessMsg("❌ Failed to send message. Please try again.")
       }
@@ -41,58 +41,48 @@ export function ContactForm() {
     setIsSubmitting(false)
   }
 
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
+      className="h-full"
     >
-      <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-gray-500/50">
-        <div className="absolute -inset-1 bg-gradient-to-r from-gray-900/10 to-gray-600/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
+      <div className="h-full min-h-[400px] rounded-2xl border border-white/10 bg-white/10 p-4 sm:p-6 text-white shadow-sm transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Send Me a Message</h3>
 
-        <div className="relative">
-          <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Input
-                name="name"
-                placeholder="Your Name"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-gray-500 focus:ring-gray-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-gray-500 focus:ring-gray-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Input
-                name="subject"
-                placeholder="Subject"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-gray-500 focus:ring-gray-500/20"
-              />
-            </div>
-            <div className="space-y-2">
-              <Textarea
-                name="message"
-                placeholder="Your Message"
-                rows={5}
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-gray-500 focus:ring-gray-500/20"
-              />
-            </div>
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <Input
+              name="name"
+              placeholder="Your Name"
+              required
+              className="bg-white/10 border border-white/10 text-black placeholder-white/60"
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              className="bg-white/10 border border-white/10 text-black placeholder-white/60"
+            />
+            <Input
+              name="subject"
+              placeholder="Subject"
+              required
+              className="bg-white/10 border border-white/10 text-black placeholder-white/60"
+            />
+            <Textarea
+              name="message"
+              placeholder="Your Message"
+              rows={5}
+              required
+              className="bg-white/10 border border-white/10 text-black placeholder-white/60"
+            />
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-gray-900 to-gray-600 hover:from-gray-600 hover:to-gray-900 border-0"
+              className="w-full bg-slate-700 hover:bg-white/20 text-white"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
@@ -104,12 +94,11 @@ export function ContactForm() {
               )}
             </Button>
           </form>
-
-          {/* ✅ Success or error message */}
-          {successMsg && (
-            <p className="mt-4 text-center text-green-400">{successMsg}</p>
-          )}
         </div>
+
+        {successMsg && (
+          <p className="mt-4 text-center text-green-400">{successMsg}</p>
+        )}
       </div>
     </motion.div>
   )

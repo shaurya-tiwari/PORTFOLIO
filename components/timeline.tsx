@@ -26,13 +26,6 @@ const experiences = [
     description:
       "Built websites and web applications while learning machine learning fundamentals. Worked with HTML, CSS, JavaScript, and Python for data analysis.",
   },
-  {
-    title: "Intern",
-    company: "Startup Hub",
-    period: "2016 - 2017",
-    description:
-      "Assisted in developing web applications and learned machine learning basics through online courses and projects.",
-  },
 ]
 
 // Memoized timeline item to prevent unnecessary re-renders
@@ -41,40 +34,42 @@ const TimelineItem = memo(({ experience, index, isMobile }: {
   index: number
   isMobile: boolean
 }) => {
-  // Cache the index calculation
   const isEven = useMemo(() => index % 2 === 0, [index])
-  
-  // Cache animation values
-  const animationX = useMemo(() => isEven ? 50 : -50, [isEven])
-  
+  const animationX = useMemo(() => isEven ? 40 : -40, [isEven])
+
   return (
     <div
-      className={`relative z-10 flex items-center ${isEven ? "md:flex-row-reverse" : "md:flex-row"}`}
+      className={`relative z-10 flex flex-col md:flex-row ${isEven ? "md:flex-row-reverse" : ""}`}
     >
       <motion.div
-        className={`w-full md:w-1/2 ${isEven ? "md:pl-10" : "md:pr-10"}`}
+        className={`w-full md:w-1/2 ${isEven ? "md:pl-6" : "md:pr-6"}`}
         initial={{ opacity: 0, x: animationX }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg">
-          <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 blur-md rounded-2xl opacity-40 hover:opacity-70 transition duration-700" />
-
+        <div
+          className={`relative rounded-xl border border-white/10 ${
+            isMobile ? "bg-white/5" : "bg-white/10 backdrop-blur-md shadow-md"
+          } p-4 sm:p-6 transition-all duration-300`}
+        >
+          {!isMobile && (
+            <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 blur-md rounded-xl opacity-30" />
+          )}
           <div className="relative z-10">
-            <h3 className="text-xl font-semibold text-white">{experience.title}</h3>
-            <div className="text-sm text-white/60 mb-4">
+            <h3 className="text-base sm:text-lg font-semibold text-white">{experience.title}</h3>
+            <div className="text-xs sm:text-sm text-white/60 mb-2">
               {experience.company} | {experience.period}
             </div>
-            <p className="text-white/80 text-sm">{experience.description}</p>
+            <p className="text-xs sm:text-sm text-white/80">{experience.description}</p>
           </div>
         </div>
       </motion.div>
 
       {!isMobile && (
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-20">
           <motion.div
-            className="w-6 h-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 z-10 flex items-center justify-center shadow"
+            className="w-5 h-5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.3 }}
@@ -95,9 +90,9 @@ export const Timeline = memo(() => {
 
   return (
     <div
-      className={`space-y-12 relative ${
+      className={`space-y-8 sm:space-y-10 relative ${
         !isMobile
-          ? "before:absolute before:inset-0 before:left-1/2 before:ml-0 before:-translate-x-px before:border-l-2 before:border-white/10 before:h-full before:z-0"
+          ? "before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:border-l-2 before:border-white/10"
           : ""
       }`}
     >

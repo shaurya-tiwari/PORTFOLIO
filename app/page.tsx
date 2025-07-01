@@ -16,10 +16,7 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-amber-100 text-white overflow-x-hidden">
-      {/* Ultra-optimized fixed background */}
-      <div className="fixed inset-0 bg-gray-900 -z-10 will-change-auto"></div>
-
+    <div className="min-h-screen bg-gradient-to-bl from-gray-900 via-gray-800 to-slate-400 text-white overflow-x-hidden">
       {/* Optimized components with reduced frequency */}
       <MouseFollower />
       <ScrollProgress />
@@ -36,17 +33,17 @@ export default function Portfolio() {
         <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center contain-layout">
           <div className="space-y-6">
             {/* Optimized hero box - removed heavy backdrop blur */}
-            <div className=" backdrop-blur-md rounded-xl p-4 md:p-6 space-y-4 md:space-y-6 shadow-2xl">
-              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight will-change-auto ">
-                <span className="block">Hi, I'm</span>
-                <span className="text-gray-300 font-normal">
-                  Shaurya
-                </span>
-              </h1>
-              <p className="text-xl text-zinc-300 max-w-[600px] leading-relaxed">
-                AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems, and a keen interest in frontend development.
-              </p>
-            </div>
+ <div className="mt-20 md:mt-0">
+  <div className="backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4 md:space-y-6 shadow-2xl">
+    <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight will-change-auto">
+      <span className="block">Hi, I'm</span>
+      <span className="text-gray-300 font-normal">Shaurya</span>
+    </h1>
+    <p className="text-sm sm:text-base md:text-xl text-zinc-300 max-w-[600px] leading-relaxed">
+      AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems, and a keen interest in frontend development.
+    </p>
+  </div>
+</div>
 
             {/* Optimized contact button */}
             <div className="flex flex-wrap gap-4 pt-4">
@@ -113,8 +110,8 @@ export default function Portfolio() {
         <div className="container relative z-10">
           <SectionHeading title="About Me" subtitle="My background and journey" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
-            <div className="relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch mt-16">
+            <div className="relative h-full">
               <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-700/50 transition-all duration-200 hover:border-gray-600/50">
                 <Image
                   src="/shauryaphoto.jpeg"
@@ -136,29 +133,29 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="space-y-4 md:space-y-6 aspect-auto md:aspect-square">
+            <div className="space-y-4 md:space-y-6 relative h-full md:aspect-square">
               <GlassmorphicCard>
-                <p className="text-sm md:text-lg text-gray-300 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-200 leading-relaxed">
                   I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
                 </p>
-                <p className="text-sm md:text-lg text-gray-300 mt-2 md:mt-4 leading-relaxed">
-                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I have created projects with the help of AI prompts, and I am also good at prompting AI to generate ideas, code, and solutions efficiently.
+                <p className="text-sm md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
+                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I’ve created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
                 </p>
-                <p className="text-sm md:text-lg text-gray-300 mt-2 md:mt-4 leading-relaxed">
-                  I enjoy web development, creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications.
+                <p className="text-sm md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
+                  I enjoy web development—creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications.
                 </p>
-                <p className="text-sm md:text-lg text-gray-300 mt-2 md:mt-4 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
                   I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.
                 </p>
 
-                <div className="grid grid-cols-2 mt-6 md:mt-8">
+                <div className="grid grid-cols-2 gap-y-4 gap-x-6 mt-6 md:mt-8">
                   <div className="space-y-1">
                     <div className="text-xs md:text-sm text-gray-500">Name</div>
                     <div className="text-sm md:text-base font-thin">Shaurya Tiwari</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-xs md:text-sm text-gray-500">Email</div>
-                    <div className="text-sm md:text-base font-thin break break-words">shauryatiwari120@gmail.com</div>
+                    <div className="text-sm md:text-base font-thin break-words">shauryatiwari120@gmail.com</div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-xs md:text-sm text-gray-500">Location</div>
@@ -176,14 +173,13 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-zinc-800/90 hover:bg-zinc-700/90 text-white transition-all duration-150 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
+                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white transition-all duration-150 text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
                       Download Resume
                     </Button>
                   </a>
                 </div>
               </GlassmorphicCard>
             </div>
-
           </div>
         </div>
       </section>
@@ -209,63 +205,40 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section - Optimized cards */}
-      <section id="projects" className="py-32 relative contain-layout">
-        <div className="container relative z-10">
-          <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
+{/* Projects Section - Optimized cards */}
+<section id="projects" className="py-32 relative contain-layout">
+  <div className="container relative z-10">
+    <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            <ProjectCard
-              title="E-commerce Platform"
-              description="A full-stack e-commerce platform built with Next.js, Stripe, and Prisma."
-              tags={["Next.js", "TypeScript", "Prisma", "Stripe"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
-            />
-            <ProjectCard
-              title="Task Management App"
-              description="A collaborative task management application with real-time updates."
-              tags={["React", "Firebase", "Tailwind CSS", "Redux"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
-            />
-            <ProjectCard
-              title="AI Content Generator"
-              description="An AI-powered content generation tool using OpenAI's GPT models."
-              tags={["Next.js", "OpenAI API", "Node.js", "MongoDB"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
-            />
-            <ProjectCard
-              title="Fitness Tracker"
-              description="A mobile-first fitness tracking application with data visualization."
-              tags={["React Native", "TypeScript", "D3.js", "Firebase"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
-            />
-            <ProjectCard
-              title="Weather Dashboard"
-              description="A beautiful weather dashboard with forecasts and historical data."
-              tags={["React", "Weather API", "Chart.js", "Styled Components"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
-            />
-            <ProjectCard
-              title="Portfolio Website"
-              description="This portfolio website built with Next.js and Tailwind CSS."
-              tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
-            />
-          </div>
-        </div>
-      </section>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-16">
+      <ProjectCard
+        title="Task Management App"
+        description="A collaborative task management application with real-time updates."
+        tags={["React", "Firebase", "Tailwind CSS", "Redux", "shaurya"]}
+        image="/placeholder.svg?height=400&width=600"
+        demoUrl="https://example.com"
+        repoUrl="https://github.com/shauryatiwari"
+      />
+      <ProjectCard
+        title="AI Content Generator"
+        description="An AI-powered content generation tool using OpenAI's GPT models."
+        tags={["Next.js", "OpenAI API", "Node.js", "MongoDB"]}
+        image="/placeholder.svg?height=400&width=600"
+        demoUrl="https://example.com"
+        repoUrl="https://github.com/shauryatiwari"
+      />
+      <ProjectCard
+        title="Portfolio Website"
+        description="This portfolio website built with Next.js and Tailwind CSS."
+        tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
+        image="/placeholder.svg?height=400&width=600"
+        demoUrl="https://example.com"
+        repoUrl="https://github.com/shauryatiwari"
+      />
+    </div>
+  </div>
+</section>
+
 
       {/* Experience Section - Clean layout */}
       <section id="experience" className="py-32 relative contain-layout">
@@ -283,48 +256,52 @@ export default function Portfolio() {
         <div className="container relative z-10">
           <SectionHeading title="Get In Touch" subtitle="Let's work together" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-6 mt-16 items-stretch">
             <GlassmorphicCard>
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <div className="space-y-6">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contact Information</h3>
+              <div className="space-y-4 sm:space-y-6">
+                {/* Email */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800/90 flex items-center justify-center transition-colors duration-150">
-                    <Mail className="h-5 w-5 text-purple-400" />
+                  <div className="flex items-center justify-center transition-colors duration-150">
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">Email</div>
-                    <div className="font-medium">shauryatiwari120@gmail.com</div>
+                    <div className="text-xs sm:text-sm text-zinc-800">Email</div>
+                    <div className="text-sm sm:text-base font-medium">shauryatiwari120@gmail.com</div>
                   </div>
                 </div>
+
+                {/* LinkedIn */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800/90 flex items-center justify-center transition-colors duration-150">
-                    <Linkedin className="h-5 w-5 text-purple-400" />
+                  <div className=" flex items-center justify-center transition-colors duration-150">
+                    <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <div className="font-medium">linkedin.com/in/shauryatiwari</div>
+                    <div className="text-xs sm:text-sm text-zinc-800">LinkedIn</div>
+                    <div className="text-sm sm:text-base font-medium">linkedin.com/in/shauryatiwari</div>
                   </div>
                 </div>
+
+                {/* GitHub */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-zinc-800/90 flex items-center justify-center transition-colors duration-150">
-                    <Github className="h-5 w-5 text-purple-400" />
+                  <div className=" flex items-center justify-center transition-colors duration-150">
+                    <Github className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
                   </div>
                   <div>
-                    <div className="text-sm text-zinc-500">GitHub</div>
-                    <div className="font-medium">github.com/shauryatiwari</div>
+                    <div className="text-xs sm:text-sm text-zinc-800">GitHub</div>
+                    <div className="text-sm sm:text-base font-medium">github.com/shauryatiwari</div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-zinc-800/50">
-                <h4 className="text-lg font-medium mb-4">Current Status</h4>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-zinc-800/50">
+                <h4 className="text-base sm:text-lg font-medium mb-3 sm:mb-4">Current Status</h4>
+                <div className="flex items-center gap-2 text-sm sm:text-base">
+                  <div className="w-3 h-3 rounded-full bg-green-800 animate-pulse"></div>
                   <span>Available for freelance work and full-time opportunities</span>
                 </div>
               </div>
             </GlassmorphicCard>
-
             <ContactForm />
           </div>
         </div>

@@ -20,25 +20,14 @@ export function FloatingNav() {
   const scrollToSection = useCallback((href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, []);
-
-  const handleNavClick = useCallback(
-    (href: string) => {
-      scrollToSection(href);
-    },
-    [scrollToSection]
-  );
 
   const handleScroll = useCallback(() => {
     if (!ticking.current) {
       requestAnimationFrame(() => {
-        const shouldShow = window.scrollY > 100;
-        setIsVisible(shouldShow);
+        setIsVisible(window.scrollY > 100);
         ticking.current = false;
       });
       ticking.current = true;
@@ -58,48 +47,41 @@ export function FloatingNav() {
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      style={{ willChange: "transform" }}
     >
       <div
-        className={`relative rounded-2xl backdrop-blur-xl border border-white/20 shadow-lg ${
-          isMobile
-            ? "px-2 py-1 bg-white/10 w-max max-w-[90vw]"
-            : "px-4 py-3 bg-white/10"
+        className={`rounded-xl bg-white/10 border border-white/10 backdrop-blur-md shadow-sm ${
+          isMobile ? "px-2 py-1" : "px-4 py-2"
         }`}
       >
-        <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-900/20 to-gray-600/20 rounded blur opacity-50"></div>
-
         <div
-          className={`relative flex ${
-            isMobile ? "flex-wrap justify-center items-center gap-1" : "items-center gap-1"
+          className={`flex items-center justify-center gap-1 flex-wrap ${
+            isMobile ? "" : "min-w-[320px]"
           }`}
         >
           {navItems.map((item) => (
             <button
               key={item.name}
-              onClick={() => handleNavClick(item.href)}
-              className={`transition-colors duration-200 rounded  ${
+              onClick={() => scrollToSection(item.href)}
+              className={`text-zinc-400 hover:text-white transition-colors duration-150 rounded ${
                 isMobile
-                  ? "px-2 py-1 text-[10px] font-medium text-zinc-400 hover:text-white"
-                  : "px-3 py-1 text-sm font-medium text-zinc-400 hover:text-white"
+                  ? "text-[10px] px-2 py-[6px]"
+                  : "text-sm px-3 py-[6px]"
               }`}
             >
               {item.name}
             </button>
           ))}
 
-          {!isMobile && (
-            <a
-              href="/shauryaResume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-2"
-            >
-              <button className="bg-gray-800 hover:bg-gray-700 text-white rounded-full text-sm px-4 py-2 transition-colors duration-200">
-                Resume
-              </button>
-            </a>
-          )}
+          <a
+            href="/shauryaResume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={isMobile ? "hidden" : ""}
+          >
+            <button className="bg-gray-800 hover:bg-gray-700 text-white rounded-full text-sm px-3 py-1 transition-all duration-200 ml-2">
+              Resume
+            </button>
+          </a>
         </div>
       </div>
     </motion.div>
