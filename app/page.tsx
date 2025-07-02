@@ -287,7 +287,7 @@ export default function Portfolio() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-xs sm:text-sm text-zinc-800">LinkedIn</div>
-                    <div className="text-sm sm:text-base font-medium break-all">linkedin.com/in/shauryatiwari</div>
+                    <div className="text-sm sm:text-base font-medium break-all">linkedin.com/in/shauryatiwari120/</div>
                   </div>
                 </div>
 
@@ -298,7 +298,7 @@ export default function Portfolio() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-xs sm:text-sm text-zinc-800">GitHub</div>
-                    <div className="text-sm sm:text-base font-medium break-all">github.com/shauryatiwari</div>
+                    <div className="text-sm sm:text-base font-medium break-all">github.com/shaurya-tiwari</div>
                   </div>
                 </div>
               </div>
@@ -323,15 +323,14 @@ export default function Portfolio() {
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6 max-w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center md:text-left">
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-600">Shaurya</span>
-              <span className="text-white">Tiwari</span>
+              <span className="text-white italic">Shaurya Tiwari</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
               © {new Date().getFullYear()} Shaurya Tiwari. All rights reserved.
             </p>
           </div>
           <div className="flex gap-4 flex-wrap justify-center md:justify-end">
-            <Link href="https://github.com/shauryatiwari" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/shaurya-tiwari" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -341,7 +340,7 @@ export default function Portfolio() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/shauryatiwari/" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -351,7 +350,7 @@ export default function Portfolio() {
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://x.com/Shauryatiwari77" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -361,7 +360,7 @@ export default function Portfolio() {
                 <span className="sr-only">Twitter</span>
               </Button>
             </Link>
-            <Link href="mailto:shauryatiwari120@gmail.com">
+            <Link href="https://mail.google.com">
               <Button
                 variant="ghost"
                 size="icon"
