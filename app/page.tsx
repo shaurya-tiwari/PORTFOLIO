@@ -40,22 +40,6 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Contact Me Button */}
-            <div className="flex flex-wrap gap-4 pt-4 w-full">
-              <a
-                href="https://wa.me/+917065649910"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  variant="outline"
-                  className="border-gray-600 text-gray-300 hover:border-gray-500 bg-gray-800/90 hover:bg-gray-700/90"
-                >
-                  Contact me
-                </Button>
-              </a>
-            </div>
-
             {/* Social Icons */}
             <div className="flex gap-4 pt-4 w-full">
               <Link
