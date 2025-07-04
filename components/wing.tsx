@@ -9,11 +9,11 @@ const Wings: React.FC = () => {
   // threshold can be adjusted to trigger earlier or later
 
   return (
-    <div className="relative h-[580px] my-[-200px] opacity-60" ref={ref}>
+    <div className="relative h-[590px] my-[-200px] filter " ref={ref}>
       <motion.img
         src="/wing.png"
         alt="Wings"
-        className="h-[580px] object-contain origin-bottom-left"
+        className="h-[560px] object-contain origin-bottom-left"
         style={{ filter: "drop-shadow(50px 10px 20px rgba(0,0,0,1))" }}
         initial={{ rotate: 90, scale: 0, opacity: 0 }}
         animate={
