@@ -6,26 +6,26 @@ import { useMobile } from "@/hooks/use-mobile"
 
 const experiences = [
   {
-    title: "Senior AI/ML Engineer",
-    company: "Tech Innovations Inc.",
-    period: "2021 - Present",
+    title: "Technology job simulation",
+    company: "Deloitte.",
+    period: "june 2025",
     description:
-      "Lead AI/ML initiatives and frontend development. Built machine learning pipelines, deployed models to production, and created intuitive user interfaces for AI-powered applications.",
+      "completed the Deloitte Software Engineering Virtual Experience."
   },
   {
-    title: "Frontend Developer & ML Engineer",
-    company: "Digital Solutions Co.",
-    period: "2019 - 2021",
+    title: "Full-stack developer with AI prompts",
+    company: "",
+    period: "2022 - present",
     description:
-      "Developed responsive web applications using React and implemented machine learning solutions. Worked on computer vision projects and data visualization dashboards.",
+      "Developed responsive web applications using React ,Next, TailwindCSS, Socket.io, SQL, Python.",
   },
-  {
-    title: "Junior Developer",
-    company: "Creative Agency",
-    period: "2017 - 2019",
-    description:
-      "Built websites and web applications while learning machine learning fundamentals. Worked with HTML, CSS, JavaScript, and Python for data analysis.",
-  },
+  // {
+  //   title: "Junior Developer",
+  //   company: "Creative Agency",
+  //   period: "2017 - 2019",
+  //   description:
+  //     "Built websites and web applications while learning machine learning fundamentals. Worked with HTML, CSS, JavaScript, and Python for data analysis.",
+  // },
 ]
 
 // Memoized timeline item to prevent unnecessary re-renders
