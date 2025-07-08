@@ -50,7 +50,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
+                  className="rounded-full hover:bg-gray-700/90 text-gray-400 hover:text-white"
                 >
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
@@ -90,7 +90,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-{/* wingsss */}
+      {/* wingsss */}
 
       <section className="z-50">
         <div >
@@ -184,17 +184,18 @@ export default function Portfolio() {
           <SectionHeading title="My Skills" subtitle="Technologies I work with" />
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16 w-full">
-            <SkillBadge name="Java" level={85} />
-            <SkillBadge name="JavaScript" level={90} />
+            <SkillBadge name="Python" level={80} />
+            <SkillBadge name="Pandas" level={60} />
+            <SkillBadge name="Machine Learning" level={50} />
+            <SkillBadge name="SQL" level={60} />
+            <SkillBadge name="Mathematics" level={80} />
+            <SkillBadge name="AI Prompt" level={90} />
+            <SkillBadge name="JavaScript" level={70} />
             <SkillBadge name="Tailwind CSS" level={95} />
-            <SkillBadge name="Python" level={95} />
-            <SkillBadge name="Machine Learning" level={90} />
-            <SkillBadge name="Web Development" level={95} />
-            <SkillBadge name="React" level={90} />
-            <SkillBadge name="Next.js" level={85} />
-            <SkillBadge name="Pandas" level={80} />
-            <SkillBadge name="Mathematics" level={85} />
-            <SkillBadge name="SQL" level={80} />
+            <SkillBadge name="Web Development" level={75} />
+            <SkillBadge name="React" level={60} />
+            <SkillBadge name="Next.js" level={60} />
+            <SkillBadge name="Java/jdbc" level={50} />
           </div>
         </div>
       </section>
@@ -206,28 +207,28 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-16 w-full">
             <ProjectCard
-              title="Task Management App"
-              description="A collaborative task management application with real-time updates."
-              tags={["React", "Firebase", "Tailwind CSS", "Redux", "shaurya"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
+              title="Online multiplayer game"
+              description="A real-time 2D Online multiplayer game."
+              tags={["React.js", "socket.io", "Tailwind CSS", "express.js", "node.js"]}
+              image="/project 1.png?height=400&width=600"
+              demoUrl="https://stickman-onlinemultiplayer-race.vercel.app/"
+              repoUrl="https://github.com/shaurya-tiwari/stickman-onlinemultiplayer-race"
             />
             <ProjectCard
-              title="AI Content Generator"
-              description="An AI-powered content generation tool using OpenAI's GPT models."
-              tags={["Next.js", "OpenAI API", "Node.js", "MongoDB"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
+              title="YouTube API (video streaming site)"
+              description="This site fetches and displays YouTube videos based on user searches."
+              tags={["react.js", "tailwind CSS", "YouTube API"]}
+              image="/tube.png?height=400&width=600"
+              repoUrl="https://github.com/shaurya-tiwari/YouTube-API"
+              demoUrl="https://you-tube-api-rose.vercel.app/"
             />
             <ProjectCard
               title="Portfolio Website"
               description="This portfolio website built with Next.js and Tailwind CSS."
               tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com/shauryatiwari"
+              image="/page1.png?height=400&width=600"
+              demoUrl="https://shaurya-tiwari-portfolio.vercel.app/"
+              repoUrl="https://github.com/shaurya-tiwari/PORTFOLIO"
             />
           </div>
         </div>
@@ -306,11 +307,11 @@ export default function Portfolio() {
       <footer className="border-t border-zinc-800/50 py-12 w-full">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6 max-w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center md:text-left">
-            <Link href="/" className="font-bold text-xl">
+            <Link href="/" className="underline text-xl ">
               <span className="text-white italic">Shaurya Tiwari</span>
             </Link>
-            <p className="text-sm text-zinc-500 mt-2">
-              © {new Date().getFullYear()} Shaurya Tiwari. All rights reserved.
+            <p className="text-sm text-zinc-300 mt-2">
+              © {new Date().getFullYear()} Shaurya. Built with passion and continuous learning.
             </p>
           </div>
           <div className="flex gap-4 flex-wrap justify-center md:justify-end">

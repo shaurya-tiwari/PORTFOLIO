@@ -15,14 +15,14 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
       transition={{ duration: 0.4 }}
       viewport={{ once: true }}
     >
-      <div className="rounded-xl border border-white/10 bg-white/10 p-4 sm:p-5 md:p-6 shadow-sm h-full text-white">
+      <div className="rounded-xl border border-white/10 bg-white/10 p-4 sm:p-5 md:p-6 shadow-sm h-full text-white hover:bg-gray-800">
         <div className="text-center mb-3 text-xs sm:text-sm md:text-base font-medium">
           {name}
         </div>
 
         <div className="relative h-2 sm:h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
           <motion.div
-            className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"
+            className="absolute top-0 left-0 h-full bg-gray-400 rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: `${level}%` }}
             transition={{ duration: 1, delay: 0.2 }}
