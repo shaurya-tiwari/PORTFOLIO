@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, Github, Linkedin, Mail, Twitter, } from "lucide-react"
-
+import SmoothScroll from "@/components/SmoothScroll";
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
 import { SkillBadge } from "@/components/skill-badge"
@@ -17,6 +17,7 @@ import { GlassmorphicCard } from "@/components/glassmorphic-card"
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-bl from-gray-900 via-gray-800 to-slate-400 text-white overflow-x-hidden">
+      <SmoothScroll />  {/* <== Add this here */}
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
