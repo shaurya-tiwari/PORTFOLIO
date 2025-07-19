@@ -3,11 +3,11 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shaurya-tiwari-portfolio.vercel.app'),
-  title: 'Shaurya Tiwari Portfolio',
-  description: 'Welcome to the portfolio of Shaurya Tiwari – Developer & Designer.',
+  title: 'Shaurya Portfolio',
+  description: 'Welcome to the portfolio of Shaurya Tiwari.',
   openGraph: {
     title: 'Shaurya Tiwari Portfolio',
-    description: 'Explore the work and projects of Shaurya Tiwari.',
+    description: 'Explore the work and projects of Shaurya.',
     url: 'https://shaurya-tiwari-portfolio.vercel.app',
     siteName: 'Shaurya Tiwari Portfolio',
     images: [
