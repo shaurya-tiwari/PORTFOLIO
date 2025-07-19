@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Shaurya Portfolio',
   description: 'Welcome to the portfolio of Shaurya Tiwari.',
   openGraph: {
-    title: 'Shaurya Tiwari Portfolio',
+    title: 'Shaurya Portfolio',
     description: 'Explore the work and projects of Shaurya.',
     url: 'https://shaurya-tiwari-portfolio.vercel.app',
     siteName: 'Shaurya Tiwari Portfolio',
