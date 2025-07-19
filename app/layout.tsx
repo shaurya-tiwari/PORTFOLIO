@@ -4,10 +4,10 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://shaurya-tiwari-portfolio.vercel.app'),
   title: 'Shaurya Portfolio',
-  description: 'Welcome to the portfolio of Shaurya Tiwari.',
+  description: 'Welcome to the portfolio of Shaurya.',
   openGraph: {
     title: 'Shaurya Portfolio',
-    description: 'Explore the work and projects of Shaurya.',
+    description: 'Explore the work and projects.',
     url: 'https://shaurya-tiwari-portfolio.vercel.app',
     siteName: 'Shaurya Tiwari Portfolio',
     images: [
