@@ -41,7 +41,7 @@ export function FloatingNav() {
 
   return (
     <motion.div
-      className={`fixed top-2 right-2 z-50 transition-opacity duration-300 ${
+      className={`fixed top-2 right-2 z-50 transition-opacity duration-400 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       initial={{ y: -100 }}
