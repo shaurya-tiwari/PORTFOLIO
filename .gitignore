@@ -25,6 +25,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-/public/page1.png
-/public/shauryaResume.pdf
-/public/shauryaphoto.jpeg
+public/page1.png
+public/shauryaResume.pdf
+public/shauryaphoto.jpeg
