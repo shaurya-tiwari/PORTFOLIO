@@ -187,11 +187,11 @@ export default function Portfolio() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16 w-full">
             <SkillBadge name="Python" level={80} />
             <SkillBadge name="Pandas" level={60} />
+            <SkillBadge name="Numpy" level={90} />
             <SkillBadge name="Machine Learning" level={50} />
             <SkillBadge name="SQL" level={60} />
             <SkillBadge name="Mathematics" level={80} />
             <SkillBadge name="AI Prompt" level={90} />
-            <SkillBadge name="JavaScript" level={70} />
             <SkillBadge name="Tailwind CSS" level={95} />
             <SkillBadge name="Web Development" level={75} />
             <SkillBadge name="React" level={60} />
