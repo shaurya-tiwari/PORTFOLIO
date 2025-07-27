@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shaurya-tiwari-portfolio.vercel.app'),
@@ -21,17 +21,17 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <head /> {/* Required for <Metadata> to inject OG tags here */}
+      <head></head> {/* ✅ Corrected: NOT self-closing */}
       <body>{children}</body>
     </html>
-  )
+  );
 }
