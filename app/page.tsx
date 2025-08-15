@@ -188,6 +188,9 @@ export default function Portfolio() {
             <SkillBadge name="Python" level={80} />
             <SkillBadge name="Pandas" level={60} />
             <SkillBadge name="Numpy" level={90} />
+            <SkillBadge name="Matplolib" level={60} />
+            <SkillBadge name="seaborn" level={60} />
+            <SkillBadge name="plotly / cufflinks" level={70} />
             <SkillBadge name="Machine Learning" level={50} />
             <SkillBadge name="SQL" level={60} />
             <SkillBadge name="Mathematics" level={80} />
