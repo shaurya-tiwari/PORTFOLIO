@@ -109,7 +109,7 @@ export default function Portfolio() {
             <div className="relative h-full w-full">
               <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600/50 w-full">
                 <Image
-                  src="/shauryaphoto.jpeg"
+                  src="/shauryaphoto.png"
                   alt="Shaurya Tiwari"
                   width={600}
                   height={600}
@@ -164,12 +164,12 @@ export default function Portfolio() {
 
                 <div className="mt-6 md:mt-8 w-full">
                   <a
-                    href="/shauryaResume.pdf"
+                    href="/SHAURYA RESUME.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
-                      Download Resume
+                    <Button className="bg-zinc-500 hover:bg-zinc-700 text-white text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
+                      Resume
                     </Button>
                   </a>
                 </div>
@@ -207,7 +207,7 @@ export default function Portfolio() {
       {/* Projects Section */}
       <section id="projects" className="py-32 relative w-full">
         <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
+          <SectionHeading title="Featured Projects" subtitle="Some of my work" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-16 w-full">
             <ProjectCard

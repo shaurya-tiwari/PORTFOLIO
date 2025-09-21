@@ -15,19 +15,20 @@ const experiences = [
   {
     title: "Full-stack developer with AI prompts",
     company: "",
-    period: "2022 - present",
+    period: "2024",
     description:
       "Developed responsive web applications using React ,Next, TailwindCSS, Socket.io, SQL, Python.",
   },
-  // {
-  //   title: "Junior Developer",
-  //   company: "Creative Agency",
-  //   period: "2017 - 2019",
-  //   description:
-  //     "Built websites and web applications while learning machine learning fundamentals. Worked with HTML, CSS, JavaScript, and Python for data analysis.",
-  // },
-]
+{
+  title: "GitHub Mentor (Academic)",
+  company: "Academic Experience",
+  period: "2017 - 2019",
+  description:
+    "Taught and Led batch-wide academic projects by mentoring 40+ peers in GitHub collaboration, version control, and while managing 3+ group projects as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork."
+}
 
+
+]
 // Memoized timeline item to prevent unnecessary re-renders
 const TimelineItem = memo(({ experience, index, isMobile }: {
   experience: typeof experiences[0]

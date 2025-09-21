@@ -73,7 +73,7 @@ export function FloatingNav() {
           ))}
 
           <a
-            href="/shauryaResume.pdf"
+            href="/SHAURYA RESUME.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className={isMobile ? "hidden" : ""}
