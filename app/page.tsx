@@ -299,7 +299,7 @@ export default function Portfolio() {
                 <h4 className="text-base sm:text-lg font-medium mb-3 sm:mb-4">Current Status</h4>
                 <div className="flex items-center gap-2 text-sm sm:text-base">
                   <div className="w-3 h-3 rounded-full bg-green-800 flex-shrink-0"></div>
-                  <span>Available for freelance work and full-time opportunities</span>
+                  <span>Available for Internship and full-time opportunities</span>
                 </div>
               </div>
             </GlassmorphicCard>
