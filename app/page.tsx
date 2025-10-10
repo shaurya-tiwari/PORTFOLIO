@@ -109,7 +109,7 @@ export default function Portfolio() {
             <div className="relative h-full w-full">
               <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600/50 w-full">
                 <Image
-                  src="/shauryaphoto.png"
+                  src="/shauryaphoto.jpg"
                   alt="Shaurya Tiwari"
                   width={600}
                   height={600}
