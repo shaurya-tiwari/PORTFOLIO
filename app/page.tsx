@@ -117,7 +117,6 @@ export default function Portfolio() {
                   priority
                   loading="eager"
                 />
-
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex items-center gap-2">
@@ -127,7 +126,6 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-
             <div className="space-y-4 md:space-y-6 relative h-full md:aspect-square w-full">
               <GlassmorphicCard>
                 <p className="text-sm md:text-base text-gray-200 leading-relaxed">
@@ -142,7 +140,6 @@ export default function Portfolio() {
                 <p className="text-sm md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
                   I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.
                 </p>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mt-6 md:mt-8 w-full">
                   <div className="space-y-1 min-w-0">
                     <div className="text-xs md:text-sm text-gray-500">Name</div>
@@ -161,14 +158,13 @@ export default function Portfolio() {
                     <div className="text-sm md:text-base font-medium text-green-500">Open to opportunities</div>
                   </div>
                 </div>
-
                 <div className="mt-6 md:mt-8 w-full">
                   <a
                     href="/SHAURYA RESUME.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-zinc-500 hover:bg-zinc-700 text-white text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
+                    <Button className="bg-gray-800 hover:bg-zinc-700 text-white text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
                       Resume
                     </Button>
                   </a>
@@ -178,7 +174,6 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
       {/* Skills Section */}
       <section id="skills" className="py-32 relative w-full">
         <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
@@ -210,6 +205,14 @@ export default function Portfolio() {
           <SectionHeading title="Featured Projects" subtitle="Some of my work" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-16 w-full">
+            <ProjectCard
+              title="Online multiplayer game"
+              description="A real-time 2D Online multiplayer game."
+              tags={["React.js", "socket.io", "Tailwind CSS", "express.js", "node.js"]}
+              image="/project 1.png?height=400&width=600"
+              demoUrl="https://stickman-onlinemultiplayer-race.vercel.app/"
+              repoUrl="https://github.com/shaurya-tiwari/stickman-onlinemultiplayer-race"
+            />
             <ProjectCard
               title="Online multiplayer game"
               description="A real-time 2D Online multiplayer game."
