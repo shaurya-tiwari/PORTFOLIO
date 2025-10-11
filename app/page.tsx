@@ -208,7 +208,7 @@ export default function Portfolio() {
             <ProjectCard
               title="AI Resume Analyzer Job Description Based Resume Evaluation"
               description="Offline Image Captioning lightweight app that generates AI-based descriptions for image."
-              tags={["Python", "Spacy", "perplexity API", "streamlit","PDFplumber"]}
+              tags={["Python", "Spacy", "perplexity API", "streamlit", "PDFplumber"]}
               image="/pr1 (1).png?height=400&width=600"
               demoUrl="https://github.com/shaurya-tiwari/genai-image-app"
               repoUrl="https://github.com/shaurya-tiwari/genai-image-app"
@@ -216,7 +216,7 @@ export default function Portfolio() {
             <ProjectCard
               title="Image Captioning and Image Classification app with Gen AI"
               description=" analyzes resumes against job descriptions to evaluate skill match."
-              tags={["FastAPI", "Jinja2", "Hugging Face’s BLIP model", "CSS", "HTML","Python"]}
+              tags={["FastAPI", "Jinja2", "Hugging Face’s BLIP model", "CSS", "HTML", "Python"]}
               image="/img1.png?height=400&width=600"
               demoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
               repoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
