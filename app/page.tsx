@@ -194,7 +194,7 @@ export default function Portfolio() {
             <SkillBadge name="Web Development" level={75} />
             <SkillBadge name="React" level={60} />
             <SkillBadge name="Next.js" level={60} />
-            <SkillBadge name="Java/jdbc" level={50} />
+            <SkillBadge name="Java" level={78} />
           </div>
         </div>
       </section>
