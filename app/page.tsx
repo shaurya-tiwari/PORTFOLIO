@@ -206,12 +206,20 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-16 w-full">
             <ProjectCard
-              title="Online multiplayer game"
-              description="A real-time 2D Online multiplayer game."
-              tags={["React.js", "socket.io", "Tailwind CSS", "express.js", "node.js"]}
-              image="/project 1.png?height=400&width=600"
-              demoUrl="https://stickman-onlinemultiplayer-race.vercel.app/"
-              repoUrl="https://github.com/shaurya-tiwari/stickman-onlinemultiplayer-race"
+              title="AI Resume Analyzer Job Description Based Resume Evaluation"
+              description="Offline Image Captioning lightweight app that generates AI-based descriptions for image."
+              tags={["Python", "Spacy", "perplexity API", "streamlit","PDFplumber"]}
+              image="/pr1 (1).png?height=400&width=600"
+              demoUrl="https://github.com/shaurya-tiwari/genai-image-app"
+              repoUrl="https://github.com/shaurya-tiwari/genai-image-app"
+            />
+            <ProjectCard
+              title="Image Captioning and Image Classification app with Gen AI"
+              description=" analyzes resumes against job descriptions to evaluate skill match."
+              tags={["FastAPI", "Jinja2", "Hugging Face’s BLIP model", "CSS", "HTML","Python"]}
+              image="/img1.png?height=400&width=600"
+              demoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
+              repoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
             />
             <ProjectCard
               title="Online multiplayer game"
@@ -228,14 +236,6 @@ export default function Portfolio() {
               image="/tube.png?height=400&width=600"
               repoUrl="https://github.com/shaurya-tiwari/YouTube-API"
               demoUrl="https://you-tube-api-rose.vercel.app/"
-            />
-            <ProjectCard
-              title="Portfolio Website"
-              description="This portfolio website built with Next.js and Tailwind CSS."
-              tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
-              image="/page1.png?height=400&width=600"
-              demoUrl="https://shaurya-tiwari-portfolio.vercel.app/"
-              repoUrl="https://github.com/shaurya-tiwari/PORTFOLIO"
             />
           </div>
         </div>
