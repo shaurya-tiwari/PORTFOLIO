@@ -15,8 +15,12 @@
     "clsx": "^2.0.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.263.1",
+<<<<<<< HEAD
     "mathjs": "^15.1.0",
     "next": "^15.3.4",
+=======
+    "next": "15.3.8",
+>>>>>>> 32d16d729866c24d3cbbfac66b6e9acd85437edc
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.0.0",
