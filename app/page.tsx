@@ -8,8 +8,6 @@ import { Timeline } from "@/components/timeline"
 import { ContactForm } from "@/components/contact-form"
 import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
-import GradualBlur from "@/components/ui/GradualBlur";
-
 import { MouseFollower } from "@/components/mouse-follower"
 import { ScrollProgress } from "@/components/scroll-progress"
 import Wings from "@/components/wing"; // adjust the path according to your project structure
@@ -23,19 +21,6 @@ export default function Portfolio() {
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
-
-      {/* GLOBAL BOTTOM SCROLL BLUR */}
-      <GradualBlur
-        target="page"          
-        position="bottom"
-        height="7rem"
-        strength={2}
-        divCount={6}
-        curve="bezier"
-        exponential
-        opacity={1}
-        zIndex={9999}
-      />
 
       <section className="relative flex items-center justify-center w-full py-12 sm:py-16 md:py-20 lg:py-24">
         {/* Background / CreativeHero */}
