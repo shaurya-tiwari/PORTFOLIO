@@ -128,7 +128,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="relative h-full w-full">
-              <GlassmorphicCard className="h-full flex flex-col md:p-12 md:shadow-[-30px_30px_60px_rgba(0,0,0,0.7)]">
+              <GlassmorphicCard className="h-full flex flex-col md:shadow-[-30px_30px_60px_rgba(0,0,0,0.7)]">
                 <div className="mb-4">
                   <p className="text-xs md:text-base text-gray-200 leading-relaxed">
                     I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
