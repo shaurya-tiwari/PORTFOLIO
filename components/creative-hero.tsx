@@ -124,10 +124,10 @@ export function CreativeHero() {
     window.addEventListener("resize", setCanvasDimensions)
 
     // Mouse
-    let mouseX = 0
-    let mouseY = 0
-    let targetX = 0
-    let targetY = 0
+    let mouseX = -1000
+    let mouseY = -1000
+    let targetX = -1000
+    let targetY = -1000
 
     const mouseMoveHandler = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
@@ -161,20 +161,29 @@ export function CreativeHero() {
         this.color = colors[Math.floor(Math.random() * colors.length)]
       }
 
-      update() {
-        const dx = mouseX - this.x
-        const dy = mouseY - this.y
-        const distance = Math.sqrt(dx * dx + dy * dy)
+      update(repellers: { x: number; y: number }[]) {
+        let closestPt: { x: number; y: number } | null = null
+        let minDist = 100 // maxDistance
 
-        const forceDirectionX = dx / distance
-        const forceDirectionY = dy / distance
+        for (const pt of repellers) {
+          const dx = pt.x - this.x
+          const dy = pt.y - this.y
+          const distSq = dx * dx + dy * dy
+          if (distSq < 100 * 100) {
+            const dist = Math.sqrt(distSq)
+            if (dist < minDist) {
+              minDist = dist
+              closestPt = pt
+            }
+          }
+        }
 
-        const maxDistance = 100
-        const force = (maxDistance - distance) / maxDistance
-
-        if (distance < maxDistance) {
-          const directionX = forceDirectionX * force * this.density
-          const directionY = forceDirectionY * force * this.density
+        if (closestPt) {
+          const dx = closestPt.x - this.x
+          const dy = closestPt.y - this.y
+          const force = (100 - minDist) / 100
+          const directionX = (dx / minDist) * force * this.density
+          const directionY = (dy / minDist) * force * this.density
           this.x -= directionX
           this.y -= directionY
           this.isMoving = true
@@ -216,11 +225,40 @@ export function CreativeHero() {
 
     init()
 
+    let wingElement: HTMLElement | null = null
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       mouseX += (targetX - mouseX) * 0.1
       mouseY += (targetY - mouseY) * 0.1
+
+      if (!wingElement) {
+        wingElement = document.getElementById("wing-repeller")
+      }
+
+      const interactionPoints: { x: number; y: number }[] = []
+
+      // Only add mouse if it's actually been moved (not at default -1000)
+      if (mouseX > -500) {
+        interactionPoints.push({ x: mouseX, y: mouseY })
+      }
+
+      if (wingElement) {
+        const wingRect = wingElement.getBoundingClientRect()
+        const canvasRect = canvas.getBoundingClientRect()
+
+        // Check if wing overlaps with canvas vertically
+        if (wingRect.bottom > canvasRect.top && wingRect.top < canvasRect.bottom) {
+          const left = wingRect.left - canvasRect.left
+          const top = wingRect.top - canvasRect.top
+          const width = wingRect.width
+          const height = wingRect.height
+
+          // Keep only the RIGHT end point (tip) for the wing repulsion as requested
+          interactionPoints.push({ x: left + width * 0.85, y: top + height * 0.15 }) // Top Right Tip
+        }
+      }
 
       const quadtree = new Quadtree(
         { x: 0, y: 0, w: canvas.width / devicePixelRatio, h: canvas.height / devicePixelRatio },
@@ -232,7 +270,7 @@ export function CreativeHero() {
       }
 
       for (let p of particlesArray) {
-        p.update()
+        p.update(interactionPoints)
         p.draw()
 
         const neighbours: Particle[] = []
