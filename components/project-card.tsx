@@ -26,67 +26,53 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      viewport={{ once: true }}
-      className="group rounded-xl border border-white/10 bg-white/10 hover:shadow-md transition-shadow duration-200 w-full h-full flex flex-col"
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0 }
+      }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative flex flex-col w-full h-full bg-white/[0.02] border border-white/5 overflow-hidden transition-all duration-700 hover:bg-white/[0.04]"
     >
       {/* Image Section */}
-      <div className="relative h-44 xs:h-48 sm:h-52 md:h-56 lg:h-60 overflow-hidden rounded-t-xl flex-shrink-0">
+      <div className="relative aspect-video overflow-hidden">
         <img
           src={image || "/placeholder.svg"}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           loading="lazy"
         />
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700" />
       </div>
 
       {/* Content Section */}
-      <div className="p-3 sm:p-4 md:p-5 text-white flex-1 flex flex-col">
-        <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-1 md:mb-2">
+      <div className="p-8 flex-1 flex flex-col">
+        <div className="mono-label mb-4">CASE STUDY</div>
+        <h3 className="editorial-heading text-4xl text-white mb-4 group-hover:opacity-80 transition-opacity duration-500">
           {title}
         </h3>
-        <p className="text-xs sm:text-sm md:text-base text-white/70 line-clamp-2 mb-2 md:mb-3 flex-1">
+        <p className="text-muted-foreground text-lg line-clamp-3 mb-8 flex-1">
           {description}
         </p>
 
-        <div className="flex flex-wrap gap-1 md:gap-1.5 mb-3 md:mb-4">
+        <div className="flex flex-wrap gap-2 mb-8">
           {tags.map((tag) => (
-            <Badge
+            <span
               key={tag}
-              variant="secondary"
-              className="bg-white/10 text-white/70 text-[9px] sm:text-[10px] md:text-xs px-1.5 py-1"
+              className="mono-label !text-[9px] border border-white/10 px-2 py-1"
             >
               {tag}
-            </Badge>
+            </span>
           ))}
         </div>
 
-        {/* Buttons */}
-        <div className="flex justify-between items-center mt-auto">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-white/60 hover:text-white px-2 md:px-3 h-7 md:h-8"
-            asChild
-          >
-            <Link href={repoUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="mr-1 h-3.5 w-3.5 md:h-4 md:w-4" />
-              <span className="text-[11px] md:text-xs">Code</span>
-            </Link>
-          </Button>
-
-          <Button
-            size="sm"
-            className="bg-white/10 hover:bg-white/20 text-white px-3 md:px-4 h-7 md:h-8 text-[11px] md:text-xs"
-            asChild
-          >
-            <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
-              Live
-              <ArrowUpRight className="ml-1 h-3.5 w-3.5 md:h-4 md:w-4" />
-            </Link>
-          </Button>
+        {/* Actions */}
+        <div className="flex justify-between items-center mt-auto pt-8 border-t border-white/5">
+          <Link href={repoUrl} target="_blank" rel="noopener noreferrer" className="mono-label hover:text-white transition-colors">
+            SOURCE CODE ↗
+          </Link>
+          <Link href={demoUrl} target="_blank" rel="noopener noreferrer" className="mono-label hover:text-white transition-colors">
+            LIVE PREVIEW ↗
+          </Link>
         </div>
       </div>
     </motion.div>

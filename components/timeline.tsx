@@ -39,47 +39,29 @@ const TimelineItem = memo(({ experience, index, isMobile }: {
   const animationX = useMemo(() => isEven ? 40 : -40, [isEven])
 
   return (
-    <div
-      className={`relative z-10 flex flex-col md:flex-row ${isEven ? "md:flex-row-reverse" : ""}`}
-    >
+    <div className="relative z-10 py-12 border-t border-white/5 last:border-b">
       <motion.div
-        className={`w-full md:w-1/2 ${isEven ? "md:pl-6" : "md:pr-6"}`}
-        initial={{ opacity: 0, x: animationX }}
+        initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true }}
+        className="flex flex-col md:flex-row gap-8 items-start"
       >
-        <div
-          className={`relative rounded-xl border border-white/10 ${isMobile ? "bg-white/5" : "bg-white/10 backdrop-blur-md shadow-md"
-            } p-4 sm:p-6 transition-all duration-300`}
-        >
-          {!isMobile && (
-            <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 blur-md rounded-xl opacity-30" />
-          )}
-          <div className="relative z-10">
-            <h3 className="text-base sm:text-lg font-semibold text-white">{experience.title}</h3>
-            <div className="text-xs sm:text-sm text-white/60 mb-2">
-              {experience.company} | {experience.period}
-            </div>
-            <p className="text-xs sm:text-sm text-white/80">{experience.description}</p>
+        <div className="w-full md:w-1/4 mono-label pt-1">{experience.period}</div>
+        <div className="flex-1 space-y-4">
+          <div className="flex flex-wrap items-baseline gap-4">
+            <h3 className="text-3xl font-bold text-white leading-none">{experience.title}</h3>
+            {experience.company && (
+              <span className="mono-label text-white/50">{experience.company}</span>
+            )}
           </div>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
+            {experience.description}
+          </p>
         </div>
       </motion.div>
-
-      {!isMobile && (
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center z-20">
-          <motion.div
-            className="w-5 h-5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div className="w-2 h-2 rounded-full bg-white" />
-          </motion.div>
-        </div>
-      )}
     </div>
+
   )
 })
 
@@ -89,12 +71,7 @@ export const Timeline = memo(() => {
   const isMobile = useMobile()
 
   return (
-    <div
-      className={`space-y-8 sm:space-y-10 relative ${!isMobile
-          ? "before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:border-l-2 before:border-white/10"
-          : ""
-        }`}
-    >
+    <div className="w-full mt-12 border-b border-white/5">
       {experiences.map((experience, index) => (
         <TimelineItem
           key={index}

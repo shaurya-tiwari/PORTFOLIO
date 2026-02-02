@@ -11,13 +11,13 @@ interface GlassmorphicCardProps {
 export function GlassmorphicCard({ children, className }: GlassmorphicCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      initial={{ opacity: 0, scale: 0.98 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true }}
-      className={className}
+      className={`${className} glass-card group overflow-hidden`}
     >
-      <div className="rounded-xl border border-white/10 bg-white/10 p-6 shadow-sm text-white transition duration-300 h-full">
+      <div className="p-8 text-white h-full relative">
         {children}
       </div>
     </motion.div>

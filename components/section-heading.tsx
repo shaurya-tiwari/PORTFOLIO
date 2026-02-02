@@ -9,37 +9,34 @@ interface SectionHeadingProps {
 
 export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
   return (
-    <div className="text-center space-y-4">
+    <div className="space-y-2 mb-12">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true }}
+        className="mono-label"
       >
-        <div className="inline-block">
-          <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-2">
-            <span className="relative z-10">{subtitle}</span>
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-900/20 to-gray-600/20 animate-pulse"></span>
-          </div>
-        </div>
+        {subtitle}
       </motion.div>
 
       <motion.h2
-        className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-300"
-        initial={{ opacity: 0, y: 20 }}
+        className="editorial-heading text-6xl md:text-8xl text-white"
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         viewport={{ once: true }}
       >
         {title}
       </motion.h2>
 
       <motion.div
-        className="w-24 h-1.5 bg-gradient-to-r from-gray-900 to-gray-600 rounded-full mx-auto mt-6"
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        className="w-full h-[1px] bg-white/10 mt-8"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         viewport={{ once: true }}
+        style={{ originX: 0 }}
       />
     </div>
   )

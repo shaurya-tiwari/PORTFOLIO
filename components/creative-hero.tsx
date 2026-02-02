@@ -157,18 +157,19 @@ export function CreativeHero() {
         this.density = Math.random() * 30 + 1
         this.isMoving = false
 
-        const colors = ["#00ffea", "#1fffff", "#00ffcc", "#ffffff"]
+        const colors = ["#ffffffff"]
         this.color = colors[Math.floor(Math.random() * colors.length)]
       }
 
       update(repellers: { x: number; y: number }[]) {
         let closestPt: { x: number; y: number } | null = null
-        let minDist = 100 // maxDistance
+        let minDist = 100 // interactionRadius
 
         for (const pt of repellers) {
           const dx = pt.x - this.x
           const dy = pt.y - this.y
           const distSq = dx * dx + dy * dy
+          // Use interaction radius consistently
           if (distSq < 100 * 100) {
             const dist = Math.sqrt(distSq)
             if (dist < minDist) {
@@ -188,9 +189,27 @@ export function CreativeHero() {
           this.y -= directionY
           this.isMoving = true
         } else {
-          if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10
-          if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10
-          this.isMoving = false
+          // Stable return home logic
+          const dx = this.x - this.baseX
+          const dy = this.y - this.baseY
+
+          if (Math.abs(dx) > 0.01) {
+            this.x -= dx / 10
+            this.isMoving = true
+          } else {
+            this.x = this.baseX
+          }
+
+          if (Math.abs(dy) > 0.01) {
+            this.y -= dy / 10
+            this.isMoving = true
+          } else {
+            this.y = this.baseY
+          }
+
+          if (Math.abs(dx) <= 0.01 && Math.abs(dy) <= 0.01) {
+            this.isMoving = false
+          }
         }
       }
 
@@ -205,19 +224,23 @@ export function CreativeHero() {
     }
 
     const particlesArray: Particle[] = []
-    const gridSize = 30
 
     const init = () => {
       particlesArray.length = 0
       const canvasWidth = canvas.width / devicePixelRatio
       const canvasHeight = canvas.height / devicePixelRatio
-      const numX = Math.floor(canvasWidth / gridSize)
-      const numY = Math.floor(canvasHeight / gridSize)
+
+      // Dynamic grid size for density: 20px on mobile, 30px on desktop
+      const isSmall = typeof window !== "undefined" && window.innerWidth < 768
+      const currentGridSize = isSmall ? 20 : 30
+
+      const numX = Math.floor(canvasWidth / currentGridSize)
+      const numY = Math.floor(canvasHeight / currentGridSize)
 
       for (let y = 0; y < numY; y++) {
         for (let x = 0; x < numX; x++) {
-          const posX = x * gridSize + gridSize / 2
-          const posY = y * gridSize + gridSize / 2
+          const posX = x * currentGridSize + currentGridSize / 2
+          const posY = y * currentGridSize + currentGridSize / 2
           particlesArray.push(new Particle(posX, posY))
         }
       }
@@ -288,8 +311,8 @@ export function CreativeHero() {
           if (distance < 30) {
             ctx.beginPath()
             ctx.strokeStyle = p.isMoving || n.isMoving
-              ? "#ffffff"
-              : `rgba(0, 255, 255, ${0.5 - distance / 100})`
+              ? "rgba(252, 245, 245, 0.96)"
+              : `rgba(150, 150, 150, ${0.5 - distance / 100})`
             ctx.lineWidth = 0.3
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(n.x, n.y)
@@ -311,7 +334,7 @@ export function CreativeHero() {
 
   return (
     <motion.div
-      className="w-full h-[400px] relative"
+      className="w-full h-[250px] md:h-[350px] lg:h-[400px] relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -320,3 +343,4 @@ export function CreativeHero() {
     </motion.div>
   )
 }
+

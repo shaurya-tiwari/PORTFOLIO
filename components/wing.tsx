@@ -15,7 +15,7 @@ const Wings: React.FC = () => {
         alt="Wings"
         id="wing-repeller"
         className="h-full object-contain origin-bottom"
-        style={{ filter: "drop-shadow(50px 10px 20px rgba(0,0,0,1))" }}
+        style={{ filter: "drop-shadow(0 15px 15px rgba(0,0,0,0.95)) drop-shadow(0 30px 60px rgba(0,0,0,0.8))" }}
         initial={{ rotate: 90, scale: 0, opacity: 0 }}
         animate={
           isInView

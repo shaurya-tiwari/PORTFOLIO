@@ -1,4 +1,7 @@
+"use client";
+
 import dynamic from "next/dynamic"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Github, Linkedin, Mail, Twitter, } from "lucide-react"
 import SmoothScroll from "@/components/SmoothScroll";
@@ -18,224 +21,160 @@ const Timeline = dynamic(() => import("@/components/timeline").then(mod => mod.T
 const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: true })
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gradient-to-bl from-gray-900 via-gray-800 to-slate-400 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SmoothScroll />
       <MouseFollower />
       <ScrollProgress />
       <FloatingNav />
 
-      <section className="relative flex items-center justify-center w-full py-12 md:py-24">
-        {/* Background / CreativeHero */}
-        <div className="absolute inset-0 z-0">
+      <section className="relative min-h-[85vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 py-24 overflow-hidden">
+        {/* Background Texture / CreativeHero - Senior UI/UX: Full-width for seamless editorial look */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
           <CreativeHero />
         </div>
 
-        <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="space-y-6 w-full">
-            <div className="w-full">
-              <div className="backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4 md:space-y-6 shadow-2xl w-full">
-                <h1 className="text-3xl sm:text-4xl md:text-7xl font-semibold tracking-tight">
-                  <span className="block">Hi, I'm</span>
-                  <span className="text-gray-300 font-normal">Shaurya</span>
-                </h1>
-                <p className="text-sm sm:text-base md:text-xl text-zinc-300 max-w-full leading-relaxed">
-                  AI & ML student exploring machine learning, deep learning, and AI-driven solutions to solve real-world problems, with a keen interest in frontend development.
+
+        <div className="relative z-10 w-full max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-12"
+          >
+            <div className="mono-label">01 — DIGITAL ARCHITECT</div>
+
+            <div className="relative inline-block w-full">
+              <h1 className="editorial-heading text-6xl md:text-8xl lg:text-[13rem] leading-[0.8] tracking-tighter relative z-10">
+                SHAURYA<br />
+                TIWARI
+              </h1>
+              {/* The Wings - Re-aligned to new lowered content position */}
+              <div className="absolute bottom-[-110%] md:bottom-[-20%] lg:bottom-[0%] -right-[5%] md:right-[10%] lg:-right-[-7%] w-[65%] md:w-[45%] lg:w-[40%] h-auto z-20 opacity-70 pointer-events-none grayscale contrast-150 scale-100 overflow-visible rotate-0">
+                <Wings />
+              </div>
+            </div>
+
+            <div className="designer-grid">
+              <div className="col-span-12 lg:col-span-6 space-y-6">
+                <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl italic">
+                  AI & ML student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
                 </p>
-              </div>
-            </div>
-
-            {/* Social Icons */}
-            <div className="flex gap-4 pt-4 w-full">
-              <Link
-                href="https://github.com/shaurya-tiwari"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
-                >
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </Button>
-              </Link>
-
-              <Link
-                href="https://www.linkedin.com/in/shauryatiwari120/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Button>
-              </Link>
-
-              <Link
-                href="https://x.com/Shauryatiwari77"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
-                >
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* wingsss */}
-      <section className="relative z-50 pointer-events-none mt-[-150px] sm:mt-[-200px] md:mt-[-300px] lg:mt-[-400px]">
-        <Wings />
-      </section>
-
-
-      {/* About Section */}
-      <section id="about" className="py-16 md:py-32 relative w-full">
-        <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="About Me" subtitle="My background and journey" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch mt-16 w-full">
-            <div className="relative h-full w-full">
-              <div className="relative h-[450px] md:h-[850px] rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600/50 w-full">
-                <Image
-                  src="/shauryaphoto.jpg"
-                  alt="Shaurya Tiwari"
-                  width={600}
-                  height={600}
-                  className="w-full h-full object-cover object-top"
-                  priority
-                  loading="eager"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 w-full p-6">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span className="text-sm font-medium">Available for work</span>
+                <div className="flex gap-8 pt-4">
+                  <div className="group flex items-center gap-2 cursor-pointer">
+                    <div className="mono-label group-hover:text-primary transition-colors">SCROLL TO DISCOVER</div>
+                    <ArrowRight className="h-4 w-4 text-primary animate-bounce-x" />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="relative h-full w-full">
-              <GlassmorphicCard className="h-full flex flex-col md:shadow-[-30px_30px_60px_rgba(0,0,0,0.7)]">
-                <div className="mb-4">
-                  <p className="text-xs md:text-base text-gray-200 leading-relaxed">
-                    I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
-                  </p>
-                  <p className="text-xs md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
-                    I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
-                  </p>
-                  <p className="text-xs md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
-                    I enjoy web development—creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications.
-                  </p>
-                  <p className="text-xs md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
-                    I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.
-                  </p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mt-6 md:mt-8 w-full">
-                  <div className="space-y-1 min-w-0 hidden md:block">
-                    <div className="text-xs md:text-sm text-gray-500">Name</div>
-                    <div className="text-sm md:text-base font-thin">Shaurya Tiwari</div>
-                  </div>
-                  <div className="space-y-1 min-w-0">
-                    <div className="text-xs md:text-sm text-gray-500">Email</div>
-                    <div className="text-sm md:text-base font-thin break-all overflow-hidden">shauryatiwari120@gmail.com</div>
-                  </div>
-                  <div className="space-y-1 min-w-0">
-                    <div className="text-xs md:text-sm text-gray-500">Location</div>
-                    <div className="text-sm md:text-base font-thin">Noida, India</div>
-                  </div>
-                  <div className="space-y-1 min-w-0">
-                    <div className="text-xs md:text-sm text-gray-500">Availability</div>
-                    <div className="text-sm md:text-base font-medium text-green-500">Open to opportunities</div>
-                  </div>
-                </div>
-                <div className="mt-6 md:mt-8 w-full">
-                  <a
-                    href="/SHAURYA RESUME.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button className="bg-gray-800 hover:bg-zinc-700 text-white text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
-                      Resume
-                    </Button>
-                  </a>
-                </div>
-              </GlassmorphicCard>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
-      {/* Skills Section */}
-      <section id="skills" className="py-12 md:py-32 relative w-full">
-        <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="My Skills" subtitle="Technologies I work with" />
+      <section id="about" className="py-24 relative w-full px-4 lg:px-12 scroll-mt-20">
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16 w-full">
-            <SkillBadge name="Python" level={80} />
-            <SkillBadge name="Pandas" level={60} />
-            <SkillBadge name="Numpy" level={90} />
-            <SkillBadge name="Matplotlib" level={60} />
-            <SkillBadge name="Seaborn" level={60} />
-            <SkillBadge name="Plotly / Cufflinks" level={70} />
-            <SkillBadge name="Machine Learning" level={50} />
-            <SkillBadge name="SQL" level={60} />
-            <SkillBadge name="Mathematics" level={80} />
-            <SkillBadge name="AI Prompt" level={90} />
-            <SkillBadge name="Tailwind CSS" level={95} />
-            <SkillBadge name="Web Development" level={75} />
-            <SkillBadge name="React" level={60} />
-            <SkillBadge name="Next.js" level={60} />
-            <SkillBadge name="Java" level={78} />
+        <div className="designer-grid relative z-10 items-start">
+          {/* Bio Tile */}
+          <div className="col-span-12 lg:col-span-7">
+            <SectionHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
+            <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p>
+                I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
+              </p>
+              <p>
+                I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
+              </p>
+              <div className="designer-grid mt-12 pt-12 border-t border-white/5">
+                <div className="col-span-12 md:col-span-6 space-y-2">
+                  <div className="mono-label">AVAILABILITY</div>
+                  <div className="text-white text-xl">Open to Internship and full-time opportunities</div>
+                </div>
+                <div className="col-span-12 md:col-span-6 space-y-2">
+                  <div className="mono-label">LOCATION</div>
+                  <div className="text-white text-xl">Noida, India — GMT +5:30</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Profile Tile */}
+          <div className="col-span-12 lg:col-span-5 h-full self-stretch">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              className="relative aspect-[3/4] lg:h-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000"
+            >
+              <Image
+                src="/shauryaphoto.jpg"
+                alt="Shaurya Tiwari"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </motion.div>
+          </div>
+
+          {/* Skills Grid - Integrated */}
+          <div className="col-span-12 mt-24">
+            <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-white/5 mt-8">
+              <SkillBadge name="Python" level={80} />
+              <SkillBadge name="Pandas" level={60} />
+              <SkillBadge name="Numpy" level={90} />
+              <SkillBadge name="Matplotlib" level={60} />
+              <SkillBadge name="Seaborn" level={60} />
+              <SkillBadge name="Plotly" level={70} />
+              <SkillBadge name="Machine Learning" level={50} />
+              <SkillBadge name="SQL" level={60} />
+              <SkillBadge name="Tailwind CSS" level={95} />
+              <SkillBadge name="React" level={60} />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-12 md:py-32 relative w-full">
-        <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Featured Projects" subtitle="Some of my work" />
+      <section id="projects" className="py-24 relative w-full px-4 lg:px-12">
+        <SectionHeading title="CASE STUDIES" subtitle="04 — WORK" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-16 w-full">
+        <div className="designer-grid mt-12">
+          <div className="col-span-12 lg:col-span-8">
             <ProjectCard
-              title="AI Resume Analyzer Job Description Based Resume Evaluation"
-              description="Analyzes resumes against job descriptions to evaluate skill match."
+              title="AI Resume Analyzer"
+              description="Job Description Based Resume Evaluation. Analyzes resumes against job descriptions to evaluate skill match and technical relevance."
               tags={["Python", "Spacy", "perplexity API", "streamlit", "PDFplumber"]}
-              image="/pr1 (1).png?height=400&width=600"
+              image="/pr1 (1).png?height=600&width=800"
               demoUrl="https://github.com/shaurya-tiwari/genai-image-app"
               repoUrl="https://github.com/shaurya-tiwari/genai-image-app"
             />
+          </div>
+          <div className="col-span-12 lg:col-span-4">
             <ProjectCard
-              title="Image Captioning and Image Classification app with Gen AI"
-              description="Offline Image Captioning lightweight app that generates AI-based descriptions for image."
-              tags={["FastAPI", "Jinja2", "Hugging Face’s BLIP model", "CSS", "HTML", "Python"]}
-              image="/img1.png?height=400&width=600"
+              title="Gen AI Image App"
+              description="Offline Image Captioning lightweight app that generates AI descriptions."
+              tags={["FastAPI", "Hugging Face", "Python"]}
+              image="/img1.png?height=600&width=400"
               demoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
               repoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
             />
+          </div>
+          <div className="col-span-12 lg:col-span-4">
             <ProjectCard
-              title="Online multiplayer game"
+              title="Stickman Race"
               description="A real-time 2D Online multiplayer game."
-              tags={["React.js", "socket.io", "Tailwind CSS", "express.js", "node.js"]}
-              image="/project 1.png?height=400&width=600"
+              tags={["React.js", "socket.io", "node.js"]}
+              image="/project 1.png?height=600&width=400"
               demoUrl="https://stickman-onlinemultiplayer-race.vercel.app/"
               repoUrl="https://github.com/shaurya-tiwari/stickman-onlinemultiplayer-race"
             />
+          </div>
+          <div className="col-span-12 lg:col-span-8">
             <ProjectCard
-              title="YouTube API (video streaming site)"
-              description="This site fetches and displays YouTube videos based on user searches."
+              title="YouTube Analytics"
+              description="Fetches and displays YouTube videos based on user searches with deep data integration."
               tags={["react.js", "tailwind CSS", "YouTube API"]}
-              image="/tube.png?height=400&width=600"
+              image="/tube.png?height=600&width=800"
               repoUrl="https://github.com/shaurya-tiwari/YouTube-API"
               demoUrl="https://you-tube-api-rose.vercel.app/"
             />
@@ -244,127 +183,51 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 md:py-32 relative w-full">
-        <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Work Experience" subtitle="My professional journey" />
-
-          <div className="mt-16 w-full">
-            <Timeline />
-          </div>
+      <section id="experience" className="py-24 relative w-full px-4 lg:px-12">
+        <SectionHeading title="CHRONOLOGY" subtitle="05 — JOURNEY" />
+        <div className="mt-12 w-full max-w-4xl">
+          <Timeline />
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-32 relative w-full">
-        <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Get In Touch" subtitle="Let's work together" />
+      <section id="contact" className="py-24 relative w-full px-4 lg:px-12">
+        <div className="designer-grid items-center">
+          <div className="col-span-12 lg:col-span-6">
+            <SectionHeading title="COLLABORATE" subtitle="06 — CONTACT" />
+            <div className="mt-8 space-y-12">
+              <p className="text-2xl text-muted-foreground italic max-w-md">
+                Looking for a dedicated AI & ML student for internships or technical collaboration? Let's connect.
+              </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-6 mt-16 items-stretch w-full">
-            <GlassmorphicCard className="h-full md:max-h-[800px] overflow-y-auto custom-scrollbar">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contact Information</h3>
-              <div className="space-y-4 sm:space-y-6">
-                {/* Email */}
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs sm:text-sm text-zinc-400">Email</div>
-                    <div className="text-sm sm:text-base font-medium break-all">shauryatiwari120@gmail.com</div>
-                  </div>
+              <div className="space-y-4">
+                <div className="group flex items-center gap-6">
+                  <div className="mono-label !text-white/40">EMAIL</div>
+                  <a href="mailto:shauryatiwari120@gmail.com" className="text-2xl hover:text-primary transition-colors">shauryatiwari120@gmail.com</a>
                 </div>
-
-                {/* LinkedIn */}
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="flex items-center justify-center flex-shrink-0">
-                    <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs sm:text-sm text-zinc-400">LinkedIn</div>
-                    <div className="text-sm sm:text-base font-medium break-all">linkedin.com/in/shauryatiwari120/</div>
-                  </div>
-                </div>
-
-                {/* GitHub */}
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="flex items-center justify-center flex-shrink-0">
-                    <Github className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs sm:text-sm text-zinc-400">GitHub</div>
-                    <div className="text-sm sm:text-base font-medium break-all">github.com/shaurya-tiwari</div>
-                  </div>
+                <div className="group flex items-center gap-6">
+                  <div className="mono-label !text-white/40">LINKEDIN</div>
+                  <a href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="text-2xl hover:text-primary transition-colors">shauryatiwari120</a>
                 </div>
               </div>
-
-              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-zinc-800/50">
-                <h4 className="text-base sm:text-lg font-medium mb-3 sm:mb-4">Current Status</h4>
-                <div className="flex items-center gap-2 text-sm sm:text-base">
-                  <div className="w-3 h-3 rounded-full bg-green-800 flex-shrink-0"></div>
-                  <span>Available for Internship and full-time opportunities</span>
-                </div>
-              </div>
-            </GlassmorphicCard>
-            <div className="w-full md:max-h-[800px]">
-              <ContactForm />
             </div>
+          </div>
+          <div className="col-span-12 lg:col-span-6 mt-12 lg:mt-0">
+            <ContactForm />
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-800/50 py-12 w-full">
-        <div className="container flex flex-col md:flex-row justify-between items-center gap-6 max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="text-center md:text-left">
-            <Link href="/" className="hover:text-purple-400 transition-colors text-xl">
-              <span className="text-white italic">Shaurya Tiwari</span>
-            </Link>
-            <p className="text-sm text-zinc-300 mt-2">
-              © {new Date().getFullYear()} Shaurya. Built with passion and continuous learning.
-            </p>
+      <footer className="py-12 px-4 lg:px-12 border-t border-white/5">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <div className="mono-label !text-white/90 text-2xl tracking-tighter">SHAURYA TIWARI</div>
+          <div className="flex gap-8">
+            <Link href="https://github.com/shaurya-tiwari" target="_blank" className="mono-label hover:text-white">GITHUB</Link>
+            <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="mono-label hover:text-white">LINKEDIN</Link>
+            <Link href="https://x.com/Shauryatiwari77" target="_blank" className="mono-label hover:text-white">TWITTER</Link>
           </div>
-          <div className="flex gap-4 flex-wrap justify-center md:justify-end">
-            <Link href="https://github.com/shaurya-tiwari" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700/80 text-zinc-400 hover:text-white"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Button>
-            </Link>
-            <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700/80 text-zinc-400 hover:text-white"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Button>
-            </Link>
-            <Link href="https://x.com/Shauryatiwari77" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700/80 text-zinc-400 hover:text-white"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Button>
-            </Link>
-            <Link href="https://mail.google.com">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-full bg-zinc-800/60 hover:bg-zinc-700/80 text-zinc-400 hover:text-white"
-              >
-                <Mail className="h-5 w-5" />
-                <span className="sr-only">Email</span>
-              </Button>
-            </Link>
-          </div>
+          <div className="mono-label">© {new Date().getFullYear()} — NOIDA, IN</div>
         </div>
       </footer>
     </div>

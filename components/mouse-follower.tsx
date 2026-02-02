@@ -14,8 +14,8 @@ export function MouseFollower() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX - 40);
-      mouseY.set(e.clientY - 40);
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
       setIsVisible(true);
     };
 
@@ -35,14 +35,16 @@ export function MouseFollower() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-20 h-20 rounded-full pointer-events-none z-50"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-primary/30 pointer-events-none z-[100] mix-blend-difference hidden md:flex items-center justify-center translate-x-[-50%] translate-y-[-50%]"
         style={{
           x: smoothX,
           y: smoothY,
-          opacity: isVisible ? 0.5 : 0,
-          background: "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)",
+          opacity: isVisible ? 1 : 0,
+          scale: isVisible ? 1 : 0.5,
         }}
-      />
+      >
+        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+      </motion.div>
     </>
   );
 }
