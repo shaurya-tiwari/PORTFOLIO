@@ -116,7 +116,7 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                     <SwiperSlide key={`${project.title}-${index}`}>
                         <div className="relative w-full h-full group">
                             <img
-                                className="h-full w-full object-cover transition-all duration-700"
+                                className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                                 src={project.image}
                                 alt={project.title}
                             />
