@@ -33,55 +33,78 @@ const StackCard = ({
 }) => {
     const [isHovered, setIsHovered] = useState(false)
     const x = useMotionValue(0)
-    const rotate = useTransform(x, [-200, 200], [-15, 15])
-    const scale = isTop ? 1 : 1 - (index * 0.05)
-    const translateY = isTop ? 0 : index * 12
+
+    // Wider fanned-out effect for better visibility from sides
+    const fannedRotation = index === 1 ? -12 : index === 2 ? 12 : 0
+    const fannedX = index === 1 ? -40 : index === 2 ? 40 : 0
+
+    const rotate = useTransform(x, [-200, 200], [-30, 30])
+    const scale = isTop ? 1 : 1 - (index * 0.08)
+    const translateY = isTop ? 0 : -index * 15
 
     const handleDragEnd = (event: any, info: any) => {
-        if (Math.abs(info.offset.x) > 120) {
+        if (Math.abs(info.offset.x) > 100) {
             onSwipe()
         }
     }
 
     return (
         <motion.div
-            style={isTop ? { x, rotate, zIndex: 100 } : { scale, y: translateY, zIndex: 30 - index }}
+            style={{
+                x,
+                rotate: isTop ? rotate : fannedRotation,
+                scale,
+                y: isTop ? 0 : translateY,
+                translateX: isTop ? 0 : fannedX,
+                zIndex: 100 - index
+            }}
             drag={isTop ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={handleDragEnd}
             onMouseEnter={() => isTop && setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            initial={{
+                scale: 0.8,
+                opacity: 0,
+                y: 20,
+                rotate: 0,
+                translateX: 0
+            }}
             animate={{
                 scale: isTop ? 1 : scale,
                 y: isTop ? 0 : translateY,
+                opacity: 1,
+                rotate: isTop ? undefined : fannedRotation,
+                translateX: isTop ? 0 : fannedX,
             }}
             exit={{
                 x: x.get() < 0 ? -1000 : 1000,
                 rotate: x.get() < 0 ? -60 : 60,
-                opacity: 1, // Keep fully opaque during exit
-                zIndex: 1000,
+                opacity: 0,
+                scale: 0.5,
+                zIndex: 200,
                 transition: { duration: 0.4, ease: "easeIn" }
             }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className={`absolute inset-0 flex items-center justify-center ${isTop ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"}`}
         >
-            <div className="relative w-full max-w-[420px] aspect-[4/5] bg-black border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.9)]">
+            <div className={`relative w-full max-w-[420px] aspect-[4/5] bg-black border border-white/10 rounded-[2.5rem] overflow-hidden transition-shadow duration-500 ${isTop ? "shadow-[0_40px_100px_rgba(0,0,0,0.9)]" : "shadow-none"}`}>
                 <motion.img
                     src={project.image}
                     alt={project.title}
                     animate={{
                         filter: isHovered && isTop
-                            ? "grayscale(0%) brightness(1)"
+                            ? "grayscale(0%) brightness(1) blur(0px)"
                             : isTop
-                                ? "grayscale(100%) brightness(0.5)"
-                                : "grayscale(100%) brightness(0.1)",
+                                ? "grayscale(100%) brightness(0.6) blur(0px)"
+                                : `grayscale(100%) brightness(0.15) blur(${index * 4}px)`,
                         scale: isHovered && isTop ? 1.05 : 1
                     }}
                     transition={{ duration: 0.5 }}
                     className="absolute inset-0 w-full h-full object-cover"
                 />
 
-                {/* Anti-Glitch: Solid gradient overlay for all cards, just darker for background ones */}
+                {/* Visual Depth Overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent transition-opacity duration-500 ${isTop ? "opacity-100" : "opacity-0"} z-10`} />
 
                 <motion.div
@@ -90,7 +113,6 @@ const StackCard = ({
                         opacity: isTop ? 1 : 0,
                         y: isTop ? 0 : 40,
                         scale: isTop ? 1 : 0.8,
-                        filter: isTop ? "blur(0px)" : "blur(10px)",
                         pointerEvents: isTop ? "auto" : "none"
                     }}
                     transition={{ duration: 0.4 }}
@@ -145,10 +167,10 @@ export function ProjectStack({ projects }: ProjectStackProps) {
         setIndex((prev) => (prev + 1) % projects.length)
     }
 
-    // Calculate visible projects in stack without duplicates if possible
-    const visibleProjects = projects.slice(index, index + 3)
-    if (visibleProjects.length < 3 && projects.length > visibleProjects.length) {
-        visibleProjects.push(...projects.slice(0, 3 - visibleProjects.length))
+    // Calculate visible projects in stack (showing 3 at a time)
+    const visibleProjects = []
+    for (let i = 0; i < 3; i++) {
+        visibleProjects.push(projects[(index + i) % projects.length])
     }
 
     return (
