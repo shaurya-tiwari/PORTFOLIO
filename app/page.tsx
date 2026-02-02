@@ -93,11 +93,8 @@ export default function Portfolio() {
         </div>
       </section>
       {/* wingsss */}
-
-      <section className="z-50">
-        <div >
-          <Wings />
-        </div>
+      <section className="relative z-50 pointer-events-none mt-[-150px] sm:mt-[-200px] md:mt-[-300px] lg:mt-[-400px]">
+        <Wings />
       </section>
 
 
