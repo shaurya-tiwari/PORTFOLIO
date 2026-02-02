@@ -49,7 +49,7 @@ export function ContactForm() {
       viewport={{ once: true }}
       className="h-full"
     >
-      <div className="h-full min-h-[400px] rounded-2xl border border-white/10 bg-white/10 p-4 sm:p-6 text-white shadow-sm transition-all duration-300 flex flex-col justify-between">
+      <div className="h-full min-h-[600px] rounded-2xl border border-white/10 bg-white/10 p-4 sm:p-6 text-white shadow-sm transition-all duration-300 flex flex-col justify-between">
         <div>
           <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Send Me a Message</h3>
 
@@ -76,7 +76,7 @@ export function ContactForm() {
             <Textarea
               name="message"
               placeholder="Your Message"
-              rows={5}
+              rows={3}
               required
               className="bg-white/10 border border-white/10 text-black placeholder-white/60"
             />

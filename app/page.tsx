@@ -108,7 +108,7 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch mt-16 w-full">
             <div className="relative h-full w-full">
-              <div className="relative aspect-square rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600/50 w-full">
+              <div className="relative h-[450px] md:h-[850px] rounded-xl overflow-hidden border border-gray-700/50 hover:border-gray-600/50 w-full">
                 <Image
                   src="/shauryaphoto.jpg"
                   alt="Shaurya Tiwari"
@@ -127,22 +127,24 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-            <div className="space-y-4 md:space-y-6 relative h-full md:aspect-square w-full">
-              <GlassmorphicCard>
-                <p className="text-sm md:text-base text-gray-200 leading-relaxed">
-                  I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
-                </p>
-                <p className="text-sm md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
-                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
-                </p>
-                <p className="text-sm md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
-                  I enjoy web development—creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications.
-                </p>
-                <p className="text-sm md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
-                  I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.
-                </p>
+            <div className="relative h-full w-full">
+              <GlassmorphicCard className="h-full flex flex-col">
+                <div className="mb-4">
+                  <p className="text-xs md:text-base text-gray-200 leading-relaxed">
+                    I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
+                  </p>
+                  <p className="text-xs md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
+                    I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
+                  </p>
+                  <p className="text-xs md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
+                    I enjoy web development—creating interactive websites using React.js, JavaScript, Node.js, Spring Boot, and Java, along with databases like MySQL and MongoDB to build complete and scalable applications.
+                  </p>
+                  <p className="text-xs md:text-base text-gray-200 mt-2 md:mt-4 leading-relaxed">
+                    I am always excited to learn, explore new technologies, and turn ideas into reality. Let's connect and create something amazing together.
+                  </p>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mt-6 md:mt-8 w-full">
-                  <div className="space-y-1 min-w-0">
+                  <div className="space-y-1 min-w-0 hidden md:block">
                     <div className="text-xs md:text-sm text-gray-500">Name</div>
                     <div className="text-sm md:text-base font-thin">Shaurya Tiwari</div>
                   </div>
@@ -259,7 +261,7 @@ export default function Portfolio() {
           <SectionHeading title="Get In Touch" subtitle="Let's work together" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-6 mt-16 items-stretch w-full">
-            <GlassmorphicCard>
+            <GlassmorphicCard className="h-full md:max-h-[800px] overflow-y-auto custom-scrollbar">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contact Information</h3>
               <div className="space-y-4 sm:space-y-6">
                 {/* Email */}
@@ -304,7 +306,7 @@ export default function Portfolio() {
                 </div>
               </div>
             </GlassmorphicCard>
-            <div className="w-full">
+            <div className="w-full md:max-h-[800px]">
               <ContactForm />
             </div>
           </div>
