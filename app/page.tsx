@@ -27,7 +27,7 @@ export default function Portfolio() {
       <ScrollProgress />
       <FloatingNav />
 
-      <section className="relative min-h-[85vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 py-24 overflow-hidden">
+      <section className="relative min-h-[75vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 overflow-hidden">
         {/* Background Texture / CreativeHero - Senior UI/UX: Full-width for seamless editorial look */}
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
           <CreativeHero />
@@ -70,7 +70,7 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
-      <section id="about" className="py-24 relative w-full px-4 lg:px-12 scroll-mt-20">
+      <section id="about" className="pt-12 pb-24 relative w-full px-4 lg:px-12 scroll-mt-20">
 
         <div className="designer-grid relative z-10 items-start">
           {/* Bio Tile */}
