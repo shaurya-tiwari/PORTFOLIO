@@ -14,7 +14,7 @@ import { ScrollProgress } from "@/components/scroll-progress"
 import Wings from "@/components/wing"; // adjust the path according to your project structure
 import { SectionHeading } from "@/components/section-heading"
 import Image from 'next/image';
-import { ProjectStack } from "@/components/project-stack"
+import { ProjectCarousel } from "@/components/project-carousel"
 
 const Timeline = dynamic(() => import("@/components/timeline").then(mod => mod.Timeline), { ssr: true })
 const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: true })
@@ -170,10 +170,10 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 relative w-full px-4 lg:px-12 overflow-hidden">
+      <section id="projects" className="py-24 relative w-full px-4 lg:px-12 overflow-hidden bg-[#0a0a0a]">
         <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
-        <div className="mt-12">
-          <ProjectStack projects={PROJECTS} />
+        <div className="mt-8">
+          <ProjectCarousel projects={PROJECTS} />
         </div>
       </section>
 
