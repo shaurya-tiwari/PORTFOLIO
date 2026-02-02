@@ -5,11 +5,11 @@ import { motion, useInView } from "framer-motion";
 
 const Wings: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, }); 
+  const isInView = useInView(ref, { once: true, });
   // threshold can be adjusted to trigger earlier or later
 
   return (
-    <div className="relative h-[580px] my-[-140px] " ref={ref}>
+    <div className="relative h-[580px] my-[-140px] flex justify-center md:block" ref={ref}>
       <motion.img
         src="/wing.png"
         alt="Wings"

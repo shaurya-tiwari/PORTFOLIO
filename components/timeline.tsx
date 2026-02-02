@@ -8,9 +8,9 @@ const experiences = [
   {
     title: "Technology job simulation",
     company: "Deloitte.",
-    period: "june 2025",
+    period: "June 2025",
     description:
-      "completed the Deloitte Software Engineering Virtual Experience."
+      "Completed the Deloitte Software Engineering Virtual Experience."
   },
   {
     title: "Full-stack developer with AI prompts",
@@ -19,13 +19,13 @@ const experiences = [
     description:
       "Developed responsive web applications using React ,Next, TailwindCSS, Socket.io, SQL, Python.",
   },
-{
-  title: "GitHub Mentor (Academic)",
-  company: "Academic Experience",
-  period: "2017 - 2019",
-  description:
-    "Taught and Led batch-wide academic projects by mentoring 40+ peers in GitHub collaboration, version control, and while managing 3+ group projects as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork."
-}
+  {
+    title: "GitHub Mentor (Academic)",
+    company: "Academic Experience",
+    period: "2017 - 2019",
+    description:
+      "Taught and Led batch-wide academic projects by mentoring 40+ peers in GitHub collaboration, version control, and while managing 3+ group projects as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork."
+  }
 
 
 ]
@@ -50,9 +50,8 @@ const TimelineItem = memo(({ experience, index, isMobile }: {
         viewport={{ once: true }}
       >
         <div
-          className={`relative rounded-xl border border-white/10 ${
-            isMobile ? "bg-white/5" : "bg-white/10 backdrop-blur-md shadow-md"
-          } p-4 sm:p-6 transition-all duration-300`}
+          className={`relative rounded-xl border border-white/10 ${isMobile ? "bg-white/5" : "bg-white/10 backdrop-blur-md shadow-md"
+            } p-4 sm:p-6 transition-all duration-300`}
         >
           {!isMobile && (
             <div className="absolute -inset-1 bg-gradient-to-br from-white/10 to-white/5 blur-md rounded-xl opacity-30" />
@@ -91,11 +90,10 @@ export const Timeline = memo(() => {
 
   return (
     <div
-      className={`space-y-8 sm:space-y-10 relative ${
-        !isMobile
+      className={`space-y-8 sm:space-y-10 relative ${!isMobile
           ? "before:absolute before:inset-0 before:left-1/2 before:-translate-x-px before:border-l-2 before:border-white/10"
           : ""
-      }`}
+        }`}
     >
       {experiences.map((experience, index) => (
         <TimelineItem

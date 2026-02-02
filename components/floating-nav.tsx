@@ -41,32 +41,28 @@ export function FloatingNav() {
 
   return (
     <motion.div
-      className={`fixed top-2 right-2 z-50 transition-opacity duration-400 ${
-        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      className={`fixed top-2 right-2 z-50 transition-opacity duration-400 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <div
-        className={`rounded-xl bg-white/10 border border-white/10 backdrop-blur-md shadow-sm ${
-          isMobile ? "px-2 py-1" : "px-4 py-2"
-        }`}
+        className={`rounded-xl bg-white/10 border border-white/10 backdrop-blur-md shadow-sm ${isMobile ? "px-2 py-1" : "px-4 py-2"
+          }`}
       >
         <div
-          className={`flex items-center justify-center gap-1 flex-wrap ${
-            isMobile ? "" : "min-w-[320px]"
-          }`}
+          className={`flex items-center justify-center gap-1 flex-wrap ${isMobile ? "" : "min-w-[320px]"
+            }`}
         >
           {navItems.map((item) => (
             <button
               key={item.name}
               onClick={() => scrollToSection(item.href)}
-              className={`text-zinc-400 hover:text-white transition-colors duration-150 rounded ${
-                isMobile
-                  ? "text-[10px] px-2 py-[6px]"
+              className={`text-zinc-400 hover:text-white transition-colors duration-150 rounded ${isMobile
+                  ? "text-xs px-2 py-[6px]"
                   : "text-sm px-3 py-[6px]"
-              }`}
+                }`}
             >
               {item.name}
             </button>

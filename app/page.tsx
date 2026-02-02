@@ -22,7 +22,7 @@ export default function Portfolio() {
       <ScrollProgress />
       <FloatingNav />
 
-      <section className="relative flex items-center justify-center w-full py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="relative flex items-center justify-center w-full py-12 md:py-24">
         {/* Background / CreativeHero */}
         <div className="absolute inset-0 z-0">
           <CreativeHero />
@@ -52,7 +52,7 @@ export default function Portfolio() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full hover:bg-gray-700/90 text-gray-400 hover:text-white"
+                  className="rounded-full bg-gray-800/90 hover:bg-gray-700/90 text-gray-400 hover:text-white"
                 >
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
@@ -102,7 +102,7 @@ export default function Portfolio() {
 
 
       {/* About Section */}
-      <section id="about" className="py-32 relative w-full">
+      <section id="about" className="py-16 md:py-32 relative w-full">
         <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
           <SectionHeading title="About Me" subtitle="My background and journey" />
 
@@ -176,7 +176,7 @@ export default function Portfolio() {
         </div>
       </section>
       {/* Skills Section */}
-      <section id="skills" className="py-32 relative w-full">
+      <section id="skills" className="py-12 md:py-32 relative w-full">
         <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
           <SectionHeading title="My Skills" subtitle="Technologies I work with" />
 
@@ -184,9 +184,9 @@ export default function Portfolio() {
             <SkillBadge name="Python" level={80} />
             <SkillBadge name="Pandas" level={60} />
             <SkillBadge name="Numpy" level={90} />
-            <SkillBadge name="Matplolib" level={60} />
-            <SkillBadge name="seaborn" level={60} />
-            <SkillBadge name="plotly / cufflinks" level={70} />
+            <SkillBadge name="Matplotlib" level={60} />
+            <SkillBadge name="Seaborn" level={60} />
+            <SkillBadge name="Plotly / Cufflinks" level={70} />
             <SkillBadge name="Machine Learning" level={50} />
             <SkillBadge name="SQL" level={60} />
             <SkillBadge name="Mathematics" level={80} />
@@ -201,14 +201,14 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 relative w-full">
+      <section id="projects" className="py-12 md:py-32 relative w-full">
         <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Featured Projects" subtitle="Some of my work" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-16 w-full">
             <ProjectCard
               title="AI Resume Analyzer Job Description Based Resume Evaluation"
-              description="Offline Image Captioning lightweight app that generates AI-based descriptions for image."
+              description="Analyzes resumes against job descriptions to evaluate skill match."
               tags={["Python", "Spacy", "perplexity API", "streamlit", "PDFplumber"]}
               image="/pr1 (1).png?height=400&width=600"
               demoUrl="https://github.com/shaurya-tiwari/genai-image-app"
@@ -216,7 +216,7 @@ export default function Portfolio() {
             />
             <ProjectCard
               title="Image Captioning and Image Classification app with Gen AI"
-              description=" analyzes resumes against job descriptions to evaluate skill match."
+              description="Offline Image Captioning lightweight app that generates AI-based descriptions for image."
               tags={["FastAPI", "Jinja2", "Hugging Face’s BLIP model", "CSS", "HTML", "Python"]}
               image="/img1.png?height=400&width=600"
               demoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
@@ -243,7 +243,7 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-32 relative w-full">
+      <section id="experience" className="py-16 md:py-32 relative w-full">
         <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Work Experience" subtitle="My professional journey" />
 
@@ -254,7 +254,7 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 relative w-full">
+      <section id="contact" className="py-16 md:py-32 relative w-full">
         <div className="container relative z-10 max-w-full px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Get In Touch" subtitle="Let's work together" />
 
@@ -268,7 +268,7 @@ export default function Portfolio() {
                     <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-xs sm:text-sm text-zinc-800">Email</div>
+                    <div className="text-xs sm:text-sm text-zinc-400">Email</div>
                     <div className="text-sm sm:text-base font-medium break-all">shauryatiwari120@gmail.com</div>
                   </div>
                 </div>
@@ -279,7 +279,7 @@ export default function Portfolio() {
                     <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-xs sm:text-sm text-zinc-800">LinkedIn</div>
+                    <div className="text-xs sm:text-sm text-zinc-400">LinkedIn</div>
                     <div className="text-sm sm:text-base font-medium break-all">linkedin.com/in/shauryatiwari120/</div>
                   </div>
                 </div>
@@ -290,7 +290,7 @@ export default function Portfolio() {
                     <Github className="h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-xs sm:text-sm text-zinc-800">GitHub</div>
+                    <div className="text-xs sm:text-sm text-zinc-400">GitHub</div>
                     <div className="text-sm sm:text-base font-medium break-all">github.com/shaurya-tiwari</div>
                   </div>
                 </div>
@@ -315,7 +315,7 @@ export default function Portfolio() {
       <footer className="border-t border-zinc-800/50 py-12 w-full">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6 max-w-full px-4 sm:px-6 lg:px-8">
           <div className="text-center md:text-left">
-            <Link href="/" className="underline text-xl ">
+            <Link href="/" className="hover:text-purple-400 transition-colors text-xl">
               <span className="text-white italic">Shaurya Tiwari</span>
             </Link>
             <p className="text-sm text-zinc-300 mt-2">
