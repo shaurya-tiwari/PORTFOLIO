@@ -14,11 +14,46 @@ import { ScrollProgress } from "@/components/scroll-progress"
 import Wings from "@/components/wing"; // adjust the path according to your project structure
 import { SectionHeading } from "@/components/section-heading"
 import Image from 'next/image';
-import { GlassmorphicCard } from "@/components/glassmorphic-card"
+import { ProjectStack } from "@/components/project-stack"
 
-const ProjectCard = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), { ssr: true })
 const Timeline = dynamic(() => import("@/components/timeline").then(mod => mod.Timeline), { ssr: true })
 const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: true })
+
+const PROJECTS = [
+  {
+    title: "AI Resume Analyzer",
+    description: "Job Description Based Resume Evaluation. Analyzes resumes against job descriptions to evaluate skill match and technical relevance.",
+    tags: ["Python", "Spacy", "perplexity API", "streamlit", "PDFplumber"],
+    image: "/pr1 (1).png",
+    demoUrl: "https://github.com/shaurya-tiwari/genai-image-app",
+    repoUrl: "https://github.com/shaurya-tiwari/genai-image-app",
+  },
+  {
+    title: "Gen AI Image App",
+    description: "Offline Image Captioning lightweight app that generates AI descriptions.",
+    tags: ["FastAPI", "Hugging Face", "Python"],
+    image: "/img1.png",
+    demoUrl: "https://github.com/shaurya-tiwari/resume_analyzer",
+    repoUrl: "https://github.com/shaurya-tiwari/resume_analyzer",
+  },
+  {
+    title: "Stickman Race",
+    description: "A real-time 2D Online multiplayer game.",
+    tags: ["React.js", "socket.io", "node.js"],
+    image: "/project 1.png",
+    demoUrl: "https://stickman-onlinemultiplayer-race.vercel.app/",
+    repoUrl: "https://github.com/shaurya-tiwari/stickman-onlinemultiplayer-race",
+  },
+  {
+    title: "YouTube Analytics",
+    description: "Fetches and displays YouTube videos based on user searches with deep data integration.",
+    tags: ["react.js", "tailwind CSS", "YouTube API"],
+    image: "/tube.png",
+    demoUrl: "https://you-tube-api-rose.vercel.app/",
+    repoUrl: "https://github.com/shaurya-tiwari/YouTube-API",
+  },
+]
+
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -135,50 +170,10 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 relative w-full px-4 lg:px-12">
-        <SectionHeading title="CASE STUDIES" subtitle="04 — WORK" />
-
-        <div className="designer-grid mt-12">
-          <div className="col-span-12 lg:col-span-8">
-            <ProjectCard
-              title="AI Resume Analyzer"
-              description="Job Description Based Resume Evaluation. Analyzes resumes against job descriptions to evaluate skill match and technical relevance."
-              tags={["Python", "Spacy", "perplexity API", "streamlit", "PDFplumber"]}
-              image="/pr1 (1).png?height=600&width=800"
-              demoUrl="https://github.com/shaurya-tiwari/genai-image-app"
-              repoUrl="https://github.com/shaurya-tiwari/genai-image-app"
-            />
-          </div>
-          <div className="col-span-12 lg:col-span-4">
-            <ProjectCard
-              title="Gen AI Image App"
-              description="Offline Image Captioning lightweight app that generates AI descriptions."
-              tags={["FastAPI", "Hugging Face", "Python"]}
-              image="/img1.png?height=600&width=400"
-              demoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
-              repoUrl="https://github.com/shaurya-tiwari/resume_analyzer"
-            />
-          </div>
-          <div className="col-span-12 lg:col-span-4">
-            <ProjectCard
-              title="Stickman Race"
-              description="A real-time 2D Online multiplayer game."
-              tags={["React.js", "socket.io", "node.js"]}
-              image="/project 1.png?height=600&width=400"
-              demoUrl="https://stickman-onlinemultiplayer-race.vercel.app/"
-              repoUrl="https://github.com/shaurya-tiwari/stickman-onlinemultiplayer-race"
-            />
-          </div>
-          <div className="col-span-12 lg:col-span-8">
-            <ProjectCard
-              title="YouTube Analytics"
-              description="Fetches and displays YouTube videos based on user searches with deep data integration."
-              tags={["react.js", "tailwind CSS", "YouTube API"]}
-              image="/tube.png?height=600&width=800"
-              repoUrl="https://github.com/shaurya-tiwari/YouTube-API"
-              demoUrl="https://you-tube-api-rose.vercel.app/"
-            />
-          </div>
+      <section id="projects" className="py-24 relative w-full px-4 lg:px-12 overflow-hidden">
+        <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
+        <div className="mt-12">
+          <ProjectStack projects={PROJECTS} />
         </div>
       </section>
 

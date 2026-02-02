@@ -46,7 +46,7 @@ export function ProjectCard({
 
       {/* Content Section */}
       <div className="p-8 flex-1 flex flex-col">
-        <div className="mono-label mb-4">CASE STUDY</div>
+        <div className="mono-label mb-4">PROJECTS</div>
         <h3 className="editorial-heading text-4xl text-white mb-4 group-hover:opacity-80 transition-opacity duration-500">
           {title}
         </h3>
