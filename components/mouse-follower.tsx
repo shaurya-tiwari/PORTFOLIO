@@ -1,15 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function MouseFollower() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   const [isVisible, setIsVisible] = useState(false);
+
+  // Smooth springs for a better feel
+  const smoothX = useSpring(mouseX, { damping: 20, stiffness: 300, mass: 0.5 });
+  const smoothY = useSpring(mouseY, { damping: 20, stiffness: 300, mass: 0.5 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX - 40);
+      mouseY.set(e.clientY - 40);
       setIsVisible(true);
     };
 
@@ -24,24 +30,19 @@ export function MouseFollower() {
       window.removeEventListener("mousemove", handleMouseMove);
       document.body.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
     <>
-      {/* Large soft gradient follower */}
       <motion.div
         className="fixed top-0 left-0 w-20 h-20 rounded-full pointer-events-none z-50"
-        animate={{
-          x: mousePosition.x - 40,
-          y: mousePosition.y - 40,
-          opacity: isVisible ? 0.5 : 0,
-        }}
-        transition={{ type: "spring", damping: 20, stiffness: 300, mass: 0.5 }}
         style={{
+          x: smoothX,
+          y: smoothY,
+          opacity: isVisible ? 0.5 : 0,
           background: "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)",
         }}
       />
-
     </>
   );
 }

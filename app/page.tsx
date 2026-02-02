@@ -1,11 +1,9 @@
+import dynamic from "next/dynamic"
 import Link from "next/link"
 import { ArrowRight, Github, Linkedin, Mail, Twitter, } from "lucide-react"
 import SmoothScroll from "@/components/SmoothScroll";
 import { Button } from "@/components/ui/button"
-import { ProjectCard } from "@/components/project-card"
 import { SkillBadge } from "@/components/skill-badge"
-import { Timeline } from "@/components/timeline"
-import { ContactForm } from "@/components/contact-form"
 import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
 import { MouseFollower } from "@/components/mouse-follower"
@@ -14,6 +12,10 @@ import Wings from "@/components/wing"; // adjust the path according to your proj
 import { SectionHeading } from "@/components/section-heading"
 import Image from 'next/image';
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
+
+const ProjectCard = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), { ssr: true })
+const Timeline = dynamic(() => import("@/components/timeline").then(mod => mod.Timeline), { ssr: true })
+const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: true })
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-bl from-gray-900 via-gray-800 to-slate-400 text-white overflow-x-hidden">
