@@ -26,7 +26,7 @@ const experiences = [
     period: "2024 - 2025",
     description: (
       <>
-        Taught and Led batch-wide academic projects by mentoring <Highlighter color="neon" delay={500}>40+ peers</Highlighter> in GitHub collaboration, version control, and while managing <Highlighter color="neon" delay={500}>3+ group projects</Highlighter> as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork.
+        Taught and Led batch-wide academic projects by mentoring <Highlighter color="neon" delay={300}>40+ peers</Highlighter> in GitHub collaboration, version control, and while managing <Highlighter color="neon" delay={300}>3+ group projects</Highlighter> as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork.
       </>
     )
   }

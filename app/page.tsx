@@ -134,7 +134,7 @@ export default function Portfolio() {
             <div className="designer-grid">
               <div className="col-span-12 lg:col-span-6 space-y-6">
                 <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl italic">
-                  <Highlighter color="sky" delay={1800}>AI & ML</Highlighter> student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
+                  <Highlighter color="sky" delay={600}>AI & ML</Highlighter> student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
                 </p>
                 <div className="flex gap-8 pt-4">
                   <div className="group flex items-center gap-2 cursor-pointer">
@@ -155,15 +155,15 @@ export default function Portfolio() {
             <SectionHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
-                I'm an Artificial Intelligence and Machine Learning student with a strong interest in  <Highlighter color="neon" delay={1800}>Mathematics</Highlighter> and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
+                I'm an Artificial Intelligence and Machine Learning student with a strong interest in  <Highlighter color="neon" delay={600}>Mathematics</Highlighter> and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
               </p>
               <p>
-                I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using  <Highlighter color="neon" delay={1800}>AI Prompt</Highlighter> and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
+                I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using  <Highlighter color="neon" delay={600}>AI Prompt</Highlighter> and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
               </p>
               <div className="designer-grid mt-12 pt-12 border-t border-black/5">
                 <div className="col-span-12 md:col-span-6 space-y-2">
                   <div className="mono-label">AVAILABILITY</div>
-                  <div className="text-foreground text-xl">Open to  <Highlighter color="peach" delay={1800}>Internship</Highlighter> and <Highlighter color="peach" delay={1800}>Part-time</Highlighter> opportunities</div>
+                  <div className="text-foreground text-xl">Open to  <Highlighter color="peach" delay={600}>Internship</Highlighter> and <Highlighter color="peach" delay={600}>Part-time</Highlighter> opportunities</div>
                 </div>
                 <div className="col-span-12 md:col-span-6 space-y-2">
                   <div className="mono-label">LOCATION</div>
@@ -247,7 +247,7 @@ export default function Portfolio() {
               <SectionHeading title="CONTACT" subtitle="06 — CONTACT" />
               <div className="mt-8 space-y-12">
                 <p className="text-2xl text-muted-foreground italic max-w-md">
-                  Looking for a dedicated AI & ML student for internships or technical collaboration?  <Highlighter color="sky" delay={1800}>Let's connect</Highlighter>.
+                  Looking for a dedicated AI & ML student for internships or technical collaboration?  <Highlighter color="sky" delay={600}>Let's connect</Highlighter>.
                 </p>
 
                 <div className="space-y-4">

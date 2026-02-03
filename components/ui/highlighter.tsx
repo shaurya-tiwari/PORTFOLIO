@@ -22,7 +22,7 @@ export function Highlighter({ children, color = "sky", delay = 0 }: HighlighterP
                     observer.unobserve(entry.target)
                 }
             },
-            { threshold: 0.5 }
+            { threshold: 0.2 }
         )
 
         if (ref.current) {
