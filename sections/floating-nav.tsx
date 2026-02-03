@@ -67,7 +67,7 @@ export function FloatingNav() {
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <div
-        className={`rounded-full bg-black/5 border border-black/5 backdrop-blur-md shadow-sm ${isMobile ? "px-1 py-1" : "px-4 py-2"
+        className={`rounded-full bg-black/5 border border-black/5 backdrop-blur-sm shadow-sm ${isMobile ? "px-1 py-1" : "px-4 py-2"
           }`}
       >
         <div

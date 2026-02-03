@@ -101,21 +101,29 @@ class Quadtree {
 
 export function CreativeHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isVisible = useRef(false)
+  const animationFrameId = useRef<number>(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    const container = containerRef.current
+    if (!canvas || !container) return
 
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext("2d", { alpha: true }) // Optimize for alpha
     if (!ctx) return
 
     let devicePixelRatio: number
+    let width: number
+    let height: number
 
     const setCanvasDimensions = () => {
       devicePixelRatio = window.devicePixelRatio || 1
       const rect = canvas.getBoundingClientRect()
-      canvas.width = rect.width * devicePixelRatio
-      canvas.height = rect.height * devicePixelRatio
+      width = rect.width
+      height = rect.height
+      canvas.width = width * devicePixelRatio
+      canvas.height = height * devicePixelRatio
       ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.scale(devicePixelRatio, devicePixelRatio)
     }
@@ -123,7 +131,7 @@ export function CreativeHero() {
     setCanvasDimensions()
     window.addEventListener("resize", setCanvasDimensions)
 
-    // Mouse
+    // Mouse tracking
     let mouseX = -1000
     let mouseY = -1000
     let targetX = -1000
@@ -137,7 +145,7 @@ export function CreativeHero() {
 
     window.addEventListener("mousemove", mouseMoveHandler)
 
-    // Particle class
+    // Particle class (Moved inside to access ctx and avoid object creation)
     class Particle {
       x: number
       y: number
@@ -156,21 +164,20 @@ export function CreativeHero() {
         this.size = Math.random() * 3 + 2
         this.density = Math.random() * 30 + 1
         this.isMoving = false
-
-        const colors = ["#000000"]
-        this.color = colors[Math.floor(Math.random() * colors.length)]
+        this.color = "#2c2c2cff"
       }
 
       update(repellers: { x: number; y: number }[]) {
         let closestPt: { x: number; y: number } | null = null
         let minDist = 100 // interactionRadius
 
-        for (const pt of repellers) {
+        for (let i = 0; i < repellers.length; i++) {
+          const pt = repellers[i]
           const dx = pt.x - this.x
           const dy = pt.y - this.y
           const distSq = dx * dx + dy * dy
-          // Use interaction radius consistently
-          if (distSq < 100 * 100) {
+
+          if (distSq < 10000) { // 100 * 100
             const dist = Math.sqrt(distSq)
             if (dist < minDist) {
               minDist = dist
@@ -189,7 +196,6 @@ export function CreativeHero() {
           this.y -= directionY
           this.isMoving = true
         } else {
-          // Stable return home logic
           const dx = this.x - this.baseX
           const dy = this.y - this.baseY
 
@@ -218,7 +224,6 @@ export function CreativeHero() {
         ctx.lineWidth = 0.6
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.closePath()
         ctx.stroke()
       }
     }
@@ -229,10 +234,8 @@ export function CreativeHero() {
       particlesArray.length = 0
       const canvasWidth = canvas.width / devicePixelRatio
       const canvasHeight = canvas.height / devicePixelRatio
-
-      // Dynamic grid size for density: 20px on mobile, 30px on desktop
-      const isSmall = typeof window !== "undefined" && window.innerWidth < 768
-      const currentGridSize = isSmall ? 20 : 30
+      const isSmall = window.innerWidth < 768
+      const currentGridSize = isSmall ? 25 : 35 // Slightly larger grid for less particles
 
       const numX = Math.floor(canvasWidth / currentGridSize)
       const numY = Math.floor(canvasHeight / currentGridSize)
@@ -249,9 +252,15 @@ export function CreativeHero() {
     init()
 
     let wingElement: HTMLElement | null = null
+    const interactionPoints: { x: number; y: number }[] = []
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      if (!isVisible.current) {
+        animationFrameId.current = requestAnimationFrame(animate)
+        return
+      }
+
+      ctx.clearRect(0, 0, width, height)
 
       mouseX += (targetX - mouseX) * 0.1
       mouseY += (targetY - mouseY) * 0.1
@@ -260,9 +269,7 @@ export function CreativeHero() {
         wingElement = document.getElementById("wing-repeller")
       }
 
-      const interactionPoints: { x: number; y: number }[] = []
-
-      // Only add mouse if it's actually been moved (not at default -1000)
+      interactionPoints.length = 0
       if (mouseX > -500) {
         interactionPoints.push({ x: mouseX, y: mouseY })
       }
@@ -271,48 +278,44 @@ export function CreativeHero() {
         const wingRect = wingElement.getBoundingClientRect()
         const canvasRect = canvas.getBoundingClientRect()
 
-        // Check if wing overlaps with canvas vertically
         if (wingRect.bottom > canvasRect.top && wingRect.top < canvasRect.bottom) {
           const left = wingRect.left - canvasRect.left
           const top = wingRect.top - canvasRect.top
-          const width = wingRect.width
-          const height = wingRect.height
-
-          // Keep only the RIGHT end point (tip) for the wing repulsion as requested
-          interactionPoints.push({ x: left + width * 0.85, y: top + height * 0.15 }) // Top Right Tip
+          const w = wingRect.width
+          const h = wingRect.height
+          interactionPoints.push({ x: left + w * 0.85, y: top + h * 0.15 })
         }
       }
 
-      const quadtree = new Quadtree(
-        { x: 0, y: 0, w: canvas.width / devicePixelRatio, h: canvas.height / devicePixelRatio },
-        4
-      )
+      const boundary = { x: 0, y: 0, w: width, h: height }
+      const quadtree = new Quadtree(boundary, 4)
 
-      for (let p of particlesArray) {
+      for (let i = 0; i < particlesArray.length; i++) {
+        const p = particlesArray[i]
         quadtree.insert(p)
       }
 
-      for (let p of particlesArray) {
+      for (let i = 0; i < particlesArray.length; i++) {
+        const p = particlesArray[i]
         p.update(interactionPoints)
         p.draw()
 
         const neighbours: Particle[] = []
-        quadtree.queryRange(
-          { x: p.x - 30, y: p.y - 30, w: 60, h: 60 },
-          neighbours
-        )
+        quadtree.queryRange({ x: p.x - 35, y: p.y - 35, w: 70, h: 70 }, neighbours)
 
-        for (let n of neighbours) {
+        for (let j = 0; j < neighbours.length; j++) {
+          const n = neighbours[j]
           if (p === n) continue
           const dx = p.x - n.x
           const dy = p.y - n.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
+          const distSq = dx * dx + dy * dy
 
-          if (distance < 30) {
+          if (distSq < 1225) { // 35 * 35
+            const distance = Math.sqrt(distSq)
             ctx.beginPath()
             ctx.strokeStyle = p.isMoving || n.isMoving
-              ? "rgba(0, 0, 0, 0.67)"
-              : `rgba(0, 0, 0, ${0.4 - distance / 100})`
+              ? "rgba(0, 0, 0, 0.6)"
+              : `rgba(0, 0, 0, ${0.35 - distance / 100})`
             ctx.lineWidth = 0.3
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(n.x, n.y)
@@ -321,19 +324,28 @@ export function CreativeHero() {
         }
       }
 
-      requestAnimationFrame(animate)
+      animationFrameId.current = requestAnimationFrame(animate)
     }
+
+    // Intersection Observer to stop animation when off-screen
+    const observer = new IntersectionObserver((entries) => {
+      isVisible.current = entries[0].isIntersecting
+    }, { threshold: 0.1 })
+
+    if (container) observer.observe(container)
 
     animate()
 
     return () => {
       window.removeEventListener("resize", setCanvasDimensions)
       window.removeEventListener("mousemove", mouseMoveHandler)
+      cancelAnimationFrame(animationFrameId.current)
+      if (container) observer.unobserve(container)
     }
   }, [])
 
   return (
-    <div className="w-full h-[250px] md:h-[350px] lg:h-[400px] relative">
+    <div ref={containerRef} className="w-full h-[250px] md:h-[350px] lg:h-[400px] relative">
       <canvas ref={canvasRef} className="w-full h-full" style={{ display: "block" }} />
     </div>
   )

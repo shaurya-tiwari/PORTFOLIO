@@ -16,8 +16,8 @@ import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/effect-cards";
 
-import { cn } from "@/scripts/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Project {
     title: string;
@@ -115,10 +115,13 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                 {displayProjects.map((project, index) => (
                     <SwiperSlide key={`${project.title}-${index}`}>
                         <div className="relative w-full h-full group">
-                            <img
+                            <Image
                                 className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                                 src={project.image}
                                 alt={project.title}
+                                fill
+                                sizes="320px"
+                                priority={index < 3}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-100" />
 

@@ -12,8 +12,10 @@ declare global {
 export default function SmoothScroll() {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.6, // swifter scroll
+            duration: 1.2, // Faster but smooth
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            touchMultiplier: 2,
+            infinite: false,
         });
 
         window.lenis = lenis;
