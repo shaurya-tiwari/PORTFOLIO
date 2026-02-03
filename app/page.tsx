@@ -15,6 +15,8 @@ import Wings from "@/components/wing"; // adjust the path according to your proj
 import { SectionHeading } from "@/components/section-heading"
 import Image from 'next/image';
 import { ProjectCarousel } from "@/components/project-carousel"
+import { ParallaxWrapper } from "@/components/parallax-wrapper"
+import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/creative-reveal"
 
 const Timeline = dynamic(() => import("@/components/timeline").then(mod => mod.Timeline), { ssr: true })
 const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: true })
@@ -64,9 +66,9 @@ export default function Portfolio() {
 
       <section className="relative min-h-[75vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 overflow-hidden">
         {/* Background Texture / CreativeHero - Senior UI/UX: Full-width for seamless editorial look */}
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <ParallaxWrapper speed={-0.2} className="absolute inset-0 z-0 opacity-20 pointer-events-none">
           <CreativeHero />
-        </div>
+        </ParallaxWrapper>
 
 
         <div className="relative z-10 w-full max-w-7xl">
@@ -80,8 +82,8 @@ export default function Portfolio() {
 
             <div className="relative inline-block w-full">
               <h1 className="editorial-heading text-6xl md:text-8xl lg:text-[13rem] leading-[0.8] tracking-tighter relative z-10">
-                SHAURYA<br />
-                TIWARI
+                <StaggeredBlurReveal stagger={0.06}>SHAURYA</StaggeredBlurReveal><br />
+                <StaggeredBlurReveal delay={0.6} stagger={0.06}>TIWARI</StaggeredBlurReveal>
               </h1>
               {/* The Wings - Re-aligned to new lowered content position */}
               <div className="absolute bottom-[-110%] md:bottom-[-20%] lg:bottom-[0%] -right-[5%] md:right-[10%] lg:-right-[-7%] w-[65%] md:w-[45%] lg:w-[40%] h-auto z-20 opacity-70 pointer-events-none grayscale contrast-150 scale-100 overflow-visible rotate-0">
@@ -92,7 +94,9 @@ export default function Portfolio() {
             <div className="designer-grid">
               <div className="col-span-12 lg:col-span-6 space-y-6">
                 <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl italic">
-                  AI & ML student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
+                  <WordReveal delay={0.4}>
+                    AI & ML student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
+                  </WordReveal>
                 </p>
                 <div className="flex gap-8 pt-4">
                   <div className="group flex items-center gap-2 cursor-pointer">
@@ -109,14 +113,18 @@ export default function Portfolio() {
 
         <div className="designer-grid relative z-10 items-start">
           {/* Bio Tile */}
-          <div className="col-span-12 lg:col-span-7">
+          <ParallaxWrapper speed={0.15} className="col-span-12 lg:col-span-7">
             <SectionHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
-                I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
+                <WordReveal>
+                  I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
+                </WordReveal>
               </p>
               <p>
-                I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
+                <WordReveal delay={0.2}>
+                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
+                </WordReveal>
               </p>
               <div className="designer-grid mt-12 pt-12 border-t border-white/5">
                 <div className="col-span-12 md:col-span-6 space-y-2">
@@ -129,10 +137,10 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-          </div>
+          </ParallaxWrapper>
 
           {/* Profile Tile */}
-          <div className="col-span-12 lg:col-span-5 h-full self-stretch">
+          <ParallaxWrapper speed={-0.1} className="col-span-12 lg:col-span-5 h-full self-stretch">
             <motion.div
               initial={{ opacity: 0, scale: 1.1 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -148,10 +156,10 @@ export default function Portfolio() {
                 priority
               />
             </motion.div>
-          </div>
+          </ParallaxWrapper>
 
           {/* Skills Grid - Integrated */}
-          <div className="col-span-12 mt-24">
+          <ParallaxWrapper speed={0.05} className="col-span-12 mt-24">
             <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-white/5 mt-8">
               <SkillBadge name="Python" level={80} />
@@ -165,66 +173,76 @@ export default function Portfolio() {
               <SkillBadge name="Tailwind CSS" level={95} />
               <SkillBadge name="React" level={60} />
             </div>
-          </div>
+          </ParallaxWrapper>
         </div>
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-24 relative w-full px-4 lg:px-12 overflow-hidden bg-[#0a0a0a]">
-        <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
-        <div className="mt-8">
-          <ProjectCarousel projects={PROJECTS} />
-        </div>
+        <ParallaxWrapper speed={0.1}>
+          <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
+          <div className="mt-8">
+            <ProjectCarousel projects={PROJECTS} />
+          </div>
+        </ParallaxWrapper>
       </section>
 
       {/* Experience Section */}
       <section id="experience" className="py-24 relative w-full px-4 lg:px-12">
-        <SectionHeading title="CHRONOLOGY" subtitle="05 — JOURNEY" />
-        <div className="mt-12 w-full max-w-4xl">
-          <Timeline />
-        </div>
+        <ParallaxWrapper speed={-0.05}>
+          <SectionHeading title="CHRONOLOGY" subtitle="05 — JOURNEY" />
+          <div className="mt-12 w-full max-w-4xl">
+            <Timeline />
+          </div>
+        </ParallaxWrapper>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 relative w-full px-4 lg:px-12">
-        <div className="designer-grid items-center">
-          <div className="col-span-12 lg:col-span-6">
-            <SectionHeading title="COLLABORATE" subtitle="06 — CONTACT" />
-            <div className="mt-8 space-y-12">
-              <p className="text-2xl text-muted-foreground italic max-w-md">
-                Looking for a dedicated AI & ML student for internships or technical collaboration? Let's connect.
-              </p>
+        <ParallaxWrapper speed={0.05}>
+          <div className="designer-grid items-center">
+            <div className="col-span-12 lg:col-span-6">
+              <SectionHeading title="COLLABORATE" subtitle="06 — CONTACT" />
+              <div className="mt-8 space-y-12">
+                <p className="text-2xl text-muted-foreground italic max-w-md">
+                  <WordReveal>
+                    Looking for a dedicated AI & ML student for internships or technical collaboration? Let's connect.
+                  </WordReveal>
+                </p>
 
-              <div className="space-y-4">
-                <div className="group flex items-center gap-6">
-                  <div className="mono-label !text-white/40">EMAIL</div>
-                  <a href="mailto:shauryatiwari120@gmail.com" className="text-2xl hover:text-primary transition-colors">shauryatiwari120@gmail.com</a>
-                </div>
-                <div className="group flex items-center gap-6">
-                  <div className="mono-label !text-white/40">LINKEDIN</div>
-                  <a href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="text-2xl hover:text-primary transition-colors">shauryatiwari120</a>
+                <div className="space-y-4">
+                  <div className="group flex items-center gap-6">
+                    <div className="mono-label !text-white/40">EMAIL</div>
+                    <a href="mailto:shauryatiwari120@gmail.com" className="text-2xl hover:text-primary transition-colors">shauryatiwari120@gmail.com</a>
+                  </div>
+                  <div className="group flex items-center gap-6">
+                    <div className="mono-label !text-white/40">LINKEDIN</div>
+                    <a href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="text-2xl hover:text-primary transition-colors">shauryatiwari120</a>
+                  </div>
                 </div>
               </div>
             </div>
+            <div className="col-span-12 lg:col-span-6 mt-12 lg:mt-0">
+              <ContactForm />
+            </div>
           </div>
-          <div className="col-span-12 lg:col-span-6 mt-12 lg:mt-0">
-            <ContactForm />
-          </div>
-        </div>
+        </ParallaxWrapper>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 lg:px-12 border-t border-white/5">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <div className="mono-label !text-white/90 text-2xl tracking-tighter">SHAURYA TIWARI</div>
-          <div className="flex gap-8">
-            <Link href="https://github.com/shaurya-tiwari" target="_blank" className="mono-label hover:text-white">GITHUB</Link>
-            <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="mono-label hover:text-white">LINKEDIN</Link>
-            <Link href="https://x.com/Shauryatiwari77" target="_blank" className="mono-label hover:text-white">TWITTER</Link>
+      <ParallaxWrapper speed={-0.1}>
+        <footer className="py-12 px-4 lg:px-12 border-t border-white/5">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div className="mono-label !text-white/90 text-2xl tracking-tighter">SHAURYA TIWARI</div>
+            <div className="flex gap-8">
+              <Link href="https://github.com/shaurya-tiwari" target="_blank" className="mono-label hover:text-white">GITHUB</Link>
+              <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="mono-label hover:text-white">LINKEDIN</Link>
+              <Link href="https://x.com/Shauryatiwari77" target="_blank" className="mono-label hover:text-white">TWITTER</Link>
+            </div>
+            <div className="mono-label">© {new Date().getFullYear()} — NOIDA, IN</div>
           </div>
-          <div className="mono-label">© {new Date().getFullYear()} — NOIDA, IN</div>
-        </div>
-      </footer>
+        </footer>
+      </ParallaxWrapper>
     </div>
   )
 }
