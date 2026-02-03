@@ -114,9 +114,9 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
             >
                 {displayProjects.map((project, index) => (
                     <SwiperSlide key={`${project.title}-${index}`}>
-                        <div className="relative w-full h-full group">
+                        <div className="relative w-full h-full">
                             <Image
-                                className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                                className="h-full w-full object-cover grayscale transition-all duration-700"
                                 src={project.image}
                                 alt={project.title}
                                 fill
@@ -126,7 +126,7 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-100" />
 
                             <div className="absolute inset-0 p-8 flex flex-col justify-end gap-3 transition-transform duration-500">
-                                <div className="flex justify-between items-center translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="flex justify-between items-center transition-transform duration-500">
                                     <span className="mono-label !text-white/40">0{(index % projects.length) + 1}</span>
                                     <div className="flex gap-2">
                                         <Link href={project.repoUrl} target="_blank" className="p-1.5 bg-black/10 backdrop-blur-md rounded-full hover:bg-primary hover:text-white transition-all">
@@ -142,7 +142,7 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                                     {project.title}
                                 </h3>
 
-                                <p className="text-white/60 text-xs line-clamp-2 italic leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <p className="text-white/60 text-xs line-clamp-2 italic leading-relaxed opacity-100 transition-opacity duration-500">
                                     {project.description}
                                 </p>
 
@@ -168,6 +168,6 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                     <ChevronRightIcon className="w-5 h-5" />
                 </button>
             </div>
-        </motion.div>
+        </motion.div >
     );
 };
