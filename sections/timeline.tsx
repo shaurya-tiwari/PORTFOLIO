@@ -14,7 +14,7 @@ const experiences = [
       "Completed the Deloitte Software Engineering Virtual Experience."
   },
   {
-    title: "Full-stack developer with AI prompts",
+    title: "Full-stack developer",
     company: "",
     period: "2024",
     description:
@@ -23,7 +23,7 @@ const experiences = [
   {
     title: "GitHub Mentor (Academic)",
     company: "Academic Experience",
-    period: "2017 - 2019",
+    period: "2024 - 2025",
     description: (
       <>
         Taught and Led batch-wide academic projects by mentoring <Highlighter color="neon" delay={500}>40+ peers</Highlighter> in GitHub collaboration, version control, and while managing <Highlighter color="neon" delay={500}>3+ group projects</Highlighter> as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork.
