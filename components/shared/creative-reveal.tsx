@@ -116,10 +116,12 @@ export const StaggeredBlurReveal = ({
     children,
     className = "",
     delay = 0,
-    stagger = 0.05
-}: RevealProps & { stagger?: number }) => {
+    stagger = 0.05,
+    active = true
+}: RevealProps & { stagger?: number, active?: boolean }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });
+    const shouldAnimate = active && isInView;
 
     const container = {
         hidden: { opacity: 0 },
@@ -174,7 +176,7 @@ export const StaggeredBlurReveal = ({
             ref={ref}
             variants={container}
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={shouldAnimate ? "visible" : "hidden"}
             className={`inline-block ${className}`}
         >
             {content.map((item) => (
