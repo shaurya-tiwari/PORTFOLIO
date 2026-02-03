@@ -4,26 +4,26 @@ import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Github, Linkedin, Mail, Twitter, } from "lucide-react"
-import SmoothScroll from "@/components/SmoothScroll";
+import SmoothScroll from "@/components/shared/SmoothScroll";
 import { Button } from "@/components/ui/button"
-import { SkillBadge } from "@/components/skill-badge"
-import { CreativeHero } from "@/components/creative-hero"
-import { FloatingNav } from "@/components/floating-nav"
-import { MouseFollower } from "@/components/mouse-follower"
-import { ScrollProgress } from "@/components/scroll-progress"
-import Wings from "@/components/wing"; // adjust the path according to your project structure
-import { SectionHeading } from "@/components/section-heading"
+import { SkillBadge } from "@/components/ui/skill-badge"
+import { CreativeHero } from "@/sections/creative-hero"
+import { FloatingNav } from "@/sections/floating-nav"
+import { MouseFollower } from "@/components/shared/mouse-follower"
+import { ScrollProgress } from "@/components/shared/scroll-progress"
+import Wings from "@/sections/wing"; // adjust the path according to your project structure
+import { SectionHeading } from "@/components/ui/section-heading"
 import Image from 'next/image';
-import { ProjectCarousel } from "@/components/project-carousel"
-import { ParallaxWrapper } from "@/components/parallax-wrapper"
-import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/creative-reveal"
-import { Highlighter } from "@/components/highlighter"
+import { ProjectCarousel } from "@/sections/project-carousel"
+import { ParallaxWrapper } from "@/components/shared/parallax-wrapper"
+import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/shared/creative-reveal"
+import { Highlighter } from "@/components/ui/highlighter"
 
 import { useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
 
-const Timeline = dynamic(() => import("@/components/timeline").then(mod => mod.Timeline), { ssr: true })
-const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: true })
+const Timeline = dynamic(() => import("@/sections/timeline").then(mod => mod.Timeline), { ssr: true })
+const ContactForm = dynamic(() => import("@/sections/contact-form").then(mod => mod.ContactForm), { ssr: true })
 
 const StickyStackSection = ({
   children,

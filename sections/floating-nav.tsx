@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { useMobile } from "@/hooks/use-mobile";
+import { useMobile } from "@/scripts/hooks/use-mobile";
 
 export function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false);

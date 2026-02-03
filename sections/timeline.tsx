@@ -2,8 +2,8 @@
 
 import { memo, useMemo } from "react"
 import { motion } from "framer-motion"
-import { useMobile } from "@/hooks/use-mobile"
-import { Highlighter } from "@/components/highlighter"
+import { useMobile } from "@/scripts/hooks/use-mobile"
+import { Highlighter } from "@/components/ui/highlighter"
 
 const experiences = [
   {

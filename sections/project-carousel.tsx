@@ -16,7 +16,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/effect-cards";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/scripts/lib/utils";
 import Link from "next/link";
 
 interface Project {
