@@ -3,6 +3,7 @@
 import { memo, useMemo } from "react"
 import { motion } from "framer-motion"
 import { useMobile } from "@/hooks/use-mobile"
+import { Highlighter } from "@/components/highlighter"
 
 const experiences = [
   {
@@ -23,11 +24,12 @@ const experiences = [
     title: "GitHub Mentor (Academic)",
     company: "Academic Experience",
     period: "2017 - 2019",
-    description:
-      "Taught and Led batch-wide academic projects by mentoring 40+ peers in GitHub collaboration, version control, and while managing 3+ group projects as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork."
+    description: (
+      <>
+        Taught and Led batch-wide academic projects by mentoring <Highlighter color="neon" delay={500}>40+ peers</Highlighter> in GitHub collaboration, version control, and while managing <Highlighter color="neon" delay={500}>3+ group projects</Highlighter> as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork.
+      </>
+    )
   }
-
-
 ]
 // Memoized timeline item to prevent unnecessary re-renders
 const TimelineItem = memo(({ experience, index, isMobile }: {
