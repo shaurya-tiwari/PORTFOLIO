@@ -88,16 +88,14 @@ const StackCard = ({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className={`absolute inset-0 flex items-center justify-center ${isTop ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"}`}
         >
-            <div className={`relative w-full max-w-[420px] aspect-[4/5] bg-black border border-white/10 rounded-[2.5rem] overflow-hidden transition-shadow duration-500 ${isTop ? "shadow-[0_40px_100px_rgba(0,0,0,0.9)]" : "shadow-none"}`}>
+            <div className={`relative w-full max-w-[420px] aspect-[4/5] bg-background border border-black/10 rounded-[2.5rem] overflow-hidden transition-shadow duration-500 ${isTop ? "shadow-[0_40px_100px_rgba(0,0,0,0.1)]" : "shadow-none"}`}>
                 <motion.img
                     src={project.image}
                     alt={project.title}
                     animate={{
-                        filter: isHovered && isTop
+                        filter: (isHovered && isTop) || !isTop
                             ? "grayscale(0%) brightness(1) blur(0px)"
-                            : isTop
-                                ? "grayscale(100%) brightness(0.6) blur(0px)"
-                                : `grayscale(100%) brightness(0.15) blur(${index * 4}px)`,
+                            : "grayscale(0%) brightness(0.9) blur(0px)",
                         scale: isHovered && isTop ? 1.05 : 1
                     }}
                     transition={{ duration: 0.5 }}
@@ -105,7 +103,7 @@ const StackCard = ({
                 />
 
                 {/* Visual Depth Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent transition-opacity duration-500 ${isTop ? "opacity-100" : "opacity-0"} z-10`} />
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-500 ${isTop ? "opacity-100" : "opacity-0"} z-10`} />
 
                 <motion.div
                     initial={false}
@@ -120,18 +118,18 @@ const StackCard = ({
                 >
                     <div className="space-y-4">
                         <div className="flex justify-between items-start">
-                            <div className="mono-label !text-white/40 tracking-[0.4em]">0{index + 1} — PROJECT</div>
+                            <div className="mono-label !text-white/60 tracking-[0.4em]">0{index + 1} — PROJECT</div>
                             <div className="flex gap-4">
-                                <Link href={project.repoUrl} target="_blank" className="text-white/40 hover:text-primary transition-colors">
+                                <Link href={project.repoUrl} target="_blank" className="text-white/60 hover:text-primary transition-colors">
                                     <Github className="w-5 h-5" />
                                 </Link>
-                                <Link href={project.demoUrl} target="_blank" className="text-white/40 hover:text-primary transition-colors">
+                                <Link href={project.demoUrl} target="_blank" className="text-white/60 hover:text-primary transition-colors">
                                     <ArrowUpRight className="w-5 h-5" />
                                 </Link>
                             </div>
                         </div>
 
-                        <h3 className="editorial-heading text-4xl text-white leading-none tracking-tighter">
+                        <h3 className="editorial-heading text-4xl text-white leading-none tracking-tighter shadow-black/20 text-shadow-sm">
                             {project.title.split(' ').map((word, i) => (
                                 <span key={i} className="block">{word}</span>
                             ))}
@@ -143,7 +141,7 @@ const StackCard = ({
 
                         <div className="flex flex-wrap gap-1.5 pt-2">
                             {project.tags.slice(0, 3).map(tag => (
-                                <span key={tag} className="mono-label !text-[7px] border border-white/5 px-2 py-0.5 !text-white/30">
+                                <span key={tag} className="mono-label !text-[7px] border border-white/20 px-2 py-0.5 !text-white/80">
                                     {tag}
                                 </span>
                             ))}
@@ -201,14 +199,13 @@ export function ProjectStack({ projects }: ProjectStackProps) {
                     <button
                         key={i}
                         onClick={() => setIndex(i)}
-                        className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "bg-primary w-12" : "bg-white/10 w-4 hover:bg-white/20"
+                        className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "bg-primary w-12" : "bg-black/10 w-4 hover:bg-black/20"
                             }`}
                     />
                 ))}
             </div>
 
             {/* Background decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-radial-gradient from-primary/5 to-transparent pointer-events-none -z-20 opacity-30" />
         </div>
     )
 }

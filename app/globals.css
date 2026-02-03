@@ -4,25 +4,30 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 180 100% 50%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 180 100% 50%;
+    --background: 40 30% 90%;
+    /* Soft beige background */
+    --foreground: 0 0% 10%;
+    /* Almost black text */
+    --card: 40 30% 94%;
+    /* Slightly lighter beige for cards */
+    --card-foreground: 0 0% 10%;
+    --popover: 40 30% 98%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 0%;
+    /* Contrast black for primary elements */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 80%;
+    /* Muted beige/gray for secondary elements */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 40 20% 85%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 40 30% 85%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 40 20% 75%;
+    --input: 40 20% 75%;
+    --ring: 0 0% 0%;
     --radius: 0rem;
   }
 }
@@ -59,7 +64,7 @@
   }
 
   .glass-card {
-    @apply bg-white/[0.02] backdrop-blur-md border border-white/[0.05] transition-all duration-500;
+    @apply bg-foreground/[0.02] backdrop-blur-md border border-foreground/[0.05] transition-all duration-500;
   }
 
   .designer-grid {

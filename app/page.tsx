@@ -46,7 +46,7 @@ const StickyStackSection = ({
   // The "Covered" effect: Shrink and Dim as the NEXT section comes up
   // Only applies if it's the section being covered
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   return (
     <motion.section
@@ -56,7 +56,7 @@ const StickyStackSection = ({
         opacity: isSticky ? opacity : 1,
         zIndex: index * 10
       }}
-      className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col justify-center overflow-visible border-t border-white/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,1)]" : ""}`}
+      className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col justify-center overflow-visible border-t border-black/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,0.1)]" : ""} group`}
     >
       {children}
     </motion.section>
@@ -128,7 +128,7 @@ export default function Portfolio() {
                 <StaggeredBlurReveal delay={0.6} stagger={0.06}>TIWARI</StaggeredBlurReveal>
               </h1>
               {/* The Wings - Re-aligned to new lowered content position */}
-              <div className="absolute bottom-[-110%] md:bottom-[-20%] lg:bottom-[0%] -right-[5%] md:right-[10%] lg:-right-[-7%] w-[65%] md:w-[45%] lg:w-[40%] h-auto z-20 opacity-70 pointer-events-none grayscale contrast-150 scale-100 overflow-visible rotate-0">
+              <div className="absolute bottom-[-110%] md:bottom-[-20%] lg:bottom-[0%] -right-[5%] md:right-[10%] lg:-right-[-7%] w-[65%] md:w-[45%] lg:w-[40%] h-auto z-20 opacity-70 pointer-events-none contrast-125 scale-100 overflow-visible rotate-0">
                 <Wings />
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function Portfolio() {
         </div>
       </section>
       {/* Section 02: Biography (Normal Scroll, Z-index 20) */}
-      <section id="about" className="relative py-24 w-full px-4 lg:px-12 bg-background z-20 shadow-2xl">
+      <section id="about" className="relative py-24 w-full px-4 lg:px-12 bg-background z-20">
         {/* Biography Content */}
         <div className="designer-grid relative z-10 items-start">
           <ParallaxWrapper speed={0.15} className="col-span-12 lg:col-span-7">
@@ -168,26 +168,26 @@ export default function Portfolio() {
                   I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
                 </WordReveal>
               </p>
-              <div className="designer-grid mt-12 pt-12 border-t border-white/5">
+              <div className="designer-grid mt-12 pt-12 border-t border-black/5">
                 <div className="col-span-12 md:col-span-6 space-y-2">
                   <div className="mono-label">AVAILABILITY</div>
-                  <div className="text-white text-xl">Open to Internship and full-time opportunities</div>
+                  <div className="text-foreground text-xl">Open to Internship and full-time opportunities</div>
                 </div>
                 <div className="col-span-12 md:col-span-6 space-y-2">
                   <div className="mono-label">LOCATION</div>
-                  <div className="text-white text-xl">Noida, India — GMT +5:30</div>
+                  <div className="text-foreground text-xl">Noida, India — GMT +5:30</div>
                 </div>
               </div>
             </div>
           </ParallaxWrapper>
 
-          <ParallaxWrapper speed={-0.1} className="col-span-12 lg:col-span-5 h-full self-stretch mt-16 lg:mt-0">
+          <div className="col-span-12 lg:col-span-5 h-full self-stretch mt-16 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, scale: 1.1 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="relative aspect-[3/4] lg:h-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000"
+              className="relative aspect-[3/4] lg:h-full overflow-hidden grayscale transition-all duration-1000"
             >
               <Image
                 src="/shauryaphoto.jpg"
@@ -197,17 +197,17 @@ export default function Portfolio() {
                 priority
               />
             </motion.div>
-          </ParallaxWrapper>
+          </div>
         </div>
       </section>
 
       {/* Layer Overlay Container - Z-index 30 ensures it's above Bio when it arrives */}
       <div className="relative z-30">
         {/* Layer 01 - Stack: Pinned Base Layer */}
-        <StickyStackSection index={1} bgColor="bg-[#0a0a0a]" isSticky={true}>
+        <StickyStackSection index={1} bgColor="bg-background" isSticky={true}>
           <div className="px-4 lg:px-12 w-full">
             <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-white/10 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-black/10 mt-8">
               <SkillBadge name="Python" level={80} />
               <SkillBadge name="Pandas" level={60} />
               <SkillBadge name="Numpy" level={90} />
@@ -223,7 +223,7 @@ export default function Portfolio() {
         </StickyStackSection>
 
         {/* Layer 02 - Projects: Covers the Stack Layer */}
-        <StickyStackSection index={2} bgColor="bg-black" showShadow={true} isSticky={true}>
+        <StickyStackSection index={2} bgColor="bg-black dark" showShadow={true} isSticky={true}>
           <div id="projects" className="px-4 lg:px-12 w-full">
             <ParallaxWrapper speed={0.05}>
               <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
@@ -262,11 +262,11 @@ export default function Portfolio() {
 
                 <div className="space-y-4">
                   <div className="group flex items-center gap-6">
-                    <div className="mono-label !text-white/40">EMAIL</div>
+                    <div className="mono-label !text-foreground/40">EMAIL</div>
                     <a href="mailto:shauryatiwari120@gmail.com" className="text-2xl hover:text-primary transition-colors">shauryatiwari120@gmail.com</a>
                   </div>
                   <div className="group flex items-center gap-6">
-                    <div className="mono-label !text-white/40">LINKEDIN</div>
+                    <div className="mono-label !text-foreground/40">LINKEDIN</div>
                     <a href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="text-2xl hover:text-primary transition-colors">shauryatiwari120</a>
                   </div>
                 </div>
@@ -281,13 +281,13 @@ export default function Portfolio() {
 
       {/* Footer */}
       <ParallaxWrapper speed={-0.1}>
-        <footer className="py-12 px-4 lg:px-12 border-t border-white/5">
+        <footer className="py-12 px-4 lg:px-12 border-t border-black/10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="mono-label !text-white/90 text-2xl tracking-tighter">SHAURYA TIWARI</div>
+            <div className="mono-label !text-foreground text-2xl tracking-tighter">SHAURYA TIWARI</div>
             <div className="flex gap-8">
-              <Link href="https://github.com/shaurya-tiwari" target="_blank" className="mono-label hover:text-white">GITHUB</Link>
-              <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="mono-label hover:text-white">LINKEDIN</Link>
-              <Link href="https://x.com/Shauryatiwari77" target="_blank" className="mono-label hover:text-white">TWITTER</Link>
+              <Link href="https://github.com/shaurya-tiwari" target="_blank" className="mono-label hover:text-primary">GITHUB</Link>
+              <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="mono-label hover:text-primary">LINKEDIN</Link>
+              <Link href="https://x.com/Shauryatiwari77" target="_blank" className="mono-label hover:text-primary">TWITTER</Link>
             </div>
             <div className="mono-label">© {new Date().getFullYear()} — NOIDA, IN</div>
           </div>

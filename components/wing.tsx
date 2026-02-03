@@ -9,13 +9,13 @@ const Wings: React.FC = () => {
   // threshold can be adjusted to trigger earlier or later
 
   return (
-    <div className="relative h-[600px] sm:h-[750px] md:h-[750px] lg:h-[850px] mt-[-150px] sm:mt-[-200px] md:mt-[-350px] lg:mt-[-450px] mb-[-80px] md:mb-[-150px] lg:mb-[-200px] flex justify-center z-50 pointer-events-none" ref={ref}>
+    <div className="relative h-[600px] sm:h-[750px] md:h-[750px] lg:h-[850px] mt-[-150px] sm:mt-[-200px] md:mt-[-350px] lg:mt-[-450px] mb-[-80px] md:mb-[-150px] lg:mb-[-200px] flex justify-center z-50 pointer-events-none opacity-60" ref={ref}>
       <motion.img
         src="/wing.png"
         alt="Wings"
         id="wing-repeller"
         className="h-full object-contain origin-bottom"
-        style={{ filter: "drop-shadow(0 15px 15px rgba(0,0,0,0.95)) drop-shadow(0 30px 60px rgba(0,0,0,0.8))" }}
+        // style={{ filter: "drop-shadow(0 15px 15px rgba(0, 0, 0, 10)) drop-shadow(0 30px 60px rgba(0,0,0,0.8))" }}
         initial={{ rotate: 90, scale: 0, opacity: 0 }}
         animate={
           isInView

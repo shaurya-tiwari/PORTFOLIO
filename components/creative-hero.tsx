@@ -157,7 +157,7 @@ export function CreativeHero() {
         this.density = Math.random() * 30 + 1
         this.isMoving = false
 
-        const colors = ["#ffffffff"]
+        const colors = ["#000000ff"]
         this.color = colors[Math.floor(Math.random() * colors.length)]
       }
 
@@ -311,8 +311,8 @@ export function CreativeHero() {
           if (distance < 30) {
             ctx.beginPath()
             ctx.strokeStyle = p.isMoving || n.isMoving
-              ? "rgba(252, 245, 245, 0.96)"
-              : `rgba(150, 150, 150, ${0.5 - distance / 100})`
+              ? "rgba(0, 0, 0, 0.67)"
+              : `rgba(0, 0, 0, ${0.4 - distance / 100})`
             ctx.lineWidth = 0.3
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(n.x, n.y)

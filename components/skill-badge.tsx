@@ -15,14 +15,14 @@ export function SkillBadge({ name, level }: SkillBadgeProps) {
       transition={{ duration: 0.4 }}
       viewport={{ once: true }}
     >
-      <div className="h-full border-t border-white/5 pt-4">
+      <div className="h-full border-t border-black/5 pt-4">
         <div className="flex justify-between items-baseline mb-2">
-          <span className="mono-label text-white/90">{name}</span>
-          <span className="mono-label text-white">{level}%</span>
+          <span className="mono-label text-foreground/90">{name}</span>
+          <span className="mono-label text-foreground">{level}%</span>
         </div>
-        <div className="w-full h-[1px] bg-white/5 relative">
+        <div className="w-full h-[1px] bg-black/5 relative">
           <motion.div
-            className="absolute top-0 left-0 h-full bg-white/40"
+            className="absolute top-0 left-0 h-full bg-black/40"
             initial={{ width: 0 }}
             whileInView={{ width: `${level}%` }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}

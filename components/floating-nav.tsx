@@ -48,7 +48,7 @@ export function FloatingNav() {
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <div
-        className={`rounded-xl bg-white/10 border border-white/10 backdrop-blur-md shadow-sm ${isMobile ? "px-2 py-1" : "px-4 py-2"
+        className={`rounded-xl bg-black/5 border border-black/5 backdrop-blur-md shadow-sm ${isMobile ? "px-2 py-1" : "px-4 py-2"
           }`}
       >
         <div
@@ -59,9 +59,9 @@ export function FloatingNav() {
             <button
               key={item.name}
               onClick={() => scrollToSection(item.href)}
-              className={`text-zinc-400 hover:text-white transition-colors duration-150 rounded ${isMobile
-                  ? "text-xs px-2 py-[6px]"
-                  : "text-sm px-3 py-[6px]"
+              className={`text-zinc-500 hover:text-black transition-colors duration-150 rounded ${isMobile
+                ? "text-xs px-2 py-[6px]"
+                : "text-sm px-3 py-[6px]"
                 }`}
             >
               {item.name}
@@ -74,7 +74,7 @@ export function FloatingNav() {
             rel="noopener noreferrer"
             className={isMobile ? "hidden" : ""}
           >
-            <button className="bg-gray-800 hover:bg-gray-700 text-white rounded-full text-sm px-3 py-1 transition-all duration-200 ml-2">
+            <button className="bg-gray-200 hover:bg-gray-300 text-black rounded-full text-sm px-3 py-1 transition-all duration-200 ml-2">
               Resume
             </button>
           </a>

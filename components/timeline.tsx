@@ -39,7 +39,7 @@ const TimelineItem = memo(({ experience, index, isMobile }: {
   const animationX = useMemo(() => isEven ? 40 : -40, [isEven])
 
   return (
-    <div className="relative z-10 py-12 border-t border-white/5 last:border-b">
+    <div className="relative z-10 py-12 border-t border-black/5 last:border-b">
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -50,9 +50,9 @@ const TimelineItem = memo(({ experience, index, isMobile }: {
         <div className="w-full md:w-1/4 mono-label pt-1">{experience.period}</div>
         <div className="flex-1 space-y-4">
           <div className="flex flex-wrap items-baseline gap-4">
-            <h3 className="text-3xl font-bold text-white leading-none">{experience.title}</h3>
+            <h3 className="text-3xl font-bold text-foreground leading-none">{experience.title}</h3>
             {experience.company && (
-              <span className="mono-label text-white/50">{experience.company}</span>
+              <span className="mono-label text-foreground/50">{experience.company}</span>
             )}
           </div>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
@@ -71,7 +71,7 @@ export const Timeline = memo(() => {
   const isMobile = useMobile()
 
   return (
-    <div className="w-full mt-12 border-b border-white/5">
+    <div className="w-full mt-12 border-b border-black/5">
       {experiences.map((experience, index) => (
         <TimelineItem
           key={index}

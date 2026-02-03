@@ -120,17 +120,17 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                                 src={project.image}
                                 alt={project.title}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-100" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-100" />
 
                             <div className="absolute inset-0 p-8 flex flex-col justify-end gap-3 transition-transform duration-500">
                                 <div className="flex justify-between items-center translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                                     <span className="mono-label !text-white/40">0{(index % projects.length) + 1}</span>
                                     <div className="flex gap-2">
-                                        <Link href={project.repoUrl} target="_blank" className="p-1.5 bg-white/10 backdrop-blur-md rounded-full hover:bg-primary hover:text-white transition-all">
-                                            <Github className="w-4 h-4" />
+                                        <Link href={project.repoUrl} target="_blank" className="p-1.5 bg-black/10 backdrop-blur-md rounded-full hover:bg-primary hover:text-white transition-all">
+                                            <Github className="w-4 h-4 text-white" />
                                         </Link>
-                                        <Link href={project.demoUrl} target="_blank" className="p-1.5 bg-white/10 backdrop-blur-md rounded-full hover:bg-primary hover:text-white transition-all">
-                                            <ArrowUpRight className="w-4 h-4" />
+                                        <Link href={project.demoUrl} target="_blank" className="p-1.5 bg-black/10 backdrop-blur-md rounded-full hover:bg-primary hover:text-white transition-all">
+                                            <ArrowUpRight className="w-4 h-4 text-white" />
                                         </Link>
                                     </div>
                                 </div>
@@ -158,10 +158,10 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
 
             {/* Custom Navigation buttons */}
             <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-4 z-20 pointer-events-none">
-                <button className="carousel-prev w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-xl border border-white/10 rounded-full text-white/50 hover:text-white hover:border-primary transition-all pointer-events-auto shadow-lg">
+                <button className="carousel-prev w-10 h-10 flex items-center justify-center bg-white/50 backdrop-blur-xl border border-black/10 rounded-full text-black/50 hover:text-black hover:border-primary transition-all pointer-events-auto shadow-lg">
                     <ChevronLeftIcon className="w-5 h-5" />
                 </button>
-                <button className="carousel-next w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-xl border border-white/10 rounded-full text-white/50 hover:text-white hover:border-primary transition-all pointer-events-auto shadow-lg">
+                <button className="carousel-next w-10 h-10 flex items-center justify-center bg-white/50 backdrop-blur-xl border border-black/10 rounded-full text-black/50 hover:text-black hover:border-primary transition-all pointer-events-auto shadow-lg">
                     <ChevronRightIcon className="w-5 h-5" />
                 </button>
             </div>
