@@ -117,18 +117,13 @@ export default function Portfolio() {
 
 
         <div className="relative z-10 w-full max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-12"
-          >
+          <div className="space-y-12">
             <div className="mono-label">01 — DIGITAL ARCHITECT</div>
 
             <div className="relative inline-block w-full">
               <h1 className="editorial-heading text-6xl md:text-8xl lg:text-[13rem] leading-[0.8] tracking-tighter relative z-10">
-                <StaggeredBlurReveal stagger={0.06}>SHAURYA</StaggeredBlurReveal><br />
-                <StaggeredBlurReveal delay={0.6} stagger={0.06}>TIWARI</StaggeredBlurReveal>
+                SHAURYA<br />
+                TIWARI
               </h1>
               {/* The Wings - Re-aligned to new lowered content position */}
               <div className="absolute bottom-[-110%] md:bottom-[-20%] lg:bottom-[0%] -right-[5%] md:right-[10%] lg:-right-[-7%] w-[65%] md:w-[45%] lg:w-[40%] h-auto z-20 opacity-70 pointer-events-none contrast-125 scale-100 overflow-visible rotate-0">
@@ -139,9 +134,7 @@ export default function Portfolio() {
             <div className="designer-grid">
               <div className="col-span-12 lg:col-span-6 space-y-6">
                 <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl italic">
-                  <WordReveal delay={0.4}>
-                    <Highlighter color="sky" delay={1800}>AI & ML</Highlighter> student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
-                  </WordReveal>
+                  <Highlighter color="sky" delay={1800}>AI & ML</Highlighter> student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
                 </p>
                 <div className="flex gap-8 pt-4">
                   <div className="group flex items-center gap-2 cursor-pointer">
@@ -151,7 +144,7 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
       {/* Section 02: Biography (Normal Scroll, Z-index 20) */}

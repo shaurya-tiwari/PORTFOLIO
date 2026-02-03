@@ -333,14 +333,9 @@ export function CreativeHero() {
   }, [])
 
   return (
-    <motion.div
-      className="w-full h-[250px] md:h-[350px] lg:h-[400px] relative"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <div className="w-full h-[250px] md:h-[350px] lg:h-[400px] relative">
       <canvas ref={canvasRef} className="w-full h-full" style={{ display: "block" }} />
-    </motion.div>
+    </div>
   )
 }
 

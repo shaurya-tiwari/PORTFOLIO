@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import "@/styles/globals.css";
+import { Preloader } from '@/components/shared/preloader';
+import { LoadingProvider } from '@/scripts/hooks/loading-context';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shaurya-tiwari-portfolio.vercel.app'),
@@ -39,7 +41,13 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <meta name="theme-color" content="#000000" />
       </head>
-      <body>{children}</body>
+      <body>
+        <LoadingProvider>
+          <Preloader>
+            {children}
+          </Preloader>
+        </LoadingProvider>
+      </body>
     </html>
   );
 }
