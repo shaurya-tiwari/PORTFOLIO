@@ -111,7 +111,7 @@ export default function Portfolio() {
 
       <section className="relative min-h-[75vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 overflow-hidden">
         {/* Background Texture / CreativeHero - Senior UI/UX: Full-width for seamless editorial look */}
-        <ParallaxWrapper speed={-0.2} className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <ParallaxWrapper speed={-0.2} className="absolute inset-0 z-0 opacity-40 pointer-events-none">
           <CreativeHero />
         </ParallaxWrapper>
 
@@ -122,8 +122,8 @@ export default function Portfolio() {
 
             <div className="relative inline-block w-full">
               <h1 className="editorial-heading text-6xl md:text-8xl lg:text-[13rem] leading-[0.8] tracking-tighter relative z-10">
-                SHAURYA<br />
-                TIWARI
+                <StaggeredBlurReveal stagger={0.06}>SHAURYA</StaggeredBlurReveal><br />
+                <StaggeredBlurReveal delay={0.6} stagger={0.06}>TIWARI</StaggeredBlurReveal>
               </h1>
               {/* The Wings - Re-aligned to new lowered content position */}
               <div className="absolute bottom-[-110%] md:bottom-[-20%] lg:bottom-[0%] -right-[5%] md:right-[10%] lg:-right-[-7%] w-[65%] md:w-[45%] lg:w-[40%] h-auto z-20 opacity-70 pointer-events-none contrast-125 scale-100 overflow-visible rotate-0">

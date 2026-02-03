@@ -157,7 +157,7 @@ export function CreativeHero() {
         this.density = Math.random() * 30 + 1
         this.isMoving = false
 
-        const colors = ["#000000ff"]
+        const colors = ["#000000"]
         this.color = colors[Math.floor(Math.random() * colors.length)]
       }
 
