@@ -28,11 +28,11 @@ interface Project {
     repoUrl: string;
 }
 
-interface ProjectCarouselProps {
+interface ProjectsProps {
     projects: Project[];
 }
 
-export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
+export const Projects = ({ projects }: ProjectsProps) => {
     // ✦ Loop Stability Fix:
     // Swiper's infinite loop requires a minimum number of slides to fill the screen and avoid glitches.
     // If the project count is low (e.g., 4), we internally duplicate them for a "Perfect Circle" effect.
@@ -41,14 +41,14 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
         : projects;
 
     const css = `
-  .ProjectCarouselSwiper {
+  .ProjectsSwiper {
     width: 100%;
     height: 480px;
     padding-bottom: 50px !important;
     padding-top: 20px;
   }
   
-  .ProjectCarouselSwiper .swiper-slide {
+  .ProjectsSwiper .swiper-slide {
     background-position: center;
     background-size: cover;
     width: 320px;
@@ -57,6 +57,7 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: #000;
+    box-shadow: 0 10px 50px -10px hsla(40, 30%, 80%, 0.2);
   }
 
   .swiper-pagination-bullet {
@@ -110,7 +111,7 @@ export const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                     prevEl: ".carousel-prev",
                 }}
                 modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
-                className="ProjectCarouselSwiper"
+                className="ProjectsSwiper"
             >
                 {displayProjects.map((project, index) => (
                     <SwiperSlide key={`${project.title}-${index}`}>

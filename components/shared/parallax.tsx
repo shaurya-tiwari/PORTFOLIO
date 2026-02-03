@@ -3,19 +3,19 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, ReactNode } from "react";
 
-interface ParallaxWrapperProps {
+interface ParallaxProps {
     children: ReactNode;
     speed?: number; // 0 is default, positive moves faster/up, negative moves slower/down
     className?: string;
     id?: string;
 }
 
-export const ParallaxWrapper = ({
+export const Parallax = ({
     children,
     speed = 0.5,
     className = "",
     id,
-}: ParallaxWrapperProps) => {
+}: ParallaxProps) => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,

@@ -7,25 +7,25 @@ import { ArrowRight, Github, Linkedin, Mail, Twitter, } from "lucide-react"
 import SmoothScroll from "@/components/shared/SmoothScroll";
 import { Button } from "@/components/ui/button"
 import { SkillBadge } from "@/components/ui/skill-badge"
-import { CreativeHero } from "@/sections/creative-hero"
-import { FloatingNav } from "@/sections/floating-nav"
-import { MouseFollower } from "@/components/shared/mouse-follower"
+import { Hero } from "@/sections/hero"
+import { Navbar } from "@/sections/navbar"
+import { Cursor } from "@/components/shared/cursor"
 import { ScrollProgress } from "@/components/shared/scroll-progress"
-import Wings from "@/sections/wing"; // adjust the path according to your project structure
+import Wings from "@/sections/wings"; // adjust the path according to your project structure
 import { SectionHeading } from "@/components/ui/section-heading"
 import Image from 'next/image';
-import { ProjectCarousel } from "@/sections/project-carousel"
-import { ParallaxWrapper } from "@/components/shared/parallax-wrapper"
-import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/shared/creative-reveal"
+import { Projects } from "@/sections/projects"
+import { Parallax } from "@/components/shared/parallax"
+import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/shared/reveal"
 import { Highlighter } from "@/components/ui/highlighter"
 
 import { useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
 
-const Timeline = dynamic(() => import("@/sections/timeline").then(mod => mod.Timeline), { ssr: true })
+const Experience = dynamic(() => import("@/sections/experience").then(mod => mod.Experience), { ssr: true })
 const ContactForm = dynamic(() => import("@/sections/contact-form").then(mod => mod.ContactForm), { ssr: true })
 
-const StickyStackSection = ({
+const PageSection = ({
   children,
   index,
   bgColor = "bg-background",
@@ -105,15 +105,15 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SmoothScroll />
-      <MouseFollower />
+      <Cursor />
       <ScrollProgress />
-      <FloatingNav />
+      <Navbar />
 
       <section className="relative min-h-[75vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 overflow-hidden">
-        {/* Background Texture / CreativeHero - Senior UI/UX: Full-width for seamless editorial look */}
-        <ParallaxWrapper speed={-0.2} className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-          <CreativeHero />
-        </ParallaxWrapper>
+        {/* Background Texture / Hero - Senior UI/UX: Full-width for seamless editorial look */}
+        <Parallax speed={-0.2} className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+          <Hero />
+        </Parallax>
 
 
         <div className="relative z-10 w-full max-w-7xl">
@@ -122,8 +122,8 @@ export default function Portfolio() {
 
             <div className="relative inline-block w-full">
               <h1 className="editorial-heading text-6xl md:text-8xl lg:text-[13rem] leading-[0.8] tracking-tighter relative z-10">
-                <StaggeredBlurReveal stagger={0.06}>SHAURYA</StaggeredBlurReveal><br />
-                <StaggeredBlurReveal delay={0.6} stagger={0.06}>TIWARI</StaggeredBlurReveal>
+                SHAURYA<br />
+                TIWARI
               </h1>
               {/* The Wings - Re-aligned to new lowered content position */}
               <div className="absolute bottom-[-110%] md:bottom-[-20%] lg:bottom-[0%] -right-[5%] md:right-[10%] lg:-right-[-7%] w-[65%] md:w-[45%] lg:w-[40%] h-auto z-20 opacity-70 pointer-events-none contrast-125 scale-100 overflow-visible rotate-0">
@@ -151,7 +151,7 @@ export default function Portfolio() {
       <section id="about" className="relative pt-24 pb-12 w-full px-4 lg:px-12 bg-background z-20">
         {/* Biography Content */}
         <div className="designer-grid relative z-10 items-start">
-          <ParallaxWrapper speed={0.15} className="col-span-12 lg:col-span-7">
+          <Parallax speed={0.15} className="col-span-12 lg:col-span-7">
             <SectionHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
@@ -171,7 +171,7 @@ export default function Portfolio() {
                 </div>
               </div>
             </div>
-          </ParallaxWrapper>
+          </Parallax>
 
           <div className="col-span-12 lg:col-span-5 h-full self-stretch mt-16 lg:mt-0">
             <motion.div
@@ -196,7 +196,7 @@ export default function Portfolio() {
       {/* Layer Overlay Container - Z-index 30 ensures it's above Bio when it arrives */}
       <div className="relative z-30">
         {/* Layer 01 - Stack: Pinned Base Layer */}
-        <StickyStackSection index={1} bgColor="bg-background" isSticky={true} align="start">
+        <PageSection index={1} bgColor="bg-background" isSticky={true} align="start">
           <div id="skills" className="px-4 lg:px-12 w-full">
             <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-black/10 mt-8">
@@ -212,34 +212,34 @@ export default function Portfolio() {
               <SkillBadge name="React" level={60} />
             </div>
           </div>
-        </StickyStackSection>
+        </PageSection>
 
         {/* Layer 02 - Projects: Covers the Stack Layer */}
-        <StickyStackSection index={2} bgColor="bg-black dark" showShadow={true} isSticky={false}>
+        <PageSection index={2} bgColor="bg-black dark" showShadow={true} isSticky={false}>
           <div id="projects" className="px-4 lg:px-12 w-full">
             <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
             <div className="mt-8">
-              <ProjectCarousel projects={PROJECTS} />
+              <Projects projects={PROJECTS} />
             </div>
           </div>
-        </StickyStackSection>
+        </PageSection>
 
         {/* Layer 03 - Experience: Covers the Projects Layer */}
-        <StickyStackSection index={3} bgColor="bg-background" showShadow={true} isSticky={false}>
+        <PageSection index={3} bgColor="bg-background" showShadow={true} isSticky={false}>
           <div id="experience" className="px-4 lg:px-12 w-full">
-            <ParallaxWrapper speed={-0.05}>
+            <Parallax speed={-0.05}>
               <SectionHeading title="EXPERIENCE" subtitle="05 — JOURNEY" />
               <div className="mt-12 w-full max-w-4xl">
-                <Timeline />
+                <Experience />
               </div>
-            </ParallaxWrapper>
+            </Parallax>
           </div>
-        </StickyStackSection>
+        </PageSection>
       </div>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 relative w-full px-4 lg:px-12">
-        <ParallaxWrapper speed={0.05}>
+        <Parallax speed={0.05}>
           <div className="designer-grid items-center">
             <div className="col-span-12 lg:col-span-6">
               <SectionHeading title="CONTACT" subtitle="06 — CONTACT" />
@@ -264,11 +264,11 @@ export default function Portfolio() {
               <ContactForm />
             </div>
           </div>
-        </ParallaxWrapper>
+        </Parallax>
       </section>
 
       {/* Footer */}
-      <ParallaxWrapper speed={-0.1}>
+      <Parallax speed={-0.1}>
         <footer className="py-12 px-4 lg:px-12 border-t border-black/10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
             <div className="mono-label !text-foreground text-2xl tracking-tighter">SHAURYA TIWARI</div>
@@ -280,7 +280,7 @@ export default function Portfolio() {
             <div className="mono-label">© {new Date().getFullYear()} — NOIDA, IN</div>
           </div>
         </footer>
-      </ParallaxWrapper>
+      </Parallax>
     </div>
   )
 }

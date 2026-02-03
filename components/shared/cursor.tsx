@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-export function MouseFollower() {
+export function Cursor() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -35,10 +35,12 @@ export function MouseFollower() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-primary/30 pointer-events-none z-[100] mix-blend-difference hidden md:flex items-center justify-center translate-x-[-50%] translate-y-[-50%]"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-primary/50 pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center"
         style={{
           x: smoothX,
           y: smoothY,
+          translateX: "-50%",
+          translateY: "-50%",
           opacity: isVisible ? 1 : 0,
           scale: isVisible ? 1 : 0.5,
         }}

@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import { useMobile } from "@/scripts/hooks/use-mobile";
 
-export function FloatingNav() {
+export function Navbar() {
   const [isVisible, setIsVisible] = useState(false);
   const isMobile = useMobile();
   const ticking = useRef(false);

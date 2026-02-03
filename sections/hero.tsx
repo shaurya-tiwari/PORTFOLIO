@@ -99,7 +99,7 @@ class Quadtree {
   }
 }
 
-export function CreativeHero() {
+export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const isVisible = useRef(false)
