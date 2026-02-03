@@ -18,8 +18,50 @@ import { ProjectCarousel } from "@/components/project-carousel"
 import { ParallaxWrapper } from "@/components/parallax-wrapper"
 import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/creative-reveal"
 
+import { useRef } from "react";
+import { useScroll, useTransform } from "framer-motion";
+
 const Timeline = dynamic(() => import("@/components/timeline").then(mod => mod.Timeline), { ssr: true })
 const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: true })
+
+const StickyStackSection = ({
+  children,
+  index,
+  bgColor = "bg-background",
+  showShadow = false,
+  isSticky = true
+}: {
+  children: React.ReactNode;
+  index: number;
+  bgColor?: string;
+  showShadow?: boolean;
+  isSticky?: boolean;
+}) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  // The "Covered" effect: Shrink and Dim as the NEXT section comes up
+  // Only applies if it's the section being covered
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+
+  return (
+    <motion.section
+      ref={ref}
+      style={{
+        scale: isSticky ? scale : 1,
+        opacity: isSticky ? opacity : 1,
+        zIndex: index * 10
+      }}
+      className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col justify-center overflow-visible border-t border-white/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,1)]" : ""}`}
+    >
+      {children}
+    </motion.section>
+  );
+};
 
 const PROJECTS = [
   {
@@ -109,10 +151,10 @@ export default function Portfolio() {
           </motion.div>
         </div>
       </section>
-      <section id="about" className="pt-12 pb-24 relative w-full px-4 lg:px-12 scroll-mt-20">
-
+      {/* Section 02: Biography (Normal Scroll, Z-index 20) */}
+      <section id="about" className="relative py-24 w-full px-4 lg:px-12 bg-background z-20 shadow-2xl">
+        {/* Biography Content */}
         <div className="designer-grid relative z-10 items-start">
-          {/* Bio Tile */}
           <ParallaxWrapper speed={0.15} className="col-span-12 lg:col-span-7">
             <SectionHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -139,7 +181,6 @@ export default function Portfolio() {
             </div>
           </ParallaxWrapper>
 
-          {/* Profile Tile */}
           <ParallaxWrapper speed={-0.1} className="col-span-12 lg:col-span-5 h-full self-stretch">
             <motion.div
               initial={{ opacity: 0, scale: 1.1 }}
@@ -157,11 +198,16 @@ export default function Portfolio() {
               />
             </motion.div>
           </ParallaxWrapper>
+        </div>
+      </section>
 
-          {/* Skills Grid - Integrated */}
-          <ParallaxWrapper speed={0.05} className="col-span-12 mt-24">
+      {/* Layer Overlay Container - Z-index 30 ensures it's above Bio when it arrives */}
+      <div className="relative z-30">
+        {/* Layer 01 - Stack: Pinned Base Layer */}
+        <StickyStackSection index={1} bgColor="bg-[#0a0a0a]" isSticky={true}>
+          <div className="px-4 lg:px-12 w-full">
             <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-white/5 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-white/10 mt-8">
               <SkillBadge name="Python" level={80} />
               <SkillBadge name="Pandas" level={60} />
               <SkillBadge name="Numpy" level={90} />
@@ -173,29 +219,33 @@ export default function Portfolio() {
               <SkillBadge name="Tailwind CSS" level={95} />
               <SkillBadge name="React" level={60} />
             </div>
-          </ParallaxWrapper>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-24 relative w-full px-4 lg:px-12 overflow-hidden bg-[#0a0a0a]">
-        <ParallaxWrapper speed={0.1}>
-          <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
-          <div className="mt-8">
-            <ProjectCarousel projects={PROJECTS} />
           </div>
-        </ParallaxWrapper>
-      </section>
+        </StickyStackSection>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-24 relative w-full px-4 lg:px-12">
-        <ParallaxWrapper speed={-0.05}>
-          <SectionHeading title="CHRONOLOGY" subtitle="05 — JOURNEY" />
-          <div className="mt-12 w-full max-w-4xl">
-            <Timeline />
+        {/* Layer 02 - Projects: Covers the Stack Layer */}
+        <StickyStackSection index={2} bgColor="bg-black" showShadow={true} isSticky={true}>
+          <div id="projects" className="px-4 lg:px-12 w-full">
+            <ParallaxWrapper speed={0.05}>
+              <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
+              <div className="mt-8">
+                <ProjectCarousel projects={PROJECTS} />
+              </div>
+            </ParallaxWrapper>
           </div>
-        </ParallaxWrapper>
-      </section>
+        </StickyStackSection>
+
+        {/* Layer 03 - Experience: Covers the Projects Layer */}
+        <StickyStackSection index={3} bgColor="bg-background" showShadow={true} isSticky={false}>
+          <div id="experience" className="px-4 lg:px-12 w-full">
+            <ParallaxWrapper speed={-0.05}>
+              <SectionHeading title="CHRONOLOGY" subtitle="05 — JOURNEY" />
+              <div className="mt-12 w-full max-w-4xl">
+                <Timeline />
+              </div>
+            </ParallaxWrapper>
+          </div>
+        </StickyStackSection>
+      </div>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 relative w-full px-4 lg:px-12">
