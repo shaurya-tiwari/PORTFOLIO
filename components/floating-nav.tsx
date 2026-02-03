@@ -19,8 +19,24 @@ export function FloatingNav() {
 
   const scrollToSection = useCallback((href: string) => {
     const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!element) return;
+
+    const topOffset = 80; // offset for the floating nav height
+
+    if (window.lenis) {
+      window.lenis.scrollTo(href, {
+        offset: -topOffset,
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   }, []);
 
@@ -41,26 +57,29 @@ export function FloatingNav() {
 
   return (
     <motion.div
-      className={`fixed top-2 right-2 z-50 transition-opacity duration-400 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 ${isVisible ? "pointer-events-auto" : "pointer-events-none"
         }`}
-      initial={{ y: -100 }}
-      animate={{ y: isVisible ? 0 : -100 }}
+      initial={{ y: -100, opacity: 0, x: "-50%" }}
+      animate={{
+        y: isVisible ? 0 : -100,
+        opacity: isVisible ? 1 : 0
+      }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <div
-        className={`rounded-xl bg-black/5 border border-black/5 backdrop-blur-md shadow-sm ${isMobile ? "px-2 py-1" : "px-4 py-2"
+        className={`rounded-full bg-black/5 border border-black/5 backdrop-blur-md shadow-sm ${isMobile ? "px-1 py-1" : "px-4 py-2"
           }`}
       >
         <div
-          className={`flex items-center justify-center gap-1 flex-wrap ${isMobile ? "" : "min-w-[320px]"
+          className={`flex items-center justify-center gap-0.5 whitespace-nowrap ${isMobile ? "" : "min-w-[320px] gap-1"
             }`}
         >
           {navItems.map((item) => (
             <button
               key={item.name}
               onClick={() => scrollToSection(item.href)}
-              className={`text-zinc-500 hover:text-black transition-colors duration-150 rounded ${isMobile
-                ? "text-xs px-2 py-[6px]"
+              className={`text-zinc-500 hover:text-black transition-colors duration-150 rounded-full ${isMobile
+                ? "text-[10px] px-1.5 py-1"
                 : "text-sm px-3 py-[6px]"
                 }`}
             >
@@ -72,9 +91,8 @@ export function FloatingNav() {
             href="/SHAURYA RESUME.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className={isMobile ? "hidden" : ""}
           >
-            <button className="bg-gray-200 hover:bg-gray-300 text-black rounded-full text-sm px-3 py-1 transition-all duration-200 ml-2">
+            <button className={`bg-gray-200 hover:bg-gray-300 text-black rounded-full transition-all duration-200 ml-1 ${isMobile ? "text-[10px] px-2 py-1" : "text-sm px-3 py-1"}`}>
               Resume
             </button>
           </a>

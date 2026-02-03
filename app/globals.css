@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 40 30% 90%;
+    --background: 40 30% 80%;
     /* Soft beige background */
     --foreground: 0 0% 10%;
     /* Almost black text */

@@ -206,7 +206,7 @@ export default function Portfolio() {
       <div className="relative z-30">
         {/* Layer 01 - Stack: Pinned Base Layer */}
         <StickyStackSection index={1} bgColor="bg-background" isSticky={true}>
-          <div className="px-4 lg:px-12 w-full">
+          <div id="skills" className="px-4 lg:px-12 w-full">
             <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-black/10 mt-8">
               <SkillBadge name="Python" level={80} />
