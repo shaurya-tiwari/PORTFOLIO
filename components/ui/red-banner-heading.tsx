@@ -28,7 +28,7 @@ export function RedBannerHeading({ title, subtitle, className }: RedBannerHeadin
                     whileInView={{ scaleX: 1, rotate: 2 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                     viewport={{ once: true }}
-                    className="relative bg-[#B06E5F] origin-left px-4 py-2 md:px-6 md:py-3 z-10"
+                    className="relative bg-[#d14553] origin-left px-4 py-2 md:px-6 md:py-3 z-10"
                 >
                     {/* Texture/Grain Overlay */}
                     <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none z-[11]">
