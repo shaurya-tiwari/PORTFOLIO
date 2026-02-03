@@ -215,14 +215,12 @@ export default function Portfolio() {
         </StickyStackSection>
 
         {/* Layer 02 - Projects: Covers the Stack Layer */}
-        <StickyStackSection index={2} bgColor="bg-black dark" showShadow={true} isSticky={true}>
+        <StickyStackSection index={2} bgColor="bg-black dark" showShadow={true} isSticky={false}>
           <div id="projects" className="px-4 lg:px-12 w-full">
-            <ParallaxWrapper speed={0.05}>
-              <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
-              <div className="mt-8">
-                <ProjectCarousel projects={PROJECTS} />
-              </div>
-            </ParallaxWrapper>
+            <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
+            <div className="mt-8">
+              <ProjectCarousel projects={PROJECTS} />
+            </div>
           </div>
         </StickyStackSection>
 
