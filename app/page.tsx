@@ -30,13 +30,15 @@ const StickyStackSection = ({
   index,
   bgColor = "bg-background",
   showShadow = false,
-  isSticky = true
+  isSticky = true,
+  align = "center"
 }: {
   children: React.ReactNode;
   index: number;
   bgColor?: string;
   showShadow?: boolean;
   isSticky?: boolean;
+  align?: "center" | "start";
 }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -57,7 +59,7 @@ const StickyStackSection = ({
         opacity: isSticky ? opacity : 1,
         zIndex: index * 10
       }}
-      className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col justify-center overflow-visible border-t border-black/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,0.1)]" : ""} group`}
+      className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col ${align === "center" ? "justify-center" : "justify-start pt-32"} overflow-visible border-t border-black/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,0.1)]" : ""} group`}
     >
       {children}
     </motion.section>
@@ -153,7 +155,7 @@ export default function Portfolio() {
         </div>
       </section>
       {/* Section 02: Biography (Normal Scroll, Z-index 20) */}
-      <section id="about" className="relative py-24 w-full px-4 lg:px-12 bg-background z-20">
+      <section id="about" className="relative pt-24 pb-12 w-full px-4 lg:px-12 bg-background z-20">
         {/* Biography Content */}
         <div className="designer-grid relative z-10 items-start">
           <ParallaxWrapper speed={0.15} className="col-span-12 lg:col-span-7">
@@ -205,7 +207,7 @@ export default function Portfolio() {
       {/* Layer Overlay Container - Z-index 30 ensures it's above Bio when it arrives */}
       <div className="relative z-30">
         {/* Layer 01 - Stack: Pinned Base Layer */}
-        <StickyStackSection index={1} bgColor="bg-background" isSticky={true}>
+        <StickyStackSection index={1} bgColor="bg-background" isSticky={true} align="start">
           <div id="skills" className="px-4 lg:px-12 w-full">
             <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-black/10 mt-8">
@@ -253,7 +255,7 @@ export default function Portfolio() {
         <ParallaxWrapper speed={0.05}>
           <div className="designer-grid items-center">
             <div className="col-span-12 lg:col-span-6">
-              <SectionHeading title="COLLABORATE" subtitle="06 — CONTACT" />
+              <SectionHeading title="CONTACT" subtitle="06 — CONTACT" />
               <div className="mt-8 space-y-12">
                 <p className="text-2xl text-muted-foreground italic max-w-md">
                   <WordReveal>
