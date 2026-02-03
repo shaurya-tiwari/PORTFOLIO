@@ -13,6 +13,8 @@ import { Cursor } from "@/components/shared/cursor"
 import { ScrollProgress } from "@/components/shared/scroll-progress"
 import Wings from "@/sections/wings"; // adjust the path according to your project structure
 import { SectionHeading } from "@/components/ui/section-heading"
+import { RedBannerHeading } from "@/components/ui/red-banner-heading"
+import { VerticalLabel } from "@/components/shared/vertical-label"
 import Image from 'next/image';
 import { Projects } from "@/sections/projects"
 import { Parallax } from "@/components/shared/parallax"
@@ -46,20 +48,17 @@ const PageSection = ({
     offset: ["start start", "end start"],
   });
 
-  // The "Covered" effect: Shrink and Dim as the NEXT section comes up
-  // Only applies if it's the section being covered
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  // The "Covered" effect: Dim as the NEXT section comes up (optional, currently keeping opacity 1)
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   return (
     <motion.section
       ref={ref}
       style={{
-        scale: isSticky ? scale : 1,
         opacity: isSticky ? opacity : 1,
         zIndex: index * 10
       }}
-      className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col ${align === "center" ? "justify-center" : "justify-start pt-32"} overflow-visible border-t border-black/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,0.1)]" : ""} group`}
+      className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col ${align === "center" ? "justify-center" : "justify-start pt-20 lg:pt-32"} overflow-visible border-t border-black/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,0.1)]" : ""} group`}
     >
       {children}
     </motion.section>
@@ -109,17 +108,15 @@ export default function Portfolio() {
       <ScrollProgress />
       <Navbar />
 
-      <section className="relative min-h-[75vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 pt-24 pb-12 overflow-hidden">
+      <section className="relative min-h-[75vh] flex items-center justify-start w-full px-4 sm:px-6 lg:px-12 pt-20 lg:pt-24 pb-12 overflow-hidden">
+        <VerticalLabel number="01" text="DIGITAL ARCHITECT" delay={1.2} />
         {/* Background Texture / Hero - Senior UI/UX: Full-width for seamless editorial look */}
         <Parallax speed={-0.2} className="absolute inset-0 z-0 opacity-40 pointer-events-none">
           <Hero />
         </Parallax>
 
-
         <div className="relative z-10 w-full max-w-7xl">
           <div className="space-y-12">
-            <div className="mono-label">01 — DIGITAL ARCHITECT</div>
-
             <div className="relative inline-block w-full">
               <h1 className="editorial-heading text-6xl md:text-8xl lg:text-[13rem] leading-[0.8] tracking-tighter relative z-10">
                 SHAURYA<br />
@@ -136,23 +133,18 @@ export default function Portfolio() {
                 <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl italic">
                   <Highlighter color="sky" delay={600}>AI & ML</Highlighter> student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
                 </p>
-                <div className="flex gap-8 pt-4">
-                  <div className="group flex items-center gap-2 cursor-pointer">
-                    <div className="mono-label group-hover:text-primary transition-colors">SCROLL TO DISCOVER</div>
-                    <ArrowRight className="h-4 w-4 text-primary animate-bounce-x" />
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       {/* Section 02: Biography (Normal Scroll, Z-index 20) */}
-      <section id="about" className="relative pt-24 pb-12 w-full px-4 lg:px-12 bg-background z-20">
-        {/* Biography Content */}
+      <section id="about" className="relative pt-16 lg:pt-24 pb-12 w-full px-4 lg:px-12 bg-background z-20">
+        <VerticalLabel number="02" text="CONTEXT" />
         <div className="designer-grid relative z-10 items-start">
           <Parallax speed={0.15} className="col-span-12 lg:col-span-7">
-            <SectionHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
+            <RedBannerHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
                 I'm an Artificial Intelligence and Machine Learning student with a strong interest in  <Highlighter color="neon" delay={600}>Mathematics</Highlighter> and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
@@ -195,10 +187,11 @@ export default function Portfolio() {
 
       {/* Layer Overlay Container - Z-index 30 ensures it's above Bio when it arrives */}
       <div className="relative z-30">
-        {/* Layer 01 - Stack: Pinned Base Layer */}
+        {/* Layer 01 - Stack Skills: Pinned Base Layer */}
         <PageSection index={1} bgColor="bg-background" isSticky={true} align="start">
-          <div id="skills" className="px-4 lg:px-12 w-full">
-            <SectionHeading title="STACK" subtitle="03 — EXPERTISE" />
+          <div id="skills" className="px-4 lg:px-12 w-full relative">
+            <VerticalLabel number="03" text="EXPERTISE" />
+            <RedBannerHeading title="STACK" subtitle="03 — EXPERTISE" />
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-black/10 mt-8">
               <SkillBadge name="Python" level={80} />
               <SkillBadge name="Pandas" level={60} />
@@ -215,9 +208,10 @@ export default function Portfolio() {
         </PageSection>
 
         {/* Layer 02 - Projects: Covers the Stack Layer */}
-        <PageSection index={2} bgColor="bg-black dark" showShadow={true} isSticky={false}>
-          <div id="projects" className="px-4 lg:px-12 w-full">
-            <SectionHeading title="PROJECTS" subtitle="04 — WORK" />
+        <PageSection index={2} bgColor="bg-[#2C2C2C]" showShadow={true} isSticky={false}>
+          <div id="projects" className="px-4 lg:px-12 w-full text-[#F5F5DC] relative">
+            <VerticalLabel number="04" text="WORK" />
+            <RedBannerHeading title="PROJECTS" subtitle="04 — WORK" />
             <div className="mt-8">
               <Projects projects={PROJECTS} />
             </div>
@@ -226,9 +220,10 @@ export default function Portfolio() {
 
         {/* Layer 03 - Experience: Covers the Projects Layer */}
         <PageSection index={3} bgColor="bg-background" showShadow={true} isSticky={false}>
-          <div id="experience" className="px-4 lg:px-12 w-full">
+          <div id="experience" className="px-4 lg:px-12 w-full relative pt-24 lg:pt-48">
+            <VerticalLabel number="05" text="JOURNEY" />
             <Parallax speed={-0.05}>
-              <SectionHeading title="EXPERIENCE" subtitle="05 — JOURNEY" />
+              <RedBannerHeading title="EXPERIENCE" subtitle="05 — JOURNEY" />
               <div className="mt-12 w-full max-w-4xl">
                 <Experience />
               </div>
@@ -238,11 +233,12 @@ export default function Portfolio() {
       </div>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 relative w-full px-4 lg:px-12">
+      <section id="contact" className="py-16 lg:py-24 relative w-full px-4 lg:px-12">
+        <VerticalLabel number="06" text="CONTACT" />
         <Parallax speed={0.05}>
           <div className="designer-grid items-center">
             <div className="col-span-12 lg:col-span-6">
-              <SectionHeading title="CONTACT" subtitle="06 — CONTACT" />
+              <RedBannerHeading title="CONTACT" subtitle="06 — CONTACT" />
               <div className="mt-8 space-y-12">
                 <p className="text-2xl text-muted-foreground italic max-w-md">
                   Looking for a dedicated AI & ML student for internships or technical collaboration?  <Highlighter color="sky" delay={600}>Let's connect</Highlighter>.
@@ -280,7 +276,7 @@ export default function Portfolio() {
             <div className="mono-label">© {new Date().getFullYear()} — NOIDA, IN</div>
           </div>
         </footer>
-      </Parallax>
-    </div>
+      </Parallax >
+    </div >
   )
 }
