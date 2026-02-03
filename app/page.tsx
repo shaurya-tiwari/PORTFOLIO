@@ -155,14 +155,10 @@ export default function Portfolio() {
             <SectionHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
-                <WordReveal>
-                  I'm an Artificial Intelligence and Machine Learning student with a strong interest in  <Highlighter color="neon" delay={1800}>Mathematics</Highlighter> and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
-                </WordReveal>
+                I'm an Artificial Intelligence and Machine Learning student with a strong interest in  <Highlighter color="neon" delay={1800}>Mathematics</Highlighter> and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
               </p>
               <p>
-                <WordReveal delay={0.2}>
-                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using  <Highlighter color="neon" delay={1800}>AI Prompt</Highlighter> and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
-                </WordReveal>
+                I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using  <Highlighter color="neon" delay={1800}>AI Prompt</Highlighter> and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
               </p>
               <div className="designer-grid mt-12 pt-12 border-t border-black/5">
                 <div className="col-span-12 md:col-span-6 space-y-2">
@@ -251,9 +247,7 @@ export default function Portfolio() {
               <SectionHeading title="CONTACT" subtitle="06 — CONTACT" />
               <div className="mt-8 space-y-12">
                 <p className="text-2xl text-muted-foreground italic max-w-md">
-                  <WordReveal>
-                    Looking for a dedicated AI & ML student for internships or technical collaboration?  <Highlighter color="sky" delay={1800}>Let's connect</Highlighter>.
-                  </WordReveal>
+                  Looking for a dedicated AI & ML student for internships or technical collaboration?  <Highlighter color="sky" delay={1800}>Let's connect</Highlighter>.
                 </p>
 
                 <div className="space-y-4">
