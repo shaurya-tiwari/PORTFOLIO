@@ -29,6 +29,11 @@
     --input: 40 20% 75%;
     --ring: 0 0% 0%;
     --radius: 0rem;
+
+    /* Highlighter Colors */
+    --highlighter-sky: rgba(135, 207, 235, 0.554);
+    --highlighter-peach: rgba(255, 160, 160, 0.599);
+    --highlighter-neon: rgba(246, 255, 0, 0.39);
   }
 }
 
@@ -65,6 +70,36 @@
 
   .glass-card {
     @apply bg-foreground/[0.02] backdrop-blur-md border border-foreground/[0.05] transition-all duration-500;
+  }
+
+  /* --- Organic Highlighter Effect --- */
+  .highlight-wrapper {
+    @apply relative inline-block z-[1] whitespace-nowrap;
+  }
+
+  .highlight-wrapper::after {
+    @apply content-[''] absolute bottom-[2px] left-[-4px] right-[-4px] h-full z-[-1] origin-left scale-x-0 opacity-0;
+    border-radius: 20% 5% 20% 5% / 5% 20% 5% 20%;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  }
+
+  .highlight-wrapper.sky::after {
+    background-color: var(--highlighter-sky);
+    clip-path: polygon(0% 12%, 100% 0%, 98% 85%, 2% 100%);
+  }
+
+  .highlight-wrapper.peach::after {
+    background-color: var(--highlighter-peach);
+    clip-path: polygon(2% 0%, 95% 4%, 100% 92%, 0% 95%);
+  }
+
+  .highlight-wrapper.neon::after {
+    background-color: var(--highlighter-neon);
+    clip-path: polygon(0% 5%, 98% 0%, 100% 90%, 5% 100%);
+  }
+
+  .highlight-wrapper.active::after {
+    @apply scale-x-100 opacity-100;
   }
 
   .designer-grid {

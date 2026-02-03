@@ -1,10 +1,10 @@
 "use client";
 
+import React, { useRef, ReactNode } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef, ReactNode } from "react";
 
 interface RevealProps {
-    children: string;
+    children: ReactNode;
     className?: string;
     delay?: number;
 }
@@ -39,7 +39,6 @@ export const BlurReveal = ({ children, className = "", delay = 0 }: RevealProps)
  * Ideal for body text and descriptions.
  */
 export const WordReveal = ({ children, className = "", delay = 0 }: RevealProps) => {
-    const words = children.split(" ");
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });
 
@@ -74,6 +73,20 @@ export const WordReveal = ({ children, className = "", delay = 0 }: RevealProps)
         },
     };
 
+    // Flatten children and process text nodes into words
+    const content = React.Children.toArray(children).flatMap((item, i) => {
+        if (typeof item === 'string') {
+            return item.split(" ").map((word, j) => ({
+                key: `word-${i}-${j}`,
+                content: word,
+            }));
+        }
+        return [{
+            key: `element-${i}`,
+            content: item,
+        }];
+    });
+
     return (
         <motion.span
             ref={ref}
@@ -82,13 +95,13 @@ export const WordReveal = ({ children, className = "", delay = 0 }: RevealProps)
             animate={isInView ? "visible" : "hidden"}
             className={`inline-block ${className}`}
         >
-            {words.map((word, index) => (
+            {content.map((item) => (
                 <motion.span
                     variants={child}
-                    key={index}
+                    key={item.key}
                     className="inline-block mr-[0.25em]"
                 >
-                    {word}
+                    {item.content}
                 </motion.span>
             ))}
         </motion.span>
@@ -105,7 +118,6 @@ export const StaggeredBlurReveal = ({
     delay = 0,
     stagger = 0.05
 }: RevealProps & { stagger?: number }) => {
-    const characters = children.split("");
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });
 
@@ -141,6 +153,22 @@ export const StaggeredBlurReveal = ({
         },
     };
 
+    // Robust handling of non-string children for staggered character reveal
+    const content = React.Children.toArray(children).flatMap((item, i) => {
+        if (typeof item === 'string') {
+            return item.split("").map((char, j) => ({
+                key: `char-${i}-${j}`,
+                content: char,
+                isChar: true
+            }));
+        }
+        return [{
+            key: `element-${i}`,
+            content: item,
+            isChar: false
+        }];
+    });
+
     return (
         <motion.span
             ref={ref}
@@ -149,14 +177,14 @@ export const StaggeredBlurReveal = ({
             animate={isInView ? "visible" : "hidden"}
             className={`inline-block ${className}`}
         >
-            {characters.map((char, index) => (
+            {content.map((item) => (
                 <motion.span
                     variants={child}
-                    key={index}
+                    key={item.key}
                     className="inline-block"
-                    style={{ whiteSpace: char === " " ? "pre" : "normal" }}
+                    style={{ whiteSpace: (item.isChar && item.content === " ") ? "pre" : "normal" }}
                 >
-                    {char}
+                    {item.content}
                 </motion.span>
             ))}
         </motion.span>

@@ -17,6 +17,7 @@ import Image from 'next/image';
 import { ProjectCarousel } from "@/components/project-carousel"
 import { ParallaxWrapper } from "@/components/parallax-wrapper"
 import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/creative-reveal"
+import { Highlighter } from "@/components/highlighter"
 
 import { useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
@@ -137,7 +138,7 @@ export default function Portfolio() {
               <div className="col-span-12 lg:col-span-6 space-y-6">
                 <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl italic">
                   <WordReveal delay={0.4}>
-                    AI & ML student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
+                    <Highlighter color="sky" delay={1800}>AI & ML</Highlighter> student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
                   </WordReveal>
                 </p>
                 <div className="flex gap-8 pt-4">
@@ -160,18 +161,18 @@ export default function Portfolio() {
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
                 <WordReveal>
-                  I'm an Artificial Intelligence and Machine Learning student with a strong interest in mathematics and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
+                  I'm an Artificial Intelligence and Machine Learning student with a strong interest in  <Highlighter color="neon" delay={1800}>Mathematics</Highlighter> and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
                 </WordReveal>
               </p>
               <p>
                 <WordReveal delay={0.2}>
-                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using AI prompts and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
+                  I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using  <Highlighter color="neon" delay={1800}>AI Prompt</Highlighter> and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
                 </WordReveal>
               </p>
               <div className="designer-grid mt-12 pt-12 border-t border-black/5">
                 <div className="col-span-12 md:col-span-6 space-y-2">
                   <div className="mono-label">AVAILABILITY</div>
-                  <div className="text-foreground text-xl">Open to Internship and full-time opportunities</div>
+                  <div className="text-foreground text-xl">Open to  <Highlighter color="peach" delay={1800}>Internship</Highlighter> and <Highlighter color="peach" delay={1800}>Part-time</Highlighter> opportunities</div>
                 </div>
                 <div className="col-span-12 md:col-span-6 space-y-2">
                   <div className="mono-label">LOCATION</div>
@@ -238,7 +239,7 @@ export default function Portfolio() {
         <StickyStackSection index={3} bgColor="bg-background" showShadow={true} isSticky={false}>
           <div id="experience" className="px-4 lg:px-12 w-full">
             <ParallaxWrapper speed={-0.05}>
-              <SectionHeading title="CHRONOLOGY" subtitle="05 — JOURNEY" />
+              <SectionHeading title="EXPERIENCE" subtitle="05 — JOURNEY" />
               <div className="mt-12 w-full max-w-4xl">
                 <Timeline />
               </div>
@@ -256,7 +257,7 @@ export default function Portfolio() {
               <div className="mt-8 space-y-12">
                 <p className="text-2xl text-muted-foreground italic max-w-md">
                   <WordReveal>
-                    Looking for a dedicated AI & ML student for internships or technical collaboration? Let's connect.
+                    Looking for a dedicated AI & ML student for internships or technical collaboration?  <Highlighter color="sky" delay={1800}>Let's connect</Highlighter>.
                   </WordReveal>
                 </p>
 
