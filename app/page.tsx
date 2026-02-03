@@ -181,7 +181,7 @@ export default function Portfolio() {
             </div>
           </ParallaxWrapper>
 
-          <ParallaxWrapper speed={-0.1} className="col-span-12 lg:col-span-5 h-full self-stretch">
+          <ParallaxWrapper speed={-0.1} className="col-span-12 lg:col-span-5 h-full self-stretch mt-16 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 1.1 }}
               whileInView={{ opacity: 1, scale: 1 }}
