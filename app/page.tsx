@@ -129,9 +129,9 @@ export default function Portfolio() {
             </div>
 
             <div className="designer-grid">
-              <div className="col-span-12 lg:col-span-6 space-y-6">
-                <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl italic">
-                  <Highlighter color="sky" delay={600}>AI & ML</Highlighter> student exploring machine learning, deep learning, and AI-driven solutions with a precise eye for digital experiences.
+              <div className="col-span-12 lg:col-span-12 space-y-6">
+                <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl lg:max-w-none italic">
+                  <span className="font-pastamore text-3xl md:text-5xl lg:text-7xl not-italic">Code like an engineer. Think like an artist</span>
                 </p>
               </div>
             </div>

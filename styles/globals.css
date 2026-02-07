@@ -37,6 +37,16 @@
   }
 }
 
+@font-face {
+  font-family: 'Pastamore';
+  src: url('/Pastamore.ttf') format('truetype');
+  font-display: swap;
+}
+
+.font-pastamore {
+  font-family: 'Pastamore', cursive;
+}
+
 @layer base {
   * {
     @apply border-border;
