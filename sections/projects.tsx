@@ -53,7 +53,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
     background-size: cover;
     width: 320px;
     height: 400px;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: #000;
@@ -72,7 +72,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
 
   .swiper-slide-shadow-left,
   .swiper-slide-shadow-right {
-    border-radius: 1.5rem;
+    border-radius: 2rem;
   }
 `;
 
