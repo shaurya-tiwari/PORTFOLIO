@@ -131,7 +131,7 @@ export default function Portfolio() {
             <div className="designer-grid">
               <div className="col-span-12 lg:col-span-12 space-y-6">
                 <p className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-snug max-w-xl lg:max-w-none italic">
-                  <span className="font-pastamore text-3xl md:text-5xl lg:text-7xl not-italic">Code like an engineer. Think like an artist</span>
+                  <span className="font-pastamore text-3xl md:text-5xl lg:text-7xl not-italic">Think like an artist, Code like an engineer</span>
                 </p>
               </div>
             </div>
