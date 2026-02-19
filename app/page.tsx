@@ -265,15 +265,16 @@ export default function Portfolio() {
 
       {/* Footer */}
       <Parallax speed={-0.1}>
-        <footer className="py-12 px-4 lg:px-12 border-t border-black/10">
+        <footer className="bg-black text-white py-12 px-4 lg:px-12 border-t border-white/10 rounded-l">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="mono-label !text-foreground text-2xl tracking-tighter">SHAURYA TIWARI</div>
-            <div className="flex gap-8">
-              <Link href="https://github.com/shaurya-tiwari" target="_blank" className="mono-label hover:text-primary">GITHUB</Link>
-              <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="mono-label hover:text-primary">LINKEDIN</Link>
-              <Link href="https://x.com/Shauryatiwari77" target="_blank" className="mono-label hover:text-primary">TWITTER</Link>
+            <div className="mono-label text-white text-2xl tracking-tighter">SHAURYA TIWARI</div>
+            <div className="flex gap-8 flex-wrap">
+              <Link href="https://github.com/shaurya-tiwari" target="_blank" className="mono-label text-white hover:text-white/70 transition-colors">GITHUB</Link>
+              <Link href="https://www.linkedin.com/in/shauryatiwari120/" target="_blank" className="mono-label text-white hover:text-white/70 transition-colors">LINKEDIN</Link>
+              <Link href="https://x.com/Shauryatiwari77" target="_blank" className="mono-label text-white hover:text-white/70 transition-colors">TWITTER</Link>
+              <Link href="https://www.instagram.com/thisisshaurya_?igsh=MWxmMXltNDFjMmVp&utm_source=qr" target="_blank" className="mono-label text-white hover:text-white/70 transition-colors">INSTAGRAM</Link>
             </div>
-            <div className="mono-label">© {new Date().getFullYear()} — NOIDA, IN</div>
+            <div className="mono-label text-white/60">© {new Date().getFullYear()} — NOIDA, IN</div>
           </div>
         </footer>
       </Parallax >
