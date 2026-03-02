@@ -87,8 +87,8 @@ const PROJECTS = [
     description: "A real-time 2D Online multiplayer game.",
     tags: ["React.js", "socket.io", "node.js"],
     image: "/project 1.png",
-    demoUrl: "https://stickman-onlinemultiplayer-race.vercel.app/",
-    repoUrl: "https://github.com/shaurya-tiwari/stickman-onlinemultiplayer-race",
+    demoUrl: "https://online-multiplayer-game-socket-io.onrender.com/",
+    repoUrl: "https://github.com/shaurya-tiwari/ONLINE-MULTIPLAYER-GAME-socket.io-",
   },
   {
     title: "YouTube Analytics",
