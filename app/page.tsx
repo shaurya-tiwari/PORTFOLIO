@@ -67,6 +67,14 @@ const PageSection = ({
 
 const PROJECTS = [
   {
+    title: "RideShield — AI-Powered Parametric Income Protection for Gig Delivery Workers",
+    description: "RideShield is an AI-powered parametric insurance platform that protects gig delivery workers’ income in real time. It monitors disruption signals (rain, extreme heat, AQI, traffic, platform outages), validates events via multi-signal confidence checks, runs fraud/anomaly detection (GPS spoofing), and auto-generates zero-touch claims with instant payouts.",
+    tags: ["Python", "FastAPI", "React.js", "PostgreSQL", "Machine Learning", "Fraud Detection", "Parametric Insurance", "Docker", "Razorpay", "Leaflet.js"],
+    image: "/ridesheild.png",
+    demoUrl: "https://ride-shield-hazel.vercel.app/",
+    repoUrl: "https://github.com/shaurya-tiwari/RideShield-AI-Powered-Parametric-Income-Protection",
+  },
+  {
     title: " KORA Apparel E‑commerce Online Clothing Store (Full‑Stack) startup , Not hosted yet ",
     description: "Kora Apparel is a startup-focused e‑commerce platform built to help an apparel brand launch and validate online sales quickly. It delivers a modern storefront experience where customers can browse collections, view product details, manage a cart, and complete checkout, with a codebase structured for fast iteration and scaling (new categories, inventory updates, promotions, and future add-ons like accounts and order tracking)",
     tags: ["Next.js", "Tailwind CSS", "REST API", "MongoDB ", "JWT", "ioredis", "docker", "CICD"],
