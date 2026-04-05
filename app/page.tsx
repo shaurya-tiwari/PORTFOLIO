@@ -67,6 +67,14 @@ const PageSection = ({
 
 const PROJECTS = [
   {
+    title: " KORA Apparel E‑commerce Online Clothing Store (Full‑Stack) startup , Not hosted yet ",
+    description: "Kora Apparel is a startup-focused e‑commerce platform built to help an apparel brand launch and validate online sales quickly. It delivers a modern storefront experience where customers can browse collections, view product details, manage a cart, and complete checkout, with a codebase structured for fast iteration and scaling (new categories, inventory updates, promotions, and future add-ons like accounts and order tracking)",
+    tags: ["Next.js", "Tailwind CSS", "REST API", "MongoDB ", "JWT", "ioredis", "docker", "CICD"],
+    image: "/koraimg.png",
+    demoUrl: "https://kora-apparel-frontend.onrender.com/",
+    repoUrl: "https://github.com/shaurya-tiwari/Kora-Apparel",
+  },
+  {
     title: "AI Resume Analyzer",
     description: "Job Description Based Resume Evaluation. Analyzes resumes against job descriptions to evaluate skill match and technical relevance.",
     tags: ["Python", "Spacy", "perplexity API", "streamlit", "PDFplumber"],
