@@ -1,25 +1,26 @@
 import Script from 'next/script';
 
-const GA_MEASUREMENT_ID = 'G-R70C28KYPH';
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!;
 
 export function GoogleAnalytics() {
+  if (!GA_ID) return null;
+
   return (
     <>
+      {/* ✅ beforeInteractive renders in <head> — required for Search Console GA verification */}
       <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="beforeInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
       />
       <Script
-        id="google-analytics"
-        strategy="afterInteractive"
+        id="google-analytics-init"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
           `,
         }}
       />
