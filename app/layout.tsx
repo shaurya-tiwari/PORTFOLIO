@@ -18,18 +18,61 @@ export const metadata: Metadata = {
     'Portfolio of Shaurya Tiwari — AI/ML student and frontend developer from Noida, India. Explore projects in Python, React.js, Machine Learning, FastAPI and more.',
 
   keywords: [
+    // 🔍 Name & identity
     'Shaurya Tiwari',
+    'shaurya tiwari',
     'Shaurya Tiwari portfolio',
+    'shaurya tiwari portfolio',
     'Shaurya Tiwari developer',
+    'Shaurya Tiwari AI',
+    'Shaurya Tiwari ML',
+    'Shaurya Tiwari Noida',
+    'Shaurya Tiwari India',
+    'shaurya tiwari india',
+    'Shaurya Tiwari AI engineer',
+    'shaurya tiwari ai engineer',
+    'Shaurya Tiwari GL Bajaj',
+    'shaurya tiwari gl bajaj',
+    'shauryatiwari120',
+    'shaurya tiwari github',
+    'shaurya tiwari linkedin',
+
+
+    // 🔍 Role & specialization
     'AI ML developer India',
-    'frontend developer Noida',
     'machine learning student portfolio',
+    'AI engineer portfolio',
+    'frontend developer Noida',
     'React developer India',
     'Python developer portfolio',
     'software engineer Noida India',
-    'AI engineer portfolio',
-    'shauryatiwari120',
-    'shaurya tiwari github',
+    'full stack developer student India',
+    'data science student portfolio',
+    'AI developer portfolio India',
+    'Next.js developer India',
+    'FastAPI developer portfolio',
+
+    // 🔍 Skills people search for
+    'Python React developer',
+    'machine learning projects portfolio',
+    'React Next.js portfolio',
+    'Pandas NumPy developer',
+    'parametric insurance AI project',
+    'AI resume analyzer project',
+    'socket.io multiplayer game',
+
+    // 🔍 Projects
+    'RideShield AI insurance',
+    'Kora Apparel ecommerce',
+    'AI resume analyzer Python',
+    'YouTube analytics React',
+
+    // 🔍 Recruiter / hiring intent
+    'hire AI ML developer India',
+    'hire React developer Noida',
+    'ML internship candidate India',
+    'software developer intern Noida',
+    'AI student developer portfolio 2025',
   ],
 
   authors: [
