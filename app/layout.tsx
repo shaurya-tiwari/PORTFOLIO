@@ -171,10 +171,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
+
+        {/* ✅ Google Analytics GA4 — must be in <head> for Search Console verification */}
+        <GoogleAnalytics />
       </head>
       <body>
-        {/* ✅ Google Analytics GA4 */}
-        <GoogleAnalytics />
 
         <LoadingProvider>
           <Preloader>
