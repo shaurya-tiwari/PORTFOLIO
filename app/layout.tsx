@@ -86,10 +86,9 @@ export const metadata: Metadata = {
   },
 
   // ✅ Google Search Console verification
-  // After getting your verification token from Search Console, uncomment and paste it below:
-  // verification: {
-  //   google: 'PASTE_YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN_HERE',
-  // },
+  verification: {
+    google: '_WsDpVy0BifMHZxGgf_p5cOv3jUtfdcD_B4mCh1jLMc',
+  },
 };
 
 // ✅ JSON-LD Structured Data — helps Google understand who you are
