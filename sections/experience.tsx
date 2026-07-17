@@ -1,8 +1,7 @@
 "use client"
 
-import { memo, useMemo } from "react"
+import { memo } from "react"
 import { motion } from "framer-motion"
-import { useMobile } from "@/scripts/hooks/use-mobile"
 import { Highlighter } from "@/components/ui/highlighter"
 
 const experiences = [
@@ -32,10 +31,9 @@ const experiences = [
   },
 ]
 // Memoized experience item to prevent unnecessary re-renders
-const ExperienceItem = memo(({ experience, index, isMobile }: {
+const ExperienceItem = memo(({ experience, index }: {
   experience: typeof experiences[0]
   index: number
-  isMobile: boolean
 }) => {
   return (
     <div className="relative z-10 py-12 group">
@@ -75,7 +73,6 @@ const ExperienceItem = memo(({ experience, index, isMobile }: {
 ExperienceItem.displayName = "ExperienceItem"
 
 export const Experience = memo(() => {
-  const isMobile = useMobile()
 
   return (
     <div className="relative w-full mt-12">
@@ -88,7 +85,6 @@ export const Experience = memo(() => {
             key={index}
             experience={experience}
             index={index}
-            isMobile={isMobile}
           />
         ))}
       </div>

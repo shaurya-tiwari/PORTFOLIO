@@ -12,7 +12,7 @@ declare global {
 export default function SmoothScroll() {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.2, // Faster but smooth
+            duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             touchMultiplier: 2,
             infinite: false,
@@ -20,14 +20,28 @@ export default function SmoothScroll() {
 
         window.lenis = lenis;
 
+        let rafId: number;
+
         function raf(time: number) {
             lenis.raf(time);
-            requestAnimationFrame(raf);
+            rafId = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
+        // ✅ Pause RAF when tab is hidden, resume when visible again
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                cancelAnimationFrame(rafId);
+            } else {
+                rafId = requestAnimationFrame(raf);
+            }
+        }
+
+        rafId = requestAnimationFrame(raf);
+        document.addEventListener("visibilitychange", handleVisibilityChange);
 
         return () => {
+            cancelAnimationFrame(rafId);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
             lenis.destroy();
             window.lenis = undefined;
         };

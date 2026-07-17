@@ -32,7 +32,7 @@ const Wings: React.FC = () => {
         }}
       >
         <Image
-          src="/wing.png"
+          src="/wing.webp"
           alt="Wings"
           fill
           className="object-contain"

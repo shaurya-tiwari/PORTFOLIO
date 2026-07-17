@@ -81,7 +81,7 @@
   }
 
   .banner-title {
-    font-family: 'Plus Jakarta Sans', 'Hanken Grotesk', 'Public Sans', system-ui, sans-serif;
+    font-family: var(--font-plus-jakarta), system-ui, sans-serif;
     font-weight: 600;
     font-style: normal;
     letter-spacing: -0.03em;

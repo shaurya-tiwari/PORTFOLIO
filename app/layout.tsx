@@ -3,6 +3,14 @@ import "@/styles/globals.css";
 import { Preloader } from '@/components/shared/preloader';
 import { LoadingProvider } from '@/scripts/hooks/loading-context';
 import { GoogleAnalytics } from '@/components/shared/google-analytics';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
+  variable: '--font-plus-jakarta',
+});
 
 const BASE_URL = 'https://www.shauryatiwari.me';
 
@@ -103,7 +111,7 @@ export const metadata: Metadata = {
     siteName: 'Shaurya Tiwari Portfolio',
     images: [
       {
-        url: '/thumbnail.png',
+        url: '/thumbnail.webp',
         width: 1200,
         height: 630,
         alt: 'Shaurya Tiwari Portfolio Preview',
@@ -120,7 +128,7 @@ export const metadata: Metadata = {
     description:
       'Portfolio of Shaurya Tiwari — AI/ML student and frontend developer from Noida, India.',
     creator: '@Shauryatiwari77',
-    images: ['/thumbnail.png'],
+    images: ['/thumbnail.webp'],
   },
 
   // ✅ Canonical URL — prevents duplicate content issues
@@ -145,7 +153,7 @@ const personSchema = {
   jobTitle: 'AI/ML Developer & Frontend Engineer',
   description:
     'AI and Machine Learning student with a passion for frontend development and building impactful, user-friendly projects.',
-  image: `${BASE_URL}/shauryaphoto.jpg`,
+  image: `${BASE_URL}/shauryaphoto.webp`,
   sameAs: [
     'https://github.com/shaurya-tiwari',
     'https://www.linkedin.com/in/shauryatiwari120/',
@@ -193,7 +201,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={plusJakarta.variable}>
       <head>
         {/* ✅ Favicons */}
         <link rel="icon" href="/favicon.ico" />

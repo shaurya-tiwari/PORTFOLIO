@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Mail, Twitter, } from "lucide-react"
 import SmoothScroll from "@/components/shared/SmoothScroll";
 import { Button } from "@/components/ui/button"
 import { SkillBadge } from "@/components/ui/skill-badge"
@@ -11,18 +10,13 @@ import { Hero } from "@/sections/hero"
 import { Navbar } from "@/sections/navbar"
 import { Cursor } from "@/components/shared/cursor"
 import { ScrollProgress } from "@/components/shared/scroll-progress"
-import Wings from "@/sections/wings"; // adjust the path according to your project structure
-import { SectionHeading } from "@/components/ui/section-heading"
+import Wings from "@/sections/wings";
 import { RedBannerHeading } from "@/components/ui/red-banner-heading"
 import { VerticalLabel } from "@/components/shared/vertical-label"
 import Image from 'next/image';
 import { Projects } from "@/sections/projects"
 import { Parallax } from "@/components/shared/parallax"
-import { BlurReveal, WordReveal, StaggeredBlurReveal } from "@/components/shared/reveal"
 import { Highlighter } from "@/components/ui/highlighter"
-
-import { useRef } from "react";
-import { useScroll, useTransform } from "framer-motion";
 
 const Experience = dynamic(() => import("@/sections/experience").then(mod => mod.Experience), { ssr: true })
 const ContactForm = dynamic(() => import("@/sections/contact-form").then(mod => mod.ContactForm), { ssr: true })
@@ -42,22 +36,9 @@ const PageSection = ({
   isSticky?: boolean;
   align?: "center" | "start";
 }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  // The "Covered" effect: Dim as the NEXT section comes up (optional, currently keeping opacity 1)
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
-
   return (
     <motion.section
-      ref={ref}
-      style={{
-        opacity: isSticky ? opacity : 1,
-        zIndex: index * 10
-      }}
+      style={{ zIndex: index * 10 }}
       className={`${isSticky ? "sticky top-0" : "relative"} min-h-screen w-full flex flex-col ${align === "center" ? "justify-center" : "justify-start pt-20 lg:pt-32"} overflow-visible border-t border-black/5 ${bgColor} ${showShadow ? "shadow-[0_-150px_200px_rgba(0,0,0,0.1)]" : ""} group`}
     >
       {children}
@@ -70,7 +51,7 @@ const PROJECTS = [
     title: "RideShield — AI-Powered Parametric Income Protection for Gig Delivery Workers",
     description: "RideShield is an AI-powered parametric insurance platform that protects gig delivery workers’ income in real time. It monitors disruption signals (rain, extreme heat, AQI, traffic, platform outages), validates events via multi-signal confidence checks, runs fraud/anomaly detection (GPS spoofing), and auto-generates zero-touch claims with instant payouts.",
     tags: ["Python", "FastAPI", "React.js", "PostgreSQL", "Machine Learning", "Fraud Detection", "Parametric Insurance", "Docker", "Razorpay", "Leaflet.js"],
-    image: "/ridesheild.png",
+    image: "/ridesheild.webp",
     demoUrl: "https://ride-shield-hazel.vercel.app/",
     repoUrl: "https://github.com/shaurya-tiwari/RideShield-AI-Powered-Parametric-Income-Protection",
   },
@@ -78,7 +59,7 @@ const PROJECTS = [
     title: " KORA Apparel E‑commerce Online Clothing Store (Full‑Stack) startup , Not hosted yet ",
     description: "Kora Apparel is a startup-focused e‑commerce platform built to help an apparel brand launch and validate online sales quickly. It delivers a modern storefront experience where customers can browse collections, view product details, manage a cart, and complete checkout, with a codebase structured for fast iteration and scaling (new categories, inventory updates, promotions, and future add-ons like accounts and order tracking)",
     tags: ["Next.js", "Tailwind CSS", "REST API", "MongoDB ", "JWT", "ioredis", "docker", "CICD"],
-    image: "/koraimg.png",
+    image: "/koraimg.webp",
     demoUrl: "https://kora-apparel-frontend.onrender.com/",
     repoUrl: "https://github.com/shaurya-tiwari/Kora-Apparel",
   },
@@ -86,7 +67,7 @@ const PROJECTS = [
     title: "AI Resume Analyzer",
     description: "Job Description Based Resume Evaluation. Analyzes resumes against job descriptions to evaluate skill match and technical relevance.",
     tags: ["Python", "Spacy", "perplexity API", "streamlit", "PDFplumber"],
-    image: "/pr1 (1).png",
+    image: "/pr1.webp",
     demoUrl: "https://github.com/shaurya-tiwari/genai-image-app",
     repoUrl: "https://github.com/shaurya-tiwari/genai-image-app",
   },
@@ -94,7 +75,7 @@ const PROJECTS = [
     title: "Gen AI Image App",
     description: "Offline Image Captioning lightweight app that generates AI descriptions.",
     tags: ["FastAPI", "Hugging Face", "Python"],
-    image: "/img1.png",
+    image: "/img1.webp",
     demoUrl: "https://github.com/shaurya-tiwari/resume_analyzer",
     repoUrl: "https://github.com/shaurya-tiwari/resume_analyzer",
   },
@@ -102,7 +83,7 @@ const PROJECTS = [
     title: "Stickman Race",
     description: "A real-time 2D Online multiplayer game.",
     tags: ["React.js", "socket.io", "node.js"],
-    image: "/project 1.png",
+    image: "/project1.webp",
     demoUrl: "https://online-multiplayer-game-socket-io.onrender.com/",
     repoUrl: "https://github.com/shaurya-tiwari/ONLINE-MULTIPLAYER-GAME-socket.io-",
   },
@@ -110,7 +91,7 @@ const PROJECTS = [
     title: "YouTube Analytics",
     description: "Fetches and displays YouTube videos based on user searches with deep data integration.",
     tags: ["react.js", "tailwind CSS", "YouTube API"],
-    image: "/tube.png",
+    image: "/tube.webp",
     demoUrl: "https://you-tube-api-rose.vercel.app/",
     repoUrl: "https://github.com/shaurya-tiwari/YouTube-API",
   },
@@ -190,7 +171,7 @@ export default function Portfolio() {
               className="relative aspect-[3/4] lg:h-full overflow-hidden grayscale transition-all duration-1000"
             >
               <Image
-                src="/shauryaphoto.jpg"
+                src="/shauryaphoto.webp"
                 alt="Shaurya Tiwari"
                 fill
                 className="object-cover object-top"
