@@ -18,69 +18,22 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: 'Shaurya Tiwari — AI/ML Developer & Frontend Engineer',
+    default: 'Shaurya Tiwari — AI & ML Engineer | Gen AI Engineer, Noida',
     template: '%s | Shaurya Tiwari',
   },
 
   description:
-    'Portfolio of Shaurya Tiwari — AI/ML student and frontend developer from Noida, India. Explore projects in Python, React.js, Machine Learning, FastAPI and more.',
+    'Portfolio of Shaurya Tiwari — AI & ML Engineer and Gen AI Engineer from Noida, India. Explore projects in Python, React.js, Machine Learning, FastAPI and more.',
 
   keywords: [
-    // 🔍 Name & identity
     'Shaurya Tiwari',
-    'shaurya tiwari',
     'Shaurya Tiwari portfolio',
-    'shaurya tiwari portfolio',
-    'Shaurya Tiwari developer',
-    'Shaurya Tiwari AI',
-    'Shaurya Tiwari ML',
-    'Shaurya Tiwari Noida',
-    'Shaurya Tiwari India',
-    'shaurya tiwari india',
     'Shaurya Tiwari AI engineer',
-    'shaurya tiwari ai engineer',
     'Shaurya Tiwari GL Bajaj',
-    'shaurya tiwari gl bajaj',
-    'shauryatiwari120',
-    'shaurya tiwari github',
-    'shaurya tiwari linkedin',
-
-
-    // 🔍 Role & specialization
-    'AI ML developer India',
-    'machine learning student portfolio',
-    'AI engineer portfolio',
-    'frontend developer Noida',
-    'React developer India',
-    'Python developer portfolio',
-    'software engineer Noida India',
-    'full stack developer student India',
-    'data science student portfolio',
-    'AI developer portfolio India',
-    'Next.js developer India',
-    'FastAPI developer portfolio',
-
-    // 🔍 Skills people search for
-    'Python React developer',
-    'machine learning projects portfolio',
-    'React Next.js portfolio',
-    'Pandas NumPy developer',
-    'parametric insurance AI project',
-    'AI resume analyzer project',
-    'socket.io multiplayer game',
-
-    // 🔍 Projects
-    'RideShield AI insurance',
-    'Kora Apparel ecommerce',
-    'AI resume analyzer Python',
-    'YouTube analytics React',
-
-    // 🔍 Recruiter / hiring intent
-    'hire AI ML developer India',
-    'hire React developer Noida',
-    'ML internship candidate India',
-    'software developer intern Noida',
-    'AI student developer portfolio 2025',
+    'Shaurya Tiwari Noida',
+    'Shaurya AI engineer',
+    'Shaurya Noida',
+    'Shaurya AIML engineer',
   ],
 
   authors: [
@@ -104,9 +57,9 @@ export const metadata: Metadata = {
 
   // ✅ Open Graph — how it looks when shared on LinkedIn / WhatsApp / FB
   openGraph: {
-    title: 'Shaurya Tiwari — AI/ML Developer & Frontend Engineer',
+    title: 'Shaurya Tiwari — AI & ML Engineer | Gen AI Engineer, Noida',
     description:
-      'Portfolio of Shaurya Tiwari — AI/ML student and frontend developer from Noida, India. Projects in Python, React, Machine Learning and more.',
+      'Portfolio of Shaurya Tiwari — AI & ML Engineer and Gen AI Engineer from Noida, India. Projects in Python, React, Machine Learning and more.',
     url: BASE_URL,
     siteName: 'Shaurya Tiwari Portfolio',
     images: [
@@ -124,9 +77,9 @@ export const metadata: Metadata = {
   // ✅ Twitter / X Card — how it looks when shared on X/Twitter
   twitter: {
     card: 'summary_large_image',
-    title: 'Shaurya Tiwari — AI/ML Developer & Frontend Engineer',
+    title: 'Shaurya Tiwari — AI & ML Engineer | Gen AI Engineer, Noida',
     description:
-      'Portfolio of Shaurya Tiwari — AI/ML student and frontend developer from Noida, India.',
+      'Portfolio of Shaurya Tiwari — AI & ML Engineer and Gen AI Engineer from Noida, India.',
     creator: '@Shauryatiwari77',
     images: ['/thumbnail.webp'],
   },
@@ -150,9 +103,9 @@ const personSchema = {
   name: 'Shaurya Tiwari',
   url: BASE_URL,
   email: 'shauryatiwari120@gmail.com',
-  jobTitle: 'AI/ML Developer & Frontend Engineer',
+  jobTitle: 'AI & ML Engineer | Gen AI Engineer',
   description:
-    'AI and Machine Learning student with a passion for frontend development and building impactful, user-friendly projects.',
+    'AI & ML Engineer and Gen AI Engineer from Noida, India, with a passion for building impactful, user-friendly projects using Python, React, and cutting-edge AI.',
   image: `${BASE_URL}/shauryaphoto.webp`,
   sameAs: [
     'https://github.com/shaurya-tiwari',
