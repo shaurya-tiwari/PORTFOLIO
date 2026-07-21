@@ -1,8 +1,8 @@
 {
   "app/layout.tsx": {
-    "mtime": 1784624894.8456957,
-    "ast_hash": "de7215ab09af416cefd64f990bf997a6",
-    "semantic_hash": "de7215ab09af416cefd64f990bf997a6"
+    "mtime": 1784627597.7089405,
+    "ast_hash": "007bbdf1bc8cff7e85f48b8c9501f24d",
+    "semantic_hash": ""
   },
   "app/page.tsx": {
     "mtime": 1784275077.0316513,
@@ -85,9 +85,9 @@
     "semantic_hash": "4c1d5820492b83133ca68582321f9493"
   },
   "next.config.mjs": {
-    "mtime": 1784275001.2216117,
-    "ast_hash": "65e82c5a2f30b6af010f6f0e362f2cab",
-    "semantic_hash": "65e82c5a2f30b6af010f6f0e362f2cab"
+    "mtime": 1784627617.5408094,
+    "ast_hash": "93b457f5cd34ea9ae491a901cea95c7d",
+    "semantic_hash": ""
   },
   "package.json": {
     "mtime": 1784275128.4400897,
@@ -153,5 +153,90 @@
     "mtime": 1780673986.2323403,
     "ast_hash": "4cc2cac899fc2a7d141bca0f8797b9de",
     "semantic_hash": "4cc2cac899fc2a7d141bca0f8797b9de"
+  },
+  "components/shared/preloader-wrapper.tsx": {
+    "mtime": 1784627501.8315938,
+    "ast_hash": "92d1f93d3a37c315893e4b8440dae412",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1780673986.2114313,
+    "ast_hash": "68b329da9893e34099c7d8ad5cb9c940",
+    "semantic_hash": ""
+  },
+  "public/SHAURYA RESUME.pdf": {
+    "mtime": 1784100792.17938,
+    "ast_hash": "8dc844a78e0aad527a4b12815c934337",
+    "semantic_hash": ""
+  },
+  "public/android-chrome-192x192.png": {
+    "mtime": 1780673986.2159853,
+    "ast_hash": "50df4b9bc2bf3e0200a9b320f282f5a4",
+    "semantic_hash": ""
+  },
+  "public/android-chrome-512x512.png": {
+    "mtime": 1780673986.2162461,
+    "ast_hash": "6277381c3a5800ed6f2bf214312e8f16",
+    "semantic_hash": ""
+  },
+  "public/apple-touch-icon.png": {
+    "mtime": 1780673986.2163806,
+    "ast_hash": "6eea31ac3a333e069bb9e17b221d69f1",
+    "semantic_hash": ""
+  },
+  "public/favicon-16x16.png": {
+    "mtime": 1780673986.216446,
+    "ast_hash": "fa250a720afa9ac8e1e3b8d50eccb8c5",
+    "semantic_hash": ""
+  },
+  "public/favicon-32x32.png": {
+    "mtime": 1780673986.2165074,
+    "ast_hash": "9e43fbd7aefb494dc9256b3d37711093",
+    "semantic_hash": ""
+  },
+  "public/img1.webp": {
+    "mtime": 1784274744.523501,
+    "ast_hash": "cb990a921a57f47b3ae03e7b392687e6",
+    "semantic_hash": ""
+  },
+  "public/koraimg.webp": {
+    "mtime": 1784274684.135821,
+    "ast_hash": "8c14732407c022d35931a2dcd413484a",
+    "semantic_hash": ""
+  },
+  "public/pr1.webp": {
+    "mtime": 1784274744.5142996,
+    "ast_hash": "bfec8f735510a26a8f821e0a8d06cc03",
+    "semantic_hash": ""
+  },
+  "public/project1.webp": {
+    "mtime": 1784274683.9633455,
+    "ast_hash": "b0e1872cf9c5e1d41132670613747bb5",
+    "semantic_hash": ""
+  },
+  "public/ridesheild.webp": {
+    "mtime": 1784274684.21735,
+    "ast_hash": "ce95f5df1a3ecc69cf2a41520b6a9a93",
+    "semantic_hash": ""
+  },
+  "public/shauryaphoto.webp": {
+    "mtime": 1784274684.6092343,
+    "ast_hash": "07c428631a6ee1f7ac63b376daa0da4e",
+    "semantic_hash": ""
+  },
+  "public/thumbnail.webp": {
+    "mtime": 1784274684.569655,
+    "ast_hash": "f2d93faa62e087a491515d34d52037f0",
+    "semantic_hash": ""
+  },
+  "public/tube.webp": {
+    "mtime": 1784274684.0520616,
+    "ast_hash": "d5c24bc431bc1e78dbff682c9e4fa4e2",
+    "semantic_hash": ""
+  },
+  "public/wing.webp": {
+    "mtime": 1784274684.508262,
+    "ast_hash": "e870cc40c94d93ec2a8dcc60c37a7ca9",
+    "semantic_hash": ""
   }
 }

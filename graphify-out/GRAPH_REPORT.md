@@ -1,15 +1,16 @@
-# Graph Report - .  (2026-07-21)
+# Graph Report - PORTFOLIO  (2026-07-21)
 
 ## Corpus Check
-- cluster-only mode — file stats not available
+- 33 files · ~49,882 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 181 nodes · 210 edges · 16 communities (13 shown, 3 thin omitted)
+- 184 nodes · 210 edges · 17 communities (14 shown, 3 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f7cab708`
+- Built from commit: `d48b4b60`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,6 +28,7 @@
 - Community 10
 - Community 13
 - Community 14
+- layout.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
@@ -53,7 +55,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (16 total, 3 thin omitted)
+## Communities (17 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.09
@@ -76,8 +78,8 @@ Cohesion: 0.11
 Nodes (17): aliases, components, hooks, lib, ui, utils, iconLibrary, rsc (+9 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.20
-Nodes (10): metadata, personSchema, plusJakarta, websiteSchema, Preloader(), LoadingContext, LoadingContextType, LoadingProvider() (+2 more)
+Cohesion: 0.33
+Nodes (5): Preloader(), LoadingContext, LoadingContextType, useLoading(), Wings()
 
 ### Community 6 - "Community 6"
 Cohesion: 0.23
@@ -95,8 +97,12 @@ Nodes (8): .next/dev/types/**/*.ts, next-env.d.ts, .next/types/**/*.ts, node_mod
 Cohesion: 0.33
 Nodes (5): Highlighter(), HighlighterProps, Experience, ExperienceItem, experiences
 
+### Community 16 - "layout.tsx"
+Cohesion: 0.25
+Nodes (6): metadata, personSchema, plusJakarta, websiteSchema, Preloader, PreloaderWrapper()
+
 ## Knowledge Gaps
-- **89 isolated node(s):** `plusJakarta`, `metadata`, `personSchema`, `websiteSchema`, `Experience` (+84 more)
+- **90 isolated node(s):** `plusJakarta`, `metadata`, `personSchema`, `websiteSchema`, `Preloader` (+85 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -104,13 +110,13 @@ Nodes (5): Highlighter(), HighlighterProps, Experience, ExperienceItem, experien
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `dependencies` connect `Community 1` to `Community 7`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `Community 2` to `Community 7`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **Why does `compilerOptions` connect `Community 3` to `Community 8`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **What connects `plusJakarta`, `metadata`, `personSchema` to the rest of the system?**
-  _89 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _90 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.0896551724137931 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
