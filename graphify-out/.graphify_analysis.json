@@ -1,0 +1,370 @@
+{
+  "communities": {
+    "0": [
+      "app_page",
+      "app_page_contactform",
+      "app_page_experience",
+      "app_page_pagesection",
+      "app_page_portfolio",
+      "app_page_projects",
+      "components_shared_cursor",
+      "components_shared_cursor_cursor",
+      "components_shared_parallax",
+      "components_shared_parallax_parallax",
+      "components_shared_parallax_parallaxprops",
+      "components_shared_scroll_progress",
+      "components_shared_scroll_progress_scrollprogress",
+      "components_shared_smoothscroll",
+      "components_shared_smoothscroll_smoothscroll",
+      "components_shared_smoothscroll_window",
+      "components_shared_vertical_label",
+      "components_shared_vertical_label_verticallabel",
+      "components_shared_vertical_label_verticallabelprops",
+      "components_ui_skill_badge",
+      "components_ui_skill_badge_skillbadge",
+      "components_ui_skill_badge_skillbadgeprops",
+      "scripts_hooks_use_mobile",
+      "scripts_hooks_use_mobile_usemobile",
+      "sections_navbar",
+      "sections_navbar_navbar",
+      "sections_projects",
+      "sections_projects_project",
+      "sections_projects_projects",
+      "sections_projects_projectsprops"
+    ],
+    "1": [
+      "class_variance_authority",
+      "clsx",
+      "framer_motion",
+      "lucide_react",
+      "next",
+      "package_dependencies",
+      "package_dependencies_class_variance_authority",
+      "package_dependencies_clsx",
+      "package_dependencies_framer_motion",
+      "package_dependencies_lucide_react",
+      "package_dependencies_next",
+      "package_dependencies_radix_ui_react_slot",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_studio_freight_lenis",
+      "package_dependencies_swiper",
+      "package_dependencies_tailwind_merge",
+      "radix_ui_react_slot",
+      "react",
+      "react_dom",
+      "studio_freight_lenis",
+      "swiper",
+      "tailwind_merge"
+    ],
+    "2": [
+      "autoprefixer",
+      "eslint",
+      "eslint_config_next",
+      "package_devdependencies",
+      "package_devdependencies_autoprefixer",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_postcss",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "postcss",
+      "tailwindcss",
+      "types_node",
+      "types_react",
+      "types_react_dom",
+      "typescript"
+    ],
+    "3": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target"
+    ],
+    "4": [
+      "components",
+      "components_aliases",
+      "components_aliases_components",
+      "components_aliases_hooks",
+      "components_aliases_lib",
+      "components_aliases_ui",
+      "components_aliases_utils",
+      "components_iconlibrary",
+      "components_rsc",
+      "components_schema",
+      "components_style",
+      "components_tailwind",
+      "components_tailwind_basecolor",
+      "components_tailwind_config",
+      "components_tailwind_css",
+      "components_tailwind_cssvariables",
+      "components_tailwind_prefix",
+      "components_tsx"
+    ],
+    "5": [
+      "app_layout",
+      "app_layout_metadata",
+      "app_layout_personschema",
+      "app_layout_plusjakarta",
+      "app_layout_rootlayout",
+      "app_layout_websiteschema",
+      "components_shared_preloader",
+      "components_shared_preloader_preloader",
+      "scripts_hooks_loading_context",
+      "scripts_hooks_loading_context_loadingcontext",
+      "scripts_hooks_loading_context_loadingcontexttype",
+      "scripts_hooks_loading_context_loadingprovider",
+      "scripts_hooks_loading_context_useloading",
+      "sections_wings",
+      "sections_wings_wings"
+    ],
+    "6": [
+      "components_ui_button",
+      "components_ui_button_button",
+      "components_ui_button_buttonprops",
+      "components_ui_button_buttonvariants",
+      "components_ui_input",
+      "components_ui_input_input",
+      "components_ui_red_banner_heading",
+      "components_ui_red_banner_heading_redbannerheading",
+      "components_ui_red_banner_heading_redbannerheadingprops",
+      "components_ui_textarea",
+      "components_ui_textarea_textarea",
+      "scripts_lib_utils",
+      "scripts_lib_utils_cn",
+      "sections_contact_form",
+      "sections_contact_form_contactform"
+    ],
+    "7": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_version"
+    ],
+    "8": [
+      "ref_next_dev_types_ts",
+      "ref_next_env_d_ts",
+      "ref_next_types_ts",
+      "ref_node_modules",
+      "ref_ts",
+      "ref_tsx",
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "9": [
+      "sections_hero",
+      "sections_hero_hero",
+      "sections_hero_quadtree",
+      "sections_hero_quadtree_constructor",
+      "sections_hero_quadtree_insert",
+      "sections_hero_quadtree_intersects",
+      "sections_hero_quadtree_queryrange",
+      "sections_hero_quadtree_subdivide"
+    ],
+    "10": [
+      "components_ui_highlighter",
+      "components_ui_highlighter_highlighter",
+      "components_ui_highlighter_highlighterprops",
+      "sections_experience",
+      "sections_experience_experience",
+      "sections_experience_experienceitem",
+      "sections_experience_experiences"
+    ],
+    "11": [
+      "app_robots",
+      "app_robots_robots"
+    ],
+    "12": [
+      "app_sitemap",
+      "app_sitemap_sitemap"
+    ],
+    "13": [
+      "next_config",
+      "next_config_nextconfig"
+    ],
+    "14": [
+      "postcss_config",
+      "postcss_config_config"
+    ],
+    "15": [
+      "tailwind_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.0896551724137931,
+    "1": 0.08695652173913043,
+    "2": 0.10526315789473684,
+    "3": 0.10526315789473684,
+    "4": 0.1111111111111111,
+    "5": 0.2,
+    "6": 0.22857142857142856,
+    "7": 0.2222222222222222,
+    "8": 0.2222222222222222,
+    "9": 0.39285714285714285,
+    "10": 0.3333333333333333,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "components_tailwind",
+      "label": "tailwind",
+      "degree": 6
+    },
+    {
+      "id": "components_aliases",
+      "label": "aliases",
+      "degree": 6
+    },
+    {
+      "id": "scripts_lib_utils_cn",
+      "label": "cn()",
+      "degree": 6
+    },
+    {
+      "id": "sections_hero_quadtree",
+      "label": "Quadtree",
+      "degree": 6
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
+      "degree": 6
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "scripts_hooks_loading_context_useloading",
+      "label": "useLoading()",
+      "degree": 5
+    },
+    {
+      "id": "sections_hero_hero",
+      "label": "Hero()",
+      "degree": 4
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Preloader()",
+      "target": "useLoading()",
+      "source_files": [
+        "components/shared/preloader.tsx",
+        "scripts/hooks/loading-context.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "RedBannerHeading()",
+      "target": "cn()",
+      "source_files": [
+        "components/ui/red-banner-heading.tsx",
+        "scripts/lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "Wings()",
+      "target": "useLoading()",
+      "source_files": [
+        "sections/wings.tsx",
+        "scripts/hooks/loading-context.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "Navbar()",
+      "target": "useMobile()",
+      "source_files": [
+        "sections/navbar.tsx",
+        "scripts/hooks/use-mobile.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `Community 1` to `Community 7`?",
+      "why": "High betweenness centrality (0.052) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `Community 2` to `Community 7`?",
+      "why": "High betweenness centrality (0.045) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `compilerOptions` connect `Community 3` to `Community 8`?",
+      "why": "High betweenness centrality (0.019) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `plusJakarta`, `metadata`, `personSchema` to the rest of the system?",
+      "why": "89 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.0896551724137931 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

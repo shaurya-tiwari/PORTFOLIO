@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import "@/styles/globals.css";
-import { Preloader } from '@/components/shared/preloader';
+import { PreloaderWrapper } from '@/components/shared/preloader-wrapper';
 import { LoadingProvider } from '@/scripts/hooks/loading-context';
-import { GoogleAnalytics } from '@/components/shared/google-analytics';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -175,16 +174,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-
-        {/* ✅ Google Analytics GA4 — must be in <head> for Search Console verification */}
-        <GoogleAnalytics />
       </head>
       <body>
 
         <LoadingProvider>
-          <Preloader>
+          <PreloaderWrapper>
             {children}
-          </Preloader>
+          </PreloaderWrapper>
         </LoadingProvider>
       </body>
     </html>
