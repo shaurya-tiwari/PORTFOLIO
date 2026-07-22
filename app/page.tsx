@@ -144,10 +144,7 @@ export default function Portfolio() {
             <RedBannerHeading title="BIOGRAPHY" subtitle="02 — CONTEXT" />
             <div className="mt-8 space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
-                I'm an Artificial Intelligence and Machine Learning student with a strong interest in  <Highlighter color="neon" delay={600}>Mathematics</Highlighter> and frontend development. I enjoy combining my analytical skills with creative design to build user-friendly and impactful projects.
-              </p>
-              <p>
-                I use Python, Pandas, and NumPy for learning AI concepts and data analysis. I've created projects using  <Highlighter color="neon" delay={600}>AI Prompt</Highlighter> and am skilled at prompting AI to generate ideas, code, and solutions efficiently.
+                <Highlighter color="neon" delay={600}>AI/ML Engineer × Full-Stack Software Engineer</Highlighter>. I operate across the entire technology stack, balancing heavy data computation with pixel-perfect frontend design. I specialize in building complex AI systems—from model training, LLM fine-tuning, and Deep Learning to deploying intelligent RAG architectures using modern MLOps. I pair this AI expertise with robust full-stack engineering, using Next.js, Node.js, and DevOps workflows to build scalable, zero-downtime applications. For me, engineering is as much an art as it is a science. When I'm not writing code or deploying containers, my creativity flows onto the canvas as a <Highlighter color="neon" delay={600}>Greek mythological sketch artist</Highlighter>. I believe that true innovation happens at the intersection of structured logic and unbounded creativity.
               </p>
               <div className="designer-grid mt-12 pt-12 border-t border-black/5">
                 <div className="col-span-12 md:col-span-6 space-y-2">
@@ -190,16 +187,13 @@ export default function Portfolio() {
             <VerticalLabel number="03" text="EXPERTISE" />
             <RedBannerHeading title="STACK" subtitle="03 — EXPERTISE" />
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border-t border-black/10 mt-8">
-              <SkillBadge name="Python" level={80} />
-              <SkillBadge name="Pandas" level={60} />
-              <SkillBadge name="Numpy" level={90} />
-              <SkillBadge name="Matplotlib" level={60} />
-              <SkillBadge name="Seaborn" level={60} />
-              <SkillBadge name="Plotly" level={70} />
-              <SkillBadge name="Machine Learning" level={50} />
-              <SkillBadge name="SQL" level={60} />
-              <SkillBadge name="Tailwind CSS" level={95} />
-              <SkillBadge name="React" level={60} />
+              <SkillBadge name="Java / Python" level={90} />
+              <SkillBadge name="Backend" level={90} />
+              <SkillBadge name="Frontend" level={80} />
+              <SkillBadge name="Problem Solving / DSA" level={75} />
+              <SkillBadge name="Generative AI" level={70} />
+              <SkillBadge name="Machine Learning" level={70} />
+              <SkillBadge name="RAG / MCP / LangChain / LangGraph" level={55} />
             </div>
           </div>
         </PageSection>
@@ -238,7 +232,7 @@ export default function Portfolio() {
               <RedBannerHeading title="CONTACT" subtitle="06 — CONTACT" />
               <div className="mt-8 space-y-12">
                 <p className="text-2xl text-muted-foreground italic max-w-md">
-                  Looking for a dedicated AI & ML student for internships or technical collaboration?  <Highlighter color="sky" delay={600}>Let's connect</Highlighter>.
+                  Looking for a Software Engineer × AI/ML Engineer for internships or technical collaboration?  <Highlighter color="sky" delay={600}>Let's connect</Highlighter>.
                 </p>
 
                 <div className="space-y-4">

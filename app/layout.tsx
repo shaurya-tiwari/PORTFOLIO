@@ -17,22 +17,24 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: 'Shaurya Tiwari — AI & ML Engineer | Gen AI Engineer, Noida',
+    default: 'Shaurya Tiwari — Software Engineer × AI/ML Engineer | Full-Stack & Gen AI, Noida',
     template: '%s | Shaurya Tiwari',
   },
 
   description:
-    'Portfolio of Shaurya Tiwari — AI & ML Engineer and Gen AI Engineer from Noida, India. Explore projects in Python, React.js, Machine Learning, FastAPI and more.',
+    'Portfolio of Shaurya Tiwari — Software Engineer, AI/ML Engineer, and Full-Stack Developer from Noida, India. Building RAG systems, deep learning models, and production-grade applications with React, Next.js, Python, and DevOps.',
 
   keywords: [
     'Shaurya Tiwari',
     'Shaurya Tiwari portfolio',
-    'Shaurya Tiwari AI engineer',
+    'Shaurya Tiwari software engineer',
+    'Shaurya Tiwari AI ML engineer',
+    'Shaurya Tiwari full stack developer',
     'Shaurya Tiwari GL Bajaj',
     'Shaurya Tiwari Noida',
-    'Shaurya AI engineer',
-    'Shaurya Noida',
-    'Shaurya AIML engineer',
+    'Shaurya RAG deep learning engineer',
+    'Shaurya Tiwari Gen AI',
+    'Shaurya Tiwari DevOps',
   ],
 
   authors: [
@@ -56,9 +58,9 @@ export const metadata: Metadata = {
 
   // ✅ Open Graph — how it looks when shared on LinkedIn / WhatsApp / FB
   openGraph: {
-    title: 'Shaurya Tiwari — AI & ML Engineer | Gen AI Engineer, Noida',
+    title: 'Shaurya Tiwari — Software Engineer × AI/ML Engineer | Full-Stack & Gen AI, Noida',
     description:
-      'Portfolio of Shaurya Tiwari — AI & ML Engineer and Gen AI Engineer from Noida, India. Projects in Python, React, Machine Learning and more.',
+      'Portfolio of Shaurya Tiwari — Software Engineer, AI/ML Engineer, and Full-Stack Developer from Noida, India. Building RAG systems, deep learning models, and production apps.',
     url: BASE_URL,
     siteName: 'Shaurya Tiwari Portfolio',
     images: [
@@ -76,9 +78,9 @@ export const metadata: Metadata = {
   // ✅ Twitter / X Card — how it looks when shared on X/Twitter
   twitter: {
     card: 'summary_large_image',
-    title: 'Shaurya Tiwari — AI & ML Engineer | Gen AI Engineer, Noida',
+    title: 'Shaurya Tiwari — Software Engineer × AI/ML Engineer | Full-Stack & Gen AI, Noida',
     description:
-      'Portfolio of Shaurya Tiwari — AI & ML Engineer and Gen AI Engineer from Noida, India.',
+      'Portfolio of Shaurya Tiwari — Software Engineer, AI/ML Engineer, and Full-Stack Developer from Noida, India.',
     creator: '@Shauryatiwari77',
     images: ['/thumbnail.webp'],
   },
@@ -102,9 +104,9 @@ const personSchema = {
   name: 'Shaurya Tiwari',
   url: BASE_URL,
   email: 'shauryatiwari120@gmail.com',
-  jobTitle: 'AI & ML Engineer | Gen AI Engineer',
+  jobTitle: 'Software Engineer | AI/ML Engineer | Full-Stack Developer',
   description:
-    'AI & ML Engineer and Gen AI Engineer from Noida, India, with a passion for building impactful, user-friendly projects using Python, React, and cutting-edge AI.',
+    'Software Engineer and AI/ML Engineer from Noida, India. Builds RAG pipelines, deep learning models, and full-stack applications. Also a Greek mythology sketch artist.',
   image: `${BASE_URL}/shauryaphoto.webp`,
   sameAs: [
     'https://github.com/shaurya-tiwari',
@@ -123,15 +125,23 @@ const personSchema = {
     name: 'Artificial Intelligence and Machine Learning',
   },
   knowsAbout: [
+    'Software Engineering',
     'Machine Learning',
     'Artificial Intelligence',
+    'Deep Learning',
+    'RAG Pipelines',
+    'LLMs',
+    'Generative AI',
+    'Computer Vision',
     'Python',
     'React.js',
     'Next.js',
-    'Frontend Development',
-    'Data Analysis',
+    'Node.js',
+    'Full-Stack Development',
+    'DevOps',
+    'Docker',
     'FastAPI',
-    'PostgreSQL',
+    'LangChain',
   ],
 };
 
@@ -140,7 +150,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Shaurya Tiwari Portfolio',
   url: BASE_URL,
-  description: 'Portfolio website of Shaurya Tiwari — AI/ML developer and frontend engineer.',
+  description: 'Portfolio website of Shaurya Tiwari — Software Engineer, AI/ML Engineer, and Full-Stack Developer.',
   author: {
     '@type': 'Person',
     name: 'Shaurya Tiwari',

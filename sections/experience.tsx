@@ -6,26 +6,36 @@ import { Highlighter } from "@/components/ui/highlighter"
 
 const experiences = [
   {
-    title: "Technology job simulation",
+    title: "Freelance Full-Stack Developer",
+    company: "hayateyecare.in",
+    period: "May 2026 — Present",
+    description: (
+      <>
+        Designed and built a responsive <Highlighter color="neon" delay={300}>hospital website</Highlighter> end-to-end using Next.js, implementing on-page SEO and Cloudinary-based image delivery. Maintain and deploy updates via a GitHub Actions CI/CD pipeline ensuring zero-downtime releases.
+      </>
+    )
+  },
+  {
+    title: "Technology Job Simulation",
     company: "Deloitte.",
     period: "June 2025",
     description:
       "Completed the Deloitte Software Engineering Virtual Experience."
   },
   {
-    title: "Full-stack developer",
+    title: "Full-Stack Developer",
     company: "",
     period: "2024",
     description:
-      "Developed responsive web applications using React ,Next, TailwindCSS, Socket.io, SQL, Python.",
+      "Developed responsive web applications using React, Next.js, TailwindCSS, Socket.io, SQL, Python.",
   },
   {
     title: "GitHub Mentor (Academic)",
     company: "Academic Experience",
-    period: "2024 - 2025",
+    period: "2024 — 2025",
     description: (
       <>
-        Taught and Led batch-wide academic projects by mentoring <Highlighter color="neon" delay={300}>40+ peers</Highlighter> in GitHub collaboration, version control, and while managing <Highlighter color="neon" delay={300}>3+ group projects</Highlighter> as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork.
+        Taught and led batch-wide academic projects by mentoring <Highlighter color="neon" delay={300}>40+ peers</Highlighter> in GitHub collaboration, version control, and while managing <Highlighter color="neon" delay={300}>3+ group projects</Highlighter> as Team Lead to ensure smooth coordination, Agile sprint deliveries, and effective teamwork.
       </>
     )
   },
